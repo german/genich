@@ -18,13 +18,10 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
   }
 
   $scope.citynameFilter = function(hotels) {
-        if ($scope.city_nameIncludes.length > 0) {
-            if ($.inArray(hotels.city_name, $scope.city_nameIncludes) < 0)
-                return;
-              console.log($scope.city_nameIncludes[1])
-        }
-        return hotels;
-
+    if ($scope.city_nameIncludes.length > 0) {
+      if ($.inArray(hotels.city_name, $scope.city_nameIncludes) < 0)
+        return;
     }
-  
+    return hotels;
+  }
 })
