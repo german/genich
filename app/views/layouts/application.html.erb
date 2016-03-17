@@ -3,45 +3,55 @@
 <head>
   <title>Genich</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="PansListCrtl">
 	<header>
-	<video id="myVideo"  autoplay loop width="100%">
-		<source src="http://storage.akamai.coub.com/get/b3/p/coub/simple/cw_file/7d133102e84/6c46557a0a6b2cab82c9d/mp4_big_size_1411253129_big.mp4" type="video/mp4">
-	</video>
+	<div class="videocontainer">
+		<video id="myVideo"  autoplay loop>
+		sea_background
+			<!-- <source src="http://storage.akamai.coub.com/get/b3/p/coub/simple/cw_file/7d133102e84/6c46557a0a6b2cab82c9d/mp4_big_size_1411253129_big.mp4" type="video/mp4"> -->
+			<source src="assets/sea_background.mp4" type="video/mp4">
+		</video>
+	</div>
+	<h1>Отдых на Арабатской стрелке 2016</h1>
 		<nav>
 			<div class="container-fluid">
 				<div class="row">
-					<div class="brand pull-left">BRAND</div>
+					<div class="brand pull-left"><a href="#">BRAND</a></div>
 					<div class="navigation pull-right">
 						<ul>
-						<li class="addpans">Добавить пансионат</li>
-						<li>Помощь</li>
-						<li>Регистрация</li>
-						<li>Войти</li>
+						<li class="addpans"><a href="#">Добавить пансионат</a></li>
+						<li><a href="#">Помощь</a></li>
+						<li><a href="#">Регистрация</a></li>
+						<li><a href="#">Войти</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</nav>
 	</header>
-	<h1>Отдых на Арабатской стрелке</h1>
+	
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3 col-md-offset-1">
 				<div class="pansfilter">
-					<h3>Фильтры:</h3>
+					<h3>Найдите идеальное место:</h3>
 					<input type="text" placeholder="Поиск" ng-model="query"></br>
-					<input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ</br>
-					<input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка</br>
-					<input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</br>
-					<input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</br>
+					<div class="choosecity">
+						<h3>Город/поселок</h3>
+						<label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ</label></br>
+						<label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка</label></br>
+						<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</label></br>
+						<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</label></br>	
+					</div>
 				</div>
 			</div>
-			<div class="col-md-7">
-				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter">
+			<div class="col-md-6 col-md-offset-1">
+				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
 					<p><span><h2>{{hotel.name}}</h2></span>
 					<p><span><h4>{{hotel.city_name}}</h4></span>
 				</div>
