@@ -37,7 +37,7 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-1">
+			<div class="col-md-4 col-md-offset-1">
 				<div class="pansfilter">
 					<h3>Найдите идеальное место:</h3>
 					<input type="text" placeholder="Поиск" ng-model="query"></br>
@@ -48,10 +48,15 @@
 						<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</label></br>
 						<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</label></br>	
 					</div>
+					<div class="comfort">
+						<h3>Удобства</h3>
+						<label class="tv" ng-click="includesHas_tv(true)"><img src="assets/icon/technology.png"> <span>Телевизор</span> </label>
+						<label class="parking" ng-click="includesHas_parking(true)"><img src="assets/icon/technology.png"> <span>Парковка</span> </label>
+					</div>
 				</div>
 			</div>
-			<div class="col-md-6 col-md-offset-1">
-				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+			<div class="col-md-6">
+				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter " ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
 					<p><span><h2>{{hotel.name}}</h2></span>
 					<p><span><h4>{{hotel.city_name}}</h4></span>
 				</div>

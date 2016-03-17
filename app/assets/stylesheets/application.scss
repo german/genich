@@ -114,6 +114,24 @@ li {
 	padding: 30px;
 }
 
+.comfort span {
+	vertical-align: sub;
+	padding-left:10px;
+}
+
+.tv, .parking {
+	float: left;
+	background: white;
+	padding: 10px;
+  width: 200px;
+  text-align: center;
+  border: 1px solid #dce0e0;
+  margin: 5px;
+}
+
+.tv_active, .parking_active {
+  background: #edefed;
+}
 
 .animate-enter, 
 .animate-leave

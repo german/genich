@@ -6,10 +6,11 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     $scope.hotels = data;
   })
 
-  // filters
+  // filters Sity
   $scope.city_nameIncludes = [];
   $scope.includesCity_name = function(city_name){
     var i = $.inArray(city_name, $scope.city_nameIncludes);
+    console.log(i);
     if (i > -1) {
       $scope.city_nameIncludes.splice(i, 1);
     } else {
@@ -21,6 +22,50 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     if ($scope.city_nameIncludes.length > 0) {
       if ($.inArray(hotels.city_name, $scope.city_nameIncludes) < 0)
         return;
+    }
+    return hotels;
+  }
+
+  //filters has_tv
+  $scope.has_tvIncludes = [];
+  $scope.includesHas_tv = function(has_tv){
+    var i = $.inArray(has_tv, $scope.has_tvIncludes);
+    if (i > -1) {
+      $scope.has_tvIncludes.splice(i, 1);
+    } else {
+      $scope.has_tvIncludes.push(has_tv);
+    }
+  }
+
+  $scope.hastvFilter = function(hotels) {
+    if ($scope.has_tvIncludes.length > 0) {
+      if ($.inArray(hotels.has_tv, $scope.has_tvIncludes) < 0)
+        return;
+        $('.tv').addClass('tv_active');
+    } else {
+      $('.tv').removeClass('tv_active');
+    }
+    return hotels;
+  }
+
+  //filters has_parking
+  $scope.has_parkingIncludes = [];
+  $scope.includesHas_parking = function(has_parking){
+    var i = $.inArray(has_parking, $scope.has_parkingIncludes);
+    if (i > -1) {
+      $scope.has_parkingIncludes.splice(i, 1);
+    } else {
+      $scope.has_parkingIncludes.push(has_parking);
+    }
+  }
+
+  $scope.hasparkingFilter = function(hotels) {
+    if ($scope.has_parkingIncludes.length > 0) {
+      if ($.inArray(hotels.has_parking, $scope.has_parkingIncludes) < 0)
+        return;
+        $('.parking').addClass('parking_active');
+    } else {
+      $('.parking').removeClass('parking_active');
     }
     return hotels;
   }
