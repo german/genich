@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="pansionatApp">
 <head>
   <title>Genich</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body ng-controller="PansListCrtl">
+	<header>
+		<nav>
+			Link1
+		</nav>
+	</header>
+	<h1>Отдых на Арабатской стрелке</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="pansfilter">
+					<h3>Фильтры:</h3>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panslist" ng-repeat="hotel in hotels">
+					<p><span><h2>{{hotel.name}}</h2></span>
+					<p><span><h4>{{hotel.city_name}}</h4></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>

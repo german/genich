@@ -16,3 +16,13 @@
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+h1 {
+	text-align: center;
+}
+
+.panslist {
+	border: 1px solid black;
+	padding: 10px;
+	margin-bottom: 10px;
+}
