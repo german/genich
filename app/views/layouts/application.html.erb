@@ -13,19 +13,20 @@
 		</nav>
 	</header>
 	<h1>Отдых на Арабатской стрелке</h1>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3">
 				<div class="pansfilter">
 					<h3>Фильтры:</h3>
-					<input type="text" placeholder="Поиск" ng-model="query">
-					<li ng-repeat="hotel in hotels">
-						<input type="checkbox" ng-model="option.IsIncluded" ng-checked="option.IsIncluded">{{hotel.city_name}}
-					</li>
+					<input type="text" placeholder="Поиск" ng-model="query"></br>
+					<input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ</br>
+					<input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка</br>
+					<input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</br>
+					<input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</br>
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="panslist" ng-repeat="hotel in hotels | filter:query:dynamicFilter:Filters:this">
+				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter">
 					<p><span><h2>{{hotel.name}}</h2></span>
 					<p><span><h4>{{hotel.city_name}}</h4></span>
 				</div>
