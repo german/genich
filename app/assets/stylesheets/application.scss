@@ -17,6 +17,14 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+header {
+	height: 610px;
+}
+
+nav {
+	color: white;
+}
+
 h1 {
 	text-align: center;
 }
@@ -29,4 +37,25 @@ h1 {
 
 li {
 	list-style-type: none;
+}
+
+#myVideo {
+	position: absolute;
+	z-index:-1;
+}
+
+.addpans {
+	border: 2px solid white;
+	padding: 10px !important;
+	margin-top: 18px;
+	border-radius: 4px;
+}
+
+.brand {
+	padding: 30px;
+}
+
+.navigation li {
+	float: left;
+	padding: 30px;
 }

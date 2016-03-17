@@ -8,14 +8,29 @@
 </head>
 <body ng-controller="PansListCrtl">
 	<header>
+	<video id="myVideo"  autoplay loop width="100%">
+		<source src="http://storage.akamai.coub.com/get/b3/p/coub/simple/cw_file/7d133102e84/6c46557a0a6b2cab82c9d/mp4_big_size_1411253129_big.mp4" type="video/mp4">
+	</video>
 		<nav>
-			Link1
+			<div class="container-fluid">
+				<div class="row">
+					<div class="brand pull-left">BRAND</div>
+					<div class="navigation pull-right">
+						<ul>
+						<li class="addpans">Добавить пансионат</li>
+						<li>Помощь</li>
+						<li>Регистрация</li>
+						<li>Войти</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</nav>
 	</header>
 	<h1>Отдых на Арабатской стрелке</h1>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-3 col-md-offset-1">
 				<div class="pansfilter">
 					<h3>Фильтры:</h3>
 					<input type="text" placeholder="Поиск" ng-model="query"></br>
@@ -25,7 +40,7 @@
 					<input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</br>
 				</div>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-7">
 				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter">
 					<p><span><h2>{{hotel.name}}</h2></span>
 					<p><span><h4>{{hotel.city_name}}</h4></span>
