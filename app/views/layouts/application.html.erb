@@ -3,8 +3,7 @@
 <head>
   <title>Genich</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -69,8 +68,17 @@
 			</div>
 			<div class="col-md-6">
 				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter " ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
-					<p><span><h2>{{hotel.name}}</h2></span>
-					<p><span><h4>{{hotel.city_name}}</h4></span>
+				  <div class="row">
+				    <div class="col-md-6">
+					    <p><span><h2>{{hotel.name}}</h2></span></p>
+					    <p><span><h4>{{hotel.city_name}}</h4></span></p>
+					  </div>
+					  <div class="col-md-6 text-right">
+					    <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
+							<button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_parking">Парковка</button>
+							<button type="button" class="btn btn-success btn-xs" ng-if="hotel.has_private_kitchen">Кухня</button>
+							<button type="button" class="btn btn-info btn-xs" ng-if="hotel.has_conditioning">Кондиционер</button>
+						</div>
 				</div>
 			</div>
 		</div>
