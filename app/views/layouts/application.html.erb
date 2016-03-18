@@ -48,10 +48,22 @@
 						<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</label></br>
 						<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</label></br>	
 					</div>
+					<div class="price">
+						<h3>Стоимость</h3>
+						<input type="range" min="0" max="100" ng-model="qty" />
+						<div class="row">
+							<div class="col-md-6 pull-left">
+								0
+							</div>
+							<div class="col-md-6 pull-right">
+								{{qty}}
+							</div>
+						</div>
+					</div>
 					<div class="comfort">
 						<h3>Удобства</h3>
 						<label class="tv" ng-click="includesHas_tv(true)"><img src="assets/icon/technology.png"> <span>Телевизор</span> </label>
-						<label class="parking" ng-click="includesHas_parking(true)"><img src="assets/icon/technology.png"> <span>Парковка</span> </label>
+						<label class="parking" ng-click="includesHas_parking(true)"><img src="assets/icon/parking.png"> <span>Парковка</span> </label>
 					</div>
 				</div>
 			</div>

@@ -16,3 +16,5 @@
 //= require angular/angular
 //= require_tree .
 //= require bootstrap
+//= require myEffects
+

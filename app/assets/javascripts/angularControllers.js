@@ -6,6 +6,8 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     $scope.hotels = data;
   })
 
+  $scope.qty = 100;
+
   // filters Sity
   $scope.city_nameIncludes = [];
   $scope.includesCity_name = function(city_name){
