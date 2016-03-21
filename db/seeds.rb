@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Hotel.delete_all
-Hotel.create({name: "Кобзарь", city_name: 'Геническ', dist_from_the_sea: 200, has_tv: true, has_parking: true})
+Hotel.create({name: "Кобзарь", city_name: 'Геническ', dist_from_the_sea: 200, has_tv: true, has_parking: true, price_max: 200})
 
 Hotel.create({name: "Источник здоровья", city_name: 'Генгорка', dist_from_the_sea: 500, has_tv: true, has_parking: false})
 
 Hotel.create({name: "Элит", city_name: 'Счастливцево', dist_from_the_sea: 50, has_tv: true, has_parking: true, 
-	has_conditioning: true, has_private_kitchen: true})
+	has_conditioning: true, has_private_kitchen: true, price_max: 300})
 
-Hotel.create({name: "Комфорт Плюс", city_name: 'Счастливцево', dist_from_the_sea: 70, has_tv: true, has_parking: false})
+Hotel.create({name: "Комфорт Плюс", city_name: 'Счастливцево', dist_from_the_sea: 70, has_tv: true, has_parking: false, price_max: 10})
 
 Hotel.create({name: "Диканька", city_name: 'Стрелковое', dist_from_the_sea: 20, has_tv: false, has_parking: true,
 	has_conditioning: true, has_private_kitchen: true})
