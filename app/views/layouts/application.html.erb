@@ -66,11 +66,12 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="panslist myfade" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter" >
+					<div class="panslist myfade" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter |">
 					  <div class="row">
 					    <div class="col-md-12">
 						    <p><span><h2>{{hotel.name}}</h2></span></p>
 						    <p><span><h4>{{hotel.city_name}}</h4></span></p>
+						    <li>{{hotel.price_max}}</li>  
 						    <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
 								<button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_parking">Парковка</button>
 								<button type="button" class="btn btn-success btn-xs" ng-if="hotel.has_private_kitchen">Кухня</button>
