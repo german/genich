@@ -133,26 +133,25 @@ li {
   background: #edefed;
 }
 
-.animate-enter, 
-.animate-leave
-{ 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: relative;
-    display: block;
-} 
- 
-.animate-enter.animate-enter-active, 
-.animate-leave {
-    opacity: 1;
-   
+
+
+.myfade {
+  transition: 1s linear all;
+  -webkit-transition: 1s linear all;
 }
- 
-.animate-leave.animate-leave-active,
-.animate-enter {
-    opacity: 0;
-   
+
+.myfade.ng-enter {
+  opacity: 0;
+}
+
+.myfade.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.myfade.ng-leave {
+  opacity: 1;
+}
+
+.myfade.ng-leave.ng-leave-active {
+  opacity: 0;
 }

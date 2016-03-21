@@ -12,7 +12,6 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
   $scope.city_nameIncludes = [];
   $scope.includesCity_name = function(city_name){
     var i = $.inArray(city_name, $scope.city_nameIncludes);
-    console.log(i);
     if (i > -1) {
       $scope.city_nameIncludes.splice(i, 1);
     } else {
@@ -71,4 +70,5 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     }
     return hotels;
   }
-})
+
+ })

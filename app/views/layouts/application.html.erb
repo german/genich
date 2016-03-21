@@ -4,7 +4,6 @@
   <title>Genich</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
-
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="PansListCrtl">
@@ -51,11 +50,11 @@
 						<h3>Стоимость</h3>
 						<input type="range" min="0" max="100" ng-model="qty" />
 						<div class="row">
-							<div class="col-md-6 pull-left">
-								0
+							<div class="col-md-6">
+								<p class="pull-left">0</p>
 							</div>
-							<div class="col-md-6 pull-right">
-								{{qty}}
+							<div class="col-md-6">
+								<p class="pull-right">{{qty}}</p>
 							</div>
 						</div>
 					</div>
@@ -67,7 +66,7 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="panslist" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter " ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+				<div class="panslist myfade" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter" >
 				  <div class="row">
 				    <div class="col-md-6">
 					    <p><span><h2>{{hotel.name}}</h2></span></p>
