@@ -1,4 +1,4 @@
-var pansionatApp = angular.module('pansionatApp', []);
+var pansionatApp = angular.module('pansionatApp', ['ngAnimate']);
 
 pansionatApp.controller('PansListCrtl', function($scope, $http) {
   $scope.hotels = [];
