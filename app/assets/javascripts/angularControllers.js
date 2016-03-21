@@ -71,7 +71,13 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     return hotels;
   }
 
-  
+  //твой код - из-за него не работает приложение
+  $scope.hotels_within_price_max = [];
+    for(var i = 0; i < $scope.hotels.length; i++){
+      if(QTY > hotels[i].price_max) {
+        $scope.hotels_within_price_max.push(hotels[i]);
+      }
+    }
 
   
  })
