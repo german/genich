@@ -65,7 +65,7 @@ h1 {
 	border: 1px solid black;
 	border-radius: 4px;
 	padding: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 }
 
 li {
@@ -119,6 +119,10 @@ li {
 	padding-left:10px;
 }
 
+.main {
+	padding-bottom: 30px;
+}
+
 .tv, .parking {
 	float: left;
 	background: white;
@@ -133,11 +137,16 @@ li {
   background: #edefed;
 }
 
+.footer {
+	background: lightblue;
+	
+	padding:20px 0px;
+}
 
 
 .myfade {
-  transition: 1s linear all;
-  -webkit-transition: 1s linear all;
+  transition: 0.5s linear all;
+  -webkit-transition: 0.5s linear all;
 }
 
 .myfade.ng-enter {
@@ -145,11 +154,11 @@ li {
 }
 
 .myfade.ng-enter.ng-enter-active {
-  opacity: 1;
+  opacity: 0.99;
 }
 
 .myfade.ng-leave {
-  opacity: 1;
+  opacity: 0.99;
 }
 
 .myfade.ng-leave.ng-leave-active {

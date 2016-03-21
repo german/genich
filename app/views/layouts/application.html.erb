@@ -32,56 +32,83 @@
 			</div>
 		</nav>
 	</header>
-	
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4 col-md-offset-1">
-				<div class="pansfilter">
-					<h3>Найдите идеальное место:</h3>
-					<input type="text" placeholder="Поиск" ng-model="query"></br>
-					<div class="choosecity">
-						<h3>Город/поселок</h3>
-						<label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ</label></br>
-						<label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка</label></br>
-						<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</label></br>
-						<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</label></br>	
-					</div>
-					<div class="price">
-						<h3>Стоимость</h3>
-						<input type="range" min="0" max="100" ng-model="qty" />
-						<div class="row">
-							<div class="col-md-6">
-								<p class="pull-left">0</p>
-							</div>
-							<div class="col-md-6">
-								<p class="pull-right">{{qty}}</p>
+	<div class="main">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-1">
+					<div class="pansfilter">
+						<h3>Найдите идеальное место:</h3>
+						<input type="text" placeholder="Поиск" ng-model="query"></br>
+						<div class="choosecity">
+							<h3>Город/поселок</h3>
+							<label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ</label></br>
+							<label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка</label></br>
+							<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</label></br>
+							<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</label></br>	
+						</div>
+						<div class="price">
+							<h3>Стоимость</h3>
+							<input type="range" min="0" max="100" ng-model="qty" />
+							<div class="row">
+								<div class="col-md-6">
+									<p class="pull-left">0</p>
+								</div>
+								<div class="col-md-6">
+									<p class="pull-right">{{qty}}</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="comfort">
-						<h3>Удобства</h3>
-						<label class="tv" ng-click="includesHas_tv(true)"><img src="assets/icon/technology.png"> <span>Телевизор</span> </label>
-						<label class="parking" ng-click="includesHas_parking(true)"><img src="assets/icon/parking.png"> <span>Парковка</span> </label>
+						<div class="comfort">
+							<h3>Удобства</h3>
+							<label class="tv" ng-click="includesHas_tv(true)"><img src="assets/icon/technology.png"> <span>Телевизор</span> </label>
+							<label class="parking" ng-click="includesHas_parking(true)"><img src="assets/icon/parking.png"> <span>Парковка</span> </label>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="panslist myfade" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter" >
-				  <div class="row">
-				    <div class="col-md-6">
-					    <p><span><h2>{{hotel.name}}</h2></span></p>
-					    <p><span><h4>{{hotel.city_name}}</h4></span></p>
-					  </div>
-					  <div class="col-md-6 text-right">
-					    <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
-							<button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_parking">Парковка</button>
-							<button type="button" class="btn btn-success btn-xs" ng-if="hotel.has_private_kitchen">Кухня</button>
-							<button type="button" class="btn btn-info btn-xs" ng-if="hotel.has_conditioning">Кондиционер</button>
+				<div class="col-md-6">
+					<div class="panslist myfade" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter" >
+					  <div class="row">
+					    <div class="col-md-12">
+						    <p><span><h2>{{hotel.name}}</h2></span></p>
+						    <p><span><h4>{{hotel.city_name}}</h4></span></p>
+						    <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
+								<button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_parking">Парковка</button>
+								<button type="button" class="btn btn-success btn-xs" ng-if="hotel.has_private_kitchen">Кухня</button>
+								<button type="button" class="btn btn-info btn-xs" ng-if="hotel.has_conditioning">Кондиционер</button>
+						  </div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h4>Полезные ссылки:</h4>
+					<li><a href="#">Раз</a></li>
+					<li><a href="#">Два</a></li>
+					<li><a href="#">Три</a></li>
+					<li><a href="#">Четыре</a></li>	
+				</div>
+				<div class="col-md-4">
+					<h4>Наши проекты:</h4>
+					<li><a href="#">Раз</a></li>
+					<li><a href="#">Два</a></li>
+					<li><a href="#">Три</a></li>
+					<li><a href="#">Четыре</a></li>	
+				</div>
+				<div class="col-md-4">
+					<h4>Связаться с нами:</h4>
+					<li><a href="#">Раз</a></li>
+					<li><a href="#">Два</a></li>
+					<li><a href="#">Три</a></li>
+					<li><a href="#">Четыре</a></li>	
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
