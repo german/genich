@@ -71,14 +71,26 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     return hotels;
   }
 
-  //посмотри что выводит в консоль
+  //посмотри что выводит в консоль, 
   $scope.hotels_within_price_max = [];
+  $scope.price_maxHotels = function(price_max){
+    var i = $.inArray(price_max, $scope.hotels_within_price_max);
+    console.log(i);
+    if (i > -1) {
+      $scope.hotels_within_price_max.splice(i, 1);
+      
+    } else {
+      $scope.hotels_within_price_max.push(price_max);
+      
+    }
+  }
   $scope.maxpriceFilter = function(hotels, qty, price_max) {
      for(var i = 0; i < $scope.hotels.length; i++){
-      if($scope.qty > $scope.hotels[3].price_max) {
+      if($scope.qty > $scope.hotels[i].price_max) {
         $scope.hotels_within_price_max.push($scope.hotels[i]);
-        console.log($scope.hotels_within_price_max)
+        return
       }
+
     }
   }
 
