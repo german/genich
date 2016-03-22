@@ -7,8 +7,9 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
   })
 
   $scope.qty = 100;
+  console.log($scope.hotels.city_name);
 
-  // filters Sity
+  // filters City
   $scope.city_nameIncludes = [];
   $scope.includesCity_name = function(city_name){
     var i = $.inArray(city_name, $scope.city_nameIncludes);
@@ -71,27 +72,9 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     return hotels;
   }
 
-  //посмотри что выводит в консоль, 
-  $scope.hotels_within_price_max = [];
-  $scope.price_maxHotels = function(price_max){
-    var i = $.inArray(price_max, $scope.hotels_within_price_max);
-    console.log(i);
-    if (i > -1) {
-      $scope.hotels_within_price_max.splice(i, 1);
-      
-    } else {
-      $scope.hotels_within_price_max.push(price_max);
-      
-    }
-  }
-  $scope.maxpriceFilter = function(hotels, qty, price_max) {
-     for(var i = 0; i < $scope.hotels.length; i++){
-      if($scope.qty > $scope.hotels[i].price_max) {
-        $scope.hotels_within_price_max.push($scope.hotels[i]);
-        return
-      }
-
-    }
+  //filter price_min
+  $scope.minpriceFilter = function(hotels, qty, price_min) {
+    return hotels.price_min < $scope.qty
   }
 
   

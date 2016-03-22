@@ -41,10 +41,10 @@
 						<input type="text" placeholder="Поиск" ng-model="query"></br>
 						<div class="choosecity">
 							<h3>Город/поселок</h3>
-							<label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ</label></br>
-							<label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка</label></br>
-							<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево</label></br>
-							<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое</label></br>	
+							<label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ ({{includesCity_name.length}})</label></br>
+							<label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка ({{includesCity_name.length}})</label></br>
+							<label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево ({{name.city_name.length}})</label></br>
+							<label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое ({{includesCity_name.length}})</label></br>	
 						</div>
 						<div class="price">
 							<h3>Стоимость</h3>
@@ -66,12 +66,12 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="panslist myfade" ng-repeat="hotel in hotels | filter: query | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: maxpriceFilter">
+					<div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter">
 					  <div class="row">
 					    <div class="col-md-12">
 						    <p><span><h2>{{hotel.name}}</h2></span></p>
 						    <p><span><h4>{{hotel.city_name}}</h4></span></p>
-						    <li>{{hotel.price_max}}</li>  
+						    <li>{{hotel.price_min}}</li>  
 						    <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
 								<button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_parking">Парковка</button>
 								<button type="button" class="btn btn-success btn-xs" ng-if="hotel.has_private_kitchen">Кухня</button>
