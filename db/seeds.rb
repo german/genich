@@ -20,5 +20,5 @@ Hotel.create({name: "Диканька", city_name: 'Стрелковое', dist_
 	has_conditioning: true, has_private_kitchen: true})
 
 Hotel.create({name: "Сосновый бор", city_name: 'Стрелковое', dist_from_the_sea: 60, has_tv: false, 
-	has_parking: false, price_min: 40, price_min: 75})
+	has_parking: false, price_min: 40})
 
