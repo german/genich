@@ -7,6 +7,7 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
   })
 
   $scope.qty = 100;
+  $scope.mycolor = 'blue';
 
   // filters City
   $scope.city_nameIncludes = [];
@@ -120,6 +121,7 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     return hotels.price_min <= $scope.qty
   }
 
+  //sort price
   $scope.sortbyprice = undefined;
   $scope.reverse = false;
   $scope.sort = function(fieldName){
@@ -129,6 +131,11 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
       $scope.sortbyprice = fieldName;
       $scope.reverse = false;
     }
+  }
+
+  //filter premium
+  $scope.premiumFilter = function(hotels, has_parking) {
+    return hotels.has_parking === true;
   }
 
   $scope.isSortUp = function(fieldName) {
