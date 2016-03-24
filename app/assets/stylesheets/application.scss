@@ -123,7 +123,12 @@ li {
 	padding-bottom: 30px;
 }
 
-.tv, .parking {
+.sortbyprice {
+	color: darkblue;
+	cursor: pointer;
+}
+
+.tv, .parking, .kitchen, .air {
 	float: left;
 	background: white;
 	padding: 10px;
@@ -133,7 +138,7 @@ li {
   margin: 5px;
 }
 
-.tv_active, .parking_active {
+.tv_active, .parking_active, .kitchen_active, .air_active {
   background: #edefed;
 }
 
@@ -143,6 +148,14 @@ li {
 	padding:20px 0px;
 }
 
+
+.showfilters {
+	opacity: 1;
+}
+
+.showfilters.ng-hide {
+	opacity: 0;	
+}
 
 .myfade {
   transition: 0.5s linear all;

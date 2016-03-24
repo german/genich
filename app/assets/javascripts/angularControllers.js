@@ -7,7 +7,6 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
   })
 
   $scope.qty = 100;
-  console.log($scope.hotels.city_name);
 
   // filters City
   $scope.city_nameIncludes = [];
@@ -72,10 +71,72 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     return hotels;
   }
 
+  //filters has_private_kitchen
+  $scope.has_private_kitchenIncludes = [];
+  $scope.includeshas_private_kitchen = function(has_private_kitchen){
+    var i = $.inArray(has_private_kitchen, $scope.has_private_kitchenIncludes);
+    if (i > -1) {
+      $scope.has_private_kitchenIncludes.splice(i, 1);
+    } else {
+      $scope.has_private_kitchenIncludes.push(has_private_kitchen);
+    }
+  }
+
+  $scope.haskitchenFilter = function(hotels) {
+    if ($scope.has_private_kitchenIncludes.length > 0) {
+      if ($.inArray(hotels.has_private_kitchen, $scope.has_private_kitchenIncludes) < 0)
+        return;
+        $('.kitchen').addClass('kitchen_active');
+    } else {
+      $('.kitchen').removeClass('kitchen_active');
+    }
+    return hotels;
+  }
+
+  //filters has_conditioning
+  $scope.has_conditioningIncludes = [];
+  $scope.includeshas_conditioning = function(has_conditioning){
+    var i = $.inArray(has_conditioning, $scope.has_conditioningIncludes);
+    if (i > -1) {
+      $scope.has_conditioningIncludes.splice(i, 1);
+    } else {
+      $scope.has_conditioningIncludes.push(has_conditioning);
+    }
+  }
+
+  $scope.hasairFilter = function(hotels) {
+    if ($scope.has_conditioningIncludes.length > 0) {
+      if ($.inArray(hotels.has_conditioning, $scope.has_conditioningIncludes) < 0)
+        return;
+        $('.air').addClass('air_active');
+    } else {
+      $('.air').removeClass('air_active');
+    }
+    return hotels;
+  }
+
   //filter price_min
   $scope.minpriceFilter = function(hotels, qty, price_min) {
-    return hotels.price_min < $scope.qty
+    return hotels.price_min <= $scope.qty
   }
+
+  $scope.sortbyprice = undefined;
+  $scope.reverse = false;
+  $scope.sort = function(fieldName){
+    if ($scope.sortbyprice === fieldName) {
+      $scope.reverse = !$scope.reverse;
+    } else {
+      $scope.sortbyprice = fieldName;
+      $scope.reverse = false;
+    }
+  }
+
+  $scope.isSortUp = function(fieldName) {
+    return $scope.sortbyprice === fieldName && $scope.reverse;
+  };
+  $scope.isSortDown = function(fieldName) {
+    return $scope.sortbyprice === fieldName && !$scope.reverse;
+  };
 
   
  })
