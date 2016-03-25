@@ -133,9 +133,10 @@ pansionatApp.controller('PansListCrtl', function($scope, $http) {
     }
   }
 
+
   //filter premium
   $scope.premiumFilter = function(hotels, has_parking) {
-    return hotels.has_parking === true;
+    return hotels.has_tv === true;
   }
 
   $scope.isSortUp = function(fieldName) {

@@ -36,10 +36,10 @@
 		<div class="container">
 			<div class="row">
 				<h2 class="text-center">Рекомендуем обратить внимание:</h2>
-				<div class="col-md-4" ng-repeat="premium in hotels | filter: premiumFilter">
-					<div class="main-premium" style="background: {{mycolor}}">
+				<div class="col-md-4" ng-repeat="premium in hotels | filter: premiumFilter | limitTo:3">
+					<a href="hotels/{{premium.id}}"><div class="main-premium" style="background: {{mycolor}}">
 						<h2>{{premium.name}}</h2>
-					</div>
+					</div></a>
 				</div>
 			</div>
 		</div>
@@ -101,6 +101,11 @@
 	</div>
 	
 	<div class="footer">
+	<!-- <div class="footer-videocontainer">
+		<video id="footer-myVideo"  autoplay loop mute>
+			<source src="http://storage.akamai.coub.com/get/b242/p/coub/simple/cw_file/218e213a5b0/b43f6add37ab0cdc1d37c/mp4_big_size_1458843949_big.mp4" type="video/mp4"> 
+		</video>
+	</div> -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
