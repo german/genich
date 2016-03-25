@@ -1,4 +1,12 @@
-var pansionatApp = angular.module('pansionatApp', ['ngAnimate']);
+var pansionatApp = angular.module('pansionatApp', ['ngAnimate', 'ngRoute']);
+
+pansionatApp.config(['$routeProvider', function($routeProvide){
+  $routeProvide
+    .when('/', {
+      templateUrl:'test.html', 
+      controller: 'PansListCrtl'
+    })
+}])
 
 pansionatApp.controller('PansListCrtl', function($scope, $http) {
   $scope.hotels = [];

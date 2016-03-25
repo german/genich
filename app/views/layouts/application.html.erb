@@ -85,7 +85,7 @@
 					<div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | orderBy:sortbyprice:reverse">
 					  <div class="row">
 					    <div class="col-md-12">
-						    <p><span><h2><a href="hotels/{{hotel.id}}">{{hotel.name}}</a></h2></span></p>
+						    <p><span><h2><a href="/hotels/{{hotel.id}}">{{hotel.name}}</a></h2></span></p>
 						    <p><span><h4>{{hotel.city_name}}</h4></span></p>
 						    {{hotel.price_min}}</br>
 						    <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
