@@ -9,4 +9,8 @@ class HotelsController < ApplicationController
       end
     end
   end
+protected
+	def hotel_params
+		params.require(:hotel).permit(:name, :city_name, :has_parking, :total_rooms)
+	end
 end
