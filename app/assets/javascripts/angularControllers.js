@@ -211,9 +211,20 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     return hotels.has_tv === true;
   }
 
+  function shuffle (array) {
+    var i = 0, j = 0, temp = null;
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1))
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
+  }
+
   //filter premium rendom functioun 
-  $scope.random = function() {
-    return 0.5 - Math.random();
+  $scope.random = function(hotels) {
+    return shuffle(hotels);
   }
 
   $scope.isSortUp = function(fieldName) {
