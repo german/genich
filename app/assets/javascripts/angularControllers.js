@@ -3,8 +3,15 @@ var pansionatApp = angular.module('pansionatApp', ['ngAnimate', 'ngRoute']);
 
 pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routeParams, $location) {
   $scope.hotels = [];
+  $scope.ranked_hotels = [];
+
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
+
+    angular.forEach(data, function(item) {
+      item.rank = 0.5 - Math.random();
+      $scope.ranked_hotels.push(item);
+    });
   })
 
   pansionatApp.config(['$routeProvider', function($routeProvider) {
@@ -30,7 +37,6 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
   $scope.has_showerIncludes = [];
   $scope.has_wifiIncludes = [];
   $scope.has_transferIncludes = [];
-
 
   // filters City
   $scope.includesCity_name = function(city_name){
@@ -209,22 +215,6 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
   //filter premium
   $scope.premiumFilter = function(hotels, has_parking) {
     return hotels.has_tv === true;
-  }
-
-  function shuffle (array) {
-    var i = 0, j = 0, temp = null;
-
-    for (i = array.length - 1; i > 0; i -= 1) {
-      j = Math.floor(Math.random() * (i + 1))
-      temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
-    }
-  }
-
-  //filter premium rendom functioun 
-  $scope.random = function(hotels) {
-    return shuffle(hotels);
   }
 
   $scope.isSortUp = function(fieldName) {
