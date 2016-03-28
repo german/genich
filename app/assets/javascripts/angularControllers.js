@@ -7,7 +7,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
 
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
-
+    
     angular.forEach(data, function(item) {
       item.rank = 0.5 - Math.random();
       $scope.ranked_hotels.push(item);
@@ -24,6 +24,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     $scope.name = "newCtrl";
     $scope.params = $routeParams;
   })
+  
   
   $scope.qty = 100;
   $scope.mycolor = 'blue';
@@ -68,10 +69,11 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_tvIncludes.length > 0) {
       if ($.inArray(hotels.has_tv, $scope.has_tvIncludes) < 0)
         return;
-        $('.tv').addClass('tv_active');
-    } else {
-      $('.tv').removeClass('tv_active');
-    }
+        //$('.tv').addClass('tv_active');
+    } 
+    // else {
+    //     $('.tv').removeClass('tv_active');
+    // }
     return hotels;
   }
 

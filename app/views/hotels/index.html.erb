@@ -57,7 +57,7 @@
         </div>
         <div class="comfort">
           <h3>Удобства</h3>
-          <label class="tv" ng-click="includesHas_tv(true)"><img src="/assets/icon/technology.png"> <span>Телевизор</span> </label>
+          <label class="tv" ng-class="{'tv_one': !toggleClass, 'tv_active': toggleClass}" ng-click="includesHas_tv(true); toggleClass = !toogleClass"><img src="/assets/icon/technology.png"> <span>Телевизор</span> </label>
           <label class="parking" ng-click="includesHas_parking(true)"><img src="/assets/icon/parking.png"> <span>Парковка</span> </label>
           <label class="kitchen" ng-click="includeshas_private_kitchen(true)"><img src="/assets/icon/kitchen.png"> <span>Кухня</span> </label>
           <label class="air" ng-click="includeshas_conditioning(true)"><img src="/assets/icon/conditioning.png"> <span>Кондиционер</span> </label>
