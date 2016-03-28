@@ -167,8 +167,8 @@ li {
 }
 
 .premium {
-	/* height:467px; 
-	overflow:hidden; */
+	height:476px; 
+	overflow:hidden;
 }
 
 .premium h4 {
@@ -235,6 +235,11 @@ li {
   width: 100%;
 }
 
+.footer-bottom {
+	border-top: 2px solid grey;
+  margin-top: 20px;
+  padding-top: 20px;
+}
 
 .showfilters {
 	opacity: 1;
