@@ -17,20 +17,55 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+.red{
+    color:red;
+}
+
+.blue{
+    color:blue;
+}
+
 body {
-	overflow-x: hidden
+	overflow-x: hidden;
+	background: #f5f5f5;
 }
 
 label {
 	margin-bottom: 10px !important;
 	font-weight: 400;
 	font-size: 16px;
+	cursor: pointer;
 }
+
+.choosecity label {
+	width: 50%;
+	height: 30px;
+	padding-left: 10px;
+	padding-top: 3px;
+}
+
+/* ul.genich .genich,
+ul.gengorka .gengorka,
+ul.schast .schast,
+ul.strelkovoe .strelkovoe {
+	background: #1c8cce;
+	box-shadow: 0px 0px 4px 1px grey;
+}
+*/
 
 header {
 	height: 400px;
 	position: relative;
 	margin-bottom: 15px;
+}
+
+.arrowsup {
+	display:none;
+	z-index:1200;
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	cursor: pointer;
 }
 
 nav {
@@ -66,6 +101,8 @@ h1 {
 	border-radius: 4px;
 	padding: 10px;
 	margin-bottom: 30px;
+	background: white;
+  box-shadow: 0 2px 0 #c8c8c8
 }
 
 li {
@@ -123,18 +160,47 @@ li {
 	padding-bottom: 30px;
 }
 
-.main-premium {
+.leftsidebar {
+	background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 #c8c8c8;
+}
+
+.premium {
+	height:467px; 
+	overflow:hidden;
+}
+
+.premium h4 {
+	color: #565a5c;
+	margin-bottom: 50px;
+}
+
+.premium-main {
 	width: 100%;
 	height: 344px;
-	margin-bottom: 10px;
 	display: table;
 }
 
-.main-premium h2 {
+.premium-main h2 {
 	text-align: center;
 	vertical-align: middle;
   display: table-cell;
   color: white;
+	text-shadow: 1px 1px 4px black;
+}
+
+.morepremium {
+  margin: 50px auto;
+  border-color: #c4c4c4;
+  background: white;
+  color: #565a5c;
+  padding: 9px 27px;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1px solid;
+  text-align: center;
+  font-weight: 700;
 }
 
 .main a {
@@ -146,7 +212,7 @@ li {
 	cursor: pointer;
 }
 
-.tv, .parking, .kitchen, .air {
+.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower {
 	float: left;
 	background: white;
 	padding: 10px;
@@ -154,16 +220,19 @@ li {
   text-align: center;
   border: 1px solid #dce0e0;
   margin: 5px;
+  cursor:pointer;
 }
 
-.tv_active, .parking_active, .kitchen_active, .air_active {
+.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower.active {
   background: #edefed;
+  cursor:pointer;
 }
 
 .footer {
 	background: lightblue;
-	
 	padding:20px 0px;
+  bottom: 0px;
+  width: 100%;
 }
 
 

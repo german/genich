@@ -6,32 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-controller="PansListCrtl">
-	<header>
-	<div class="videocontainer">
-		<video id="myVideo"  autoplay loop>
-		sea_background
-			<!-- <source src="http://storage.akamai.coub.com/get/b3/p/coub/simple/cw_file/7d133102e84/6c46557a0a6b2cab82c9d/mp4_big_size_1411253129_big.mp4" type="video/mp4"> -->
-			<source src="assets/sea_background.mp4" type="video/mp4">
-		</video>
-	</div>
-	<h1>Отдых на Арабатской стрелке 2016</h1>
-		<nav>
-			<div class="container-fluid">
-				<div class="row">
-					<div class="brand pull-left"><a href="#">BRAND</a></div>
-					<div class="navigation pull-right">
-						<ul>
-						<li class="addpans"><a href="#">Добавить пансионат</a></li>
-						<li><a href="#">Помощь</a></li>
-						<li><a href="#">Регистрация</a></li>
-						<li><a href="#">Войти</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</header>
+<body ng-controller="PansListCtrl">
 	<div class="main">
 		<div class="container">
 			<div class="row">
@@ -99,38 +74,10 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="footer">
-	<!-- <div class="footer-videocontainer">
-		<video id="footer-myVideo"  autoplay loop mute>
-			<source src="http://storage.akamai.coub.com/get/b242/p/coub/simple/cw_file/218e213a5b0/b43f6add37ab0cdc1d37c/mp4_big_size_1458843949_big.mp4" type="video/mp4"> 
-		</video>
-	</div> -->
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<h4>Полезные ссылки:</h4>
-					<li><a href="#">Раз</a></li>
-					<li><a href="#">Два</a></li>
-					<li><a href="#">Три</a></li>
-					<li><a href="#">Четыре</a></li>	
-				</div>
-				<div class="col-md-4">
-					<h4>Наши проекты:</h4>
-					<li><a href="#">Раз</a></li>
-					<li><a href="#">Два</a></li>
-					<li><a href="#">Три</a></li>
-					<li><a href="#">Четыре</a></li>	
-				</div>
-				<div class="col-md-4">
-					<h4>Связаться с нами:</h4>
-					<li><a href="#">Раз</a></li>
-					<li><a href="#">Два</a></li>
-					<li><a href="#">Три</a></li>
-					<li><a href="#">Четыре</a></li>	
-				</div>
-			</div>
-		</div>
-	</div>
+
+		
+
+	<!-- footer -->
+  <%= render 'layouts/footer' %>
 </body>
 </html>
