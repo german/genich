@@ -7,7 +7,7 @@
 <div class="container premium">
   <div class="row">
     <h2 class="text-center">Рекомендуем обратить внимание:</h2>
-    <h4 class="text-center">Места, проверенные нашими пользователями, которым мы доверяем.</h4>
+    <h4 class="text-center">Места, которым доверяют наши пользователи. Самые высокие оценки.</h4>
     <div class="col-md-4" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:10 ">
       <!-- Не работает |orderBy:random ПОЧЕМУ? -->
       <a href="hotels/{{premium.id}}"><div class="premium-main" style="background: {{mycolor}}">
@@ -27,10 +27,10 @@
         <input type="text" placeholder="Поиск" ng-model="query"></br>
         <div class="choosecity">
           <h3>Город/поселок</h3>
-          <label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ ({{includesCity_name.length}})</label></br>
-          <label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка ({{includesCity_name.length}})</label></br>
-          <label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево ({{includesCity_name.length}})</label></br>
-          <label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое ({{includesCity_name.length}})</label></br> 
+          <label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ {{includesCity_name.length}}</label></br>
+          <label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка {{includesCity_name.length}}</label></br>
+          <label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево {{includesCity_name.length}}</label></br>
+          <label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое {{includesCity_name.length}}</label></br> 
           <!-- ВЕРСИЯ С ВЫДЕЛЕНИЕ АКТИВНОГО ЭЛЕМЕНТА 
           <ul class="{{active}}" ng-click="$event.preventDefault()">
             <label ng-click="includesCity_name('Геническ'); active='genich'" class="genich" /> Геническ ({{includesCity_name.length}})</label></br>
@@ -57,13 +57,13 @@
         </div>
         <div class="comfort">
           <h3>Удобства</h3>
-          <label class="tv" ng-class="{'tv_one': !toggleClass, 'tv_active': toggleClass}" ng-click="includesHas_tv(true); toggleClass = !toogleClass"><img src="/assets/icon/technology.png"> <span>Телевизор</span> </label>
-          <label class="parking" ng-click="includesHas_parking(true)"><img src="/assets/icon/parking.png"> <span>Парковка</span> </label>
-          <label class="kitchen" ng-click="includeshas_private_kitchen(true)"><img src="/assets/icon/kitchen.png"> <span>Кухня</span> </label>
-          <label class="air" ng-click="includeshas_conditioning(true)"><img src="/assets/icon/conditioning.png"> <span>Кондиционер</span> </label>
-          <label class="shower" ng-click="includeshas_shower(true)"><img src="/assets/icon/shower.png"> <span>Душ</span> </label>
-          <label class="wi-fi" ng-click="includeshas_wifi(true)"><img src="/assets/icon/wi-fi.png"> <span>Wi-Fi</span> </label>
-          <label class="delivery" ng-click="includeshas_transfer(true)"><img src="/assets/icon/delivery.png"> <span>Трансфер</span> </label>
+          <label class="tv" ng-class="{'tv_one': tvActiveClass, 'tv_active': !tvActiveClass}" ng-click="includesHas_tv(true); tvActiveClass = !tvActiveClass"><img src="/assets/icon/technology.png"> <span>Телевизор</span> </label>
+          <label class="parking" ng-class="{'parking_one': parkingActiveClass, 'parking_active': !parkingActiveClass}" ng-click="includesHas_parking(true); parkingActiveClass = !parkingActiveClass"><img src="/assets/icon/parking.png"> <span>Парковка</span> </label>
+          <label class="kitchen" ng-class="{'kitchen_one': kitchenActiveClass, 'kitchen_active': !kitchenActiveClass}" ng-click="includeshas_private_kitchen(true); kitchenActiveClass = !kitchenActiveClass"><img src="/assets/icon/kitchen.png"> <span>Кухня</span> </label>
+          <label class="air" ng-class="{'air_one': airActiveClass, 'air_active': !airActiveClass}" ng-click="includeshas_conditioning(true);airActiveClass = !airActiveClass"><img src="/assets/icon/conditioning.png"> <span>Кондиционер</span> </label>
+          <label class="shower" ng-class="{'shower_one': showerActiveClass, 'shower_active': !showerActiveClass}" ng-click="includeshas_shower(true);showerActiveClass = !showerActiveClass"><img src="/assets/icon/shower.png"> <span>Душ</span> </label>
+          <label class="wi-fi" ng-class="{'wi-fi_one': WifiActiveClass, 'wi-fi_active': !WifiActiveClass}" ng-click="includeshas_wifi(true);WifiActiveClass = !WifiActiveClass"><img src="/assets/icon/wi-fi.png"> <span>Wi-Fi</span> </label>
+          <label class="delivery" ng-class="{'delivery_one': deliveryActiveClass, 'delivery_active': !deliveryActiveClass}" ng-click="includeshas_transfer(true);deliveryActiveClass = !deliveryActiveClass"><img src="/assets/icon/delivery.png"> <span>Трансфер</span> </label>
         </div>
       </div>
     </div>

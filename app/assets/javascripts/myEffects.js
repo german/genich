@@ -22,15 +22,16 @@ $(function(){
 	function getCurrentScroll() {
 		return window.pageYOffset || document.documentElement.scrollTop;
 	}
-});
-
-$('.arrowsup').click(function () {
-	console.log('Work!')
-	$('body').animate({
-	scrollTop: 0
+	$('.arrowsup').click(function () {
+		console.log('Work!')
+		$('body').animate({
+		scrollTop: 0
 	}, 800);
 	return false;
 });
+});
+
+
 
 
 // НЕ РАБОТАЕТ CLICK

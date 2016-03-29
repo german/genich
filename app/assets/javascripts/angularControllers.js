@@ -25,7 +25,15 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     $scope.params = $routeParams;
   })
   
-  
+  //Buttons click
+  $scope.tvActiveClass = true;
+  $scope.parkingActiveClass = true;
+  $scope.kitchenActiveClass = true;
+  $scope.airActiveClass = true;
+  $scope.showerActiveClass = true;
+  $scope.WifiActiveClass = true;
+  $scope.deliveryActiveClass = true;
+  //
   $scope.qty = 100;
   $scope.mycolor = 'blue';
 
@@ -69,11 +77,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_tvIncludes.length > 0) {
       if ($.inArray(hotels.has_tv, $scope.has_tvIncludes) < 0)
         return;
-        //$('.tv').addClass('tv_active');
     } 
-    // else {
-    //     $('.tv').removeClass('tv_active');
-    // }
     return hotels;
   }
 
@@ -90,10 +94,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_parkingIncludes.length > 0) {
       if ($.inArray(hotels.has_parking, $scope.has_parkingIncludes) < 0)
         return;
-        $('.parking').addClass('parking_active');
-    } else {
-      $('.parking').removeClass('parking_active');
-    }
+    } 
     return hotels;
   }
 
@@ -110,10 +111,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_private_kitchenIncludes.length > 0) {
       if ($.inArray(hotels.has_private_kitchen, $scope.has_private_kitchenIncludes) < 0)
         return;
-        $('.kitchen').addClass('kitchen_active');
-    } else {
-      $('.kitchen').removeClass('kitchen_active');
-    }
+    } 
     return hotels;
   }
 
@@ -130,10 +128,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_conditioningIncludes.length > 0) {
       if ($.inArray(hotels.has_conditioning, $scope.has_conditioningIncludes) < 0)
         return;
-        $('.air').addClass('air_active');
-    } else {
-      $('.air').removeClass('air_active');
-    }
+    } 
     return hotels;
   }
 
@@ -150,10 +145,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_showerIncludes.length > 0) {
       if ($.inArray(hotels.has_shower, $scope.has_showerIncludes) < 0)
         return;
-        $('.shower').addClass('shower_active');
-    } else {
-      $('.shower').removeClass('shower_active');
-    }
+    } 
     return hotels;
   }
 
@@ -170,9 +162,6 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_wifiIncludes.length > 0) {
       if ($.inArray(hotels.has_wifi, $scope.has_wifiIncludes) < 0)
         return;
-        $('.wi-fi').addClass('wi-fi_active');
-    } else {
-      $('.wi-fi').removeClass('wi-fi_active');
     }
     return hotels;
   }
@@ -190,10 +179,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     if ($scope.has_transferIncludes.length > 0) {
       if ($.inArray(hotels.has_transfer, $scope.has_transferIncludes) < 0)
         return;
-        $('.transfer').addClass('transfer_active');
-    } else {
-      $('.transfer').removeClass('transfer_active');
-    }
+    } 
     return hotels;
   }
 
