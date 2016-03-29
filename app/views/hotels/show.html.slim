@@ -1,0 +1,54 @@
+.row
+  h3 Детали пансионата
+  
+.row
+  .col-md-4 Название
+  .col-md-4 = @hotel.name
+
+.row
+  .col-md-4 Где находится
+  .col-md-4 = @hotel.city_name
+
+.row
+  .col-md-4 Описание
+  .col-md-4 = @hotel.description
+
+.row
+  .col-md-4 Email
+  .col-md-4 = @hotel.email
+
+.row
+  .col-md-4 Телефоны
+  .col-md-4 = @hotel.phones
+
+.row
+  .col-md-4 Всего комнат
+  .col-md-4 = @hotel.total_rooms
+
+.row
+  .col-md-4 Комнат класса люкс
+  .col-md-4 = @hotel.total_luxes
+
+.row
+  .col-md-4 Людей в комнате
+  .col-md-4 = @hotel.people_in_room
+
+.row
+  .col-md-4 Расстояние до моря
+  .col-md-4 = @hotel.dist_from_the_sea
+
+- if !@albums.empty?
+  h3 Фотоальбомы
+
+  .row
+    - @albums.each do |album|
+      = link_to image_tag(album.photos.first.try(:photo).try(:url, :thumb)), hotel_album_url(@hotel, album)
+
+h2 Создать фотоальбом
+
+= simple_form_for [@hotel, @album] do |f|
+  .row
+    .col-md-6
+      = f.input :name
+      = f.input :hotel_id, as: 'hidden', value: @hotel.id
+      = f.submit class: "btn btn-success"

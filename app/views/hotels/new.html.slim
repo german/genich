@@ -1,0 +1,30 @@
+.container-fluid
+  = simple_form_for resource, html: { class: 'form-horizontal' } do |f|
+    = f.input :name
+    = f.input :description
+    = f.input :email
+    = f.input :phones
+    = f.input :city_name, collection: ['Геническ', 'Генгорка', 'Счастливцево', 'Стрелковое']
+    = f.input :total_rooms
+    = f.input :total_luxes
+    = f.input :rules
+    = f.input :people_in_room 
+
+    = f.input :price_min
+    = f.input :price_mean
+    = f.input :price_max
+    = f.input :longitude
+    = f.input :latitude
+
+    = f.input :dist_from_the_sea
+    = f.input :has_private_house
+    = f.input :has_private_kitchen
+    = f.input :has_private_shower
+    = f.input :has_fridge
+    = f.input :has_tv
+    = f.input :has_conditioning
+    = f.input :has_wifi
+    = f.input :has_parking
+    = f.input :has_transfer
+
+    = f.submit
