@@ -1,0 +1,25 @@
+.container
+  .page-header
+    ol.breadcrumb
+      li Фотоальбомы
+      li.active = resource.name
+
+  .row
+    - @photos.each do |photo|
+      .photo-image
+        = link_to image_tag(photo.photo.url(:medium)), photo.photo.url, rel: "Album_#{resource.id}", title: photo.name
+        - if photo.name
+          p = photo.name
+        p = link_to "Удалить", hotel_album_photo_path(resource.hotel, resource, photo), {method: :delete, data: {confirm: 'Вы уверены что хотите удалить это фото?'}}
+
+  .row
+    .col-md-12.add-photo 
+      h3 Добавить фотографию
+      = simple_form_for [resource.hotel, resource, @photo] do |f|
+        .row
+          .col-md-6
+            = f.input :photo
+            = f.input :name
+            = f.input :album_id, as: :hidden
+            = f.input :description
+            = f.submit class: "btn btn-primary btn-lg"

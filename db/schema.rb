@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316151136) do
+ActiveRecord::Schema.define(version: 20160329122217) do
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "hotel_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
@@ -57,5 +64,14 @@ ActiveRecord::Schema.define(version: 20160316151136) do
   add_index "hotels", ["price_max"], name: "index_hotels_on_price_max"
   add_index "hotels", ["price_mean"], name: "index_hotels_on_price_mean"
   add_index "hotels", ["price_min"], name: "index_hotels_on_price_min"
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "photo"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "album_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
