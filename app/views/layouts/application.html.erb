@@ -8,7 +8,11 @@
 </head>
 <body ng-controller="PansListCtrl">
   <!-- header-mainpage -->
-  <%= render 'layouts/header' %>
+  <% if controller_name == 'hotels' && action_name == 'index' %>
+    <%= render 'layouts/header' %>
+  <% else %>
+    <%= render 'layouts/headernew' %>
+  <% end %>
 
 	<div class="container main">
 		<%= yield %>
