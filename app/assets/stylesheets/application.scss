@@ -16,6 +16,7 @@
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 .red{
     color:red;
@@ -26,6 +27,7 @@
 }
 
 body {
+	font-family: 'Roboto', sans-serif;
 	overflow-x: hidden;
 	background: #f5f5f5;
 }
@@ -60,8 +62,8 @@ header {
 }
 
 .headernew {
-	background: url('/assets/headerbg.jpg');
-	background-position-y: -60px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+	background-color: #039BE5;
 }
 
 .arrowsup {
