@@ -1,10 +1,10 @@
-var pansionatApp = angular.module('pansionatApp', ['ngAnimate', 'ngRoute']);
+var pansionatApp = angular.module('pansionatApp', ['ngAnimate', 'ui.router']);
   
 
 pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routeParams, $location) {
   $scope.hotels = [];
   $scope.ranked_hotels = [];
-
+  console.log('PansListCtrl');
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
     
@@ -14,7 +14,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
     });
   })
 
-  pansionatApp.config(['$routeProvider', function($routeProvider) {
+ /* pansionatApp.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
                 when('/home', {templateUrl: 'index.html',   controller: PansListCtrl}).
                 otherwise({redirectTo: '/home'});
@@ -23,7 +23,7 @@ pansionatApp.controller('PansListCtrl', function($scope, $http, $route, $routePa
   pansionatApp.controller('newCtrl', function($scope, $routeParams) {
     $scope.name = "newCtrl";
     $scope.params = $routeParams;
-  })
+  })*/
   
   //Buttons click
   $scope.tvActiveClass = true;
