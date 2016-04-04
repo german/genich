@@ -1,4 +1,4 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -6,8 +6,8 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router'])
 
   $stateProvider
     .state('home', {
-      url: '/home',
-      templateUrl: '/home.html',
+      url: '/',
+      templateUrl: 'hotels/index.html',
       controller: function($scope, $http) {
         $scope.hotels = [];
         $scope.ranked_hotels = [];
@@ -20,9 +20,9 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router'])
           });
         })
       }
-    }).state('hotels', {
+    }).state('hotel', {
       url: '/hotels/{id}',
-      templateUrl: '/hotels.html',
+      templateUrl: 'hotels/show.html',
       controller: function($scope, $stateParams,$http) {
         $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
           $scope.hotel = data;
