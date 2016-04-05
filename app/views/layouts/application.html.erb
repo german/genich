@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-controller="PansListCtrl">
+<body ng-app="pansionatApp">
   <!-- header-mainpage -->
   <% if controller_name == 'hotels' && action_name == 'index' %>
     <%= render 'layouts/header' %>
@@ -15,7 +15,7 @@
   <% end %>
 
 	<div class="container-fluid main">
-		<%= yield %>
+    <div ui-view></div>
 	</div>
   
 	<!-- footer -->

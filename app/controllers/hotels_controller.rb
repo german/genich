@@ -13,7 +13,12 @@ class HotelsController < ApplicationController
   def show
     @albums = resource.albums
     @album = Album.new hotel: resource
-    show!
+    show! do |format|
+      format.html { render }
+      format.json do
+        render json: resource
+      end
+    end
   end
 
 protected
