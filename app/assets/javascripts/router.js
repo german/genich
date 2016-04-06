@@ -1,4 +1,9 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial'])
+.controller('Show', function($scope, $stateParams,$http) {
+  $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
+    $scope.hotel = data;
+  })
+})
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -19,7 +24,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates'])
             $scope.ranked_hotels.push(item);
           });
         });
-
+        
         //Buttons click
         $scope.tvActiveClass = true;
         $scope.parkingActiveClass = true;
@@ -31,6 +36,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates'])
         //
         $scope.qty = 100;
         $scope.mycolor = 'blue';
+        
 
         //ALL MY FILTERS MASSIVE
         $scope.city_nameIncludes = [];
@@ -210,12 +216,17 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates'])
     }).state('hotel', {
       url: '/hotels/{id}',
       templateUrl: 'hotels/show.html',
-      controller: function($scope, $stateParams,$http) {
-        $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
-          $scope.hotel = data;
+      controller: 'Show'
+    }).state('new', {
+      url: '/new',
+      templateUrl: 'hotels/new.html',
+      controller: function($scope, $http) {
+        $http.get('/hotels.json').success(function(data, status, headers, config){
+          $scope.hotels = data;
         })
       }
-    });
-
+    })
   $urlRouterProvider.otherwise('/');
+
 }]);
+

@@ -1,5 +1,8 @@
 <div class="arrowsup">
-  <img src="/assets/icon/arrows.png">
+  <p>&#8679;</p>
+  <md-tooltip md-visible="tooltip">
+    В начало!
+  </md-tooltip>
 </div>
 <div class="container premium">
   <div class="row">
@@ -18,16 +21,24 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="leftsidebar col-md-4 col-md-offset-1">
+    <div class="leftsidebar col-md-4 col-md-offset-1 col-xs-12">
       <div class="pansfilter">
         <h3>Найдите идеальное место:</h3>
         <input type="text" placeholder="Поиск" ng-model="query"></br>
         <div class="choosecity">
           <h3>Город/поселок</h3>
-          <label><input type="checkbox" ng-click="includesCity_name('Геническ')"/> Геническ {{includesCity_name.length}}</label></br>
-          <label><input type="checkbox" ng-click="includesCity_name('Генгорка')"/> Генгорка {{includesCity_name.length}}</label></br>
-          <label><input type="checkbox" ng-click="includesCity_name('Счастливцево')"/> Счастливцево {{includesCity_name.length}}</label></br>
-          <label><input type="checkbox" ng-click="includesCity_name('Стрелковое')"/> Стрелковое {{includesCity_name.length}}</label></br> 
+          <md-checkbox ng-click="includesCity_name('Геническ')">
+            Геническ
+          </md-checkbox>
+          <br><md-checkbox ng-click="includesCity_name('Генгорка')">
+            Генгорка
+          </md-checkbox>
+          <br><md-checkbox ng-click="includesCity_name('Счастливцево')">
+            Счастливцево
+          </md-checkbox>
+          <br><md-checkbox ng-click="includesCity_name('Стрелковое')">
+            Стрелковое
+          </md-checkbox>
           <!-- ВЕРСИЯ С ВЫДЕЛЕНИЕ АКТИВНОГО ЭЛЕМЕНТА 
           <ul class="{{active}}" ng-click="$event.preventDefault()">
             <label ng-click="includesCity_name('Геническ'); active='genich'" class="genich" /> Геническ ({{includesCity_name.length}})</label></br>
@@ -64,7 +75,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-xs-12">
       <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | orderBy:sortbyprice:reverse">
         <div class="row">
           <div class="col-md-12">

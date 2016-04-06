@@ -12,10 +12,11 @@
  *
  *= require_tree .
  *= require_self
- */
 
+ */
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "angular-material/angular-material.css";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 .red{
@@ -30,6 +31,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	overflow-x: hidden;
 	background: #f5f5f5;
+	height: auto;
 }
 
 label {
@@ -67,6 +69,36 @@ header {
 }
 
 .arrowsup {
+	display:none;
+	color: rgba(255,255,255,0.87);
+	background-color: rgb(16,108,200);
+  top: auto;
+  right: 40px;
+	bottom: 40px;
+  left: auto;
+  position: fixed;
+  z-index: 20;
+  line-height: 56px;
+  min-width: 0;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  border-radius: 50%;
+  background-clip: padding-box;
+  overflow: hidden;
+  transition: all .3s cubic-bezier(.55,0,.55,.2);
+  transition-property: background-color,box-shadow,-webkit-transform;
+  transition-property: background-color,box-shadow,transform;
+}
+
+.arrowsup p {
+	font-size: 40px;
+	text-align: center;
+}
+
+.arrowsup2 {
 	display:none;
 	z-index:1200;
 	position: fixed;
@@ -127,7 +159,7 @@ li {
 
 #myVideo, #footer-myVideo {
 	position: absolute;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   bottom: 0%;
   -webkit-transform: translate(0, 20%);
@@ -171,6 +203,11 @@ li {
 	background: white;
   border-radius: 4px;
   box-shadow: 0 2px 0 #c8c8c8;
+  margin-bottom: 20px;
+}
+
+md-checkbox {
+	font-size:16px;
 }
 
 .premium {
@@ -228,6 +265,7 @@ li {
   border: 1px solid #dce0e0;
   margin: 5px;
   cursor:pointer;
+  outline: none
 }
 
 .tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active {
