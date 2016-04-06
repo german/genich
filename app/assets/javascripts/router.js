@@ -4,16 +4,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     $scope.hotel = data;
   })
 })
-.config([
-  '$stateProvider',
-  '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
-
-  $stateProvider
-    .state('home', {
-      url: '/',
-      templateUrl: 'hotels/index.html',
-      controller: function($scope, $http) {
+.controller('Main', function($scope, $http) {
         $scope.hotels = [];
         $scope.ranked_hotels = [];
         $http.get('/hotels.json').success(function(data, status, headers, config){
@@ -24,6 +15,13 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
             $scope.ranked_hotels.push(item);
           });
         });
+
+        $scope.images = [
+          {image : 'http://jrmk.net/im/ac6/5aa/1cc/d5b27597a0b15e6cf4e9fa8-2.jpg'},
+          {image : 'http://fakty.ictv.ua/images/gallery/2015/05/22/20150522142530.jpg'},
+          {image : 'http://turuturu.ru/files/ckeditor/cd/14/82/1801.jpg'},
+          {image : 'http://pilipenkotour.at.ua/Krim/pljazh.jpg'}
+        ]
         
         //Buttons click
         $scope.tvActiveClass = true;
@@ -212,7 +210,21 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
         $scope.isSortDown = function(fieldName) {
           return $scope.sortbyprice === fieldName && !$scope.reverse;
         };
-      }
+      })
+.controller('New', function($scope, $http) {
+  $http.get('/hotels.json').success(function(data, status, headers, config){
+    $scope.hotels = data;
+  })
+})
+.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'hotels/index.html',
+      controller: 'Main'
     }).state('hotel', {
       url: '/hotels/{id}',
       templateUrl: 'hotels/show.html',
@@ -220,13 +232,8 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     }).state('new', {
       url: '/new',
       templateUrl: 'hotels/new.html',
-      controller: function($scope, $http) {
-        $http.get('/hotels.json').success(function(data, status, headers, config){
-          $scope.hotels = data;
-        })
-      }
+      controller: 'New'
     })
   $urlRouterProvider.otherwise('/');
-
 }]);
 

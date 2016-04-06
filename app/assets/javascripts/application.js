@@ -14,12 +14,13 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-animate
-//= require angular-material
-//= require angular-aria
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require Swiper
 //= require myEffects
 //= require_tree .
 //= require_tree ./templates
 //= require bootstrap
+//= require angular-material
+//= require angular-aria
 
