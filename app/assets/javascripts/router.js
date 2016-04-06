@@ -16,6 +16,11 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
           });
         });
 
+        $scope.$on('$viewContentLoaded', 
+          function(event){
+            init();
+        });
+
         $scope.images = [
           {image : 'http://jrmk.net/im/ac6/5aa/1cc/d5b27597a0b15e6cf4e9fa8-2.jpg'},
           {image : 'http://fakty.ictv.ua/images/gallery/2015/05/22/20150522142530.jpg'},
