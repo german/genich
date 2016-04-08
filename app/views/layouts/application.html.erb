@@ -7,13 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <!-- header-mainpage -->
-  <% if controller_name == 'hotels' && action_name == 'index' %>
-    <%= render 'layouts/header' %>
-  <% else %>
-    <%= render 'layouts/headernew' %>
-  <% end %>
-
 	<div class="container-fluid main">
     <div ui-view></div>
 	</div>
