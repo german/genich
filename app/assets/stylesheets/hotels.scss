@@ -1,3 +1,49 @@
 // Place all the styles related to the hotels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media screen and (max-width: 640px) {
+	.headimg-hotelname h3 {
+		float:left !important;
+	}
+}
+
+.headimg {
+	height: 450px;
+	position: relative;
+	margin-left: -15px;
+	margin-right: -15px;
+	cursor: pointer;
+}
+
+.headimg-hotelname {
+	width: 100% !important;
+	background-color: rgba(60,63,64,0.9);
+	color: white;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.headimg-hotelname h2,h3 {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.headimg-hotelname h3 {
+	float: right;
+	padding-right: 20px;
+}
+
+.hotelsbutton {
+	background: white;
+	border-bottom:1px solid #dce0e0;
+	margin-left: -15px;
+	margin-right: -15px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.hotelsbutton span {
+	vertical-align: sub;
+	padding-left:10px;
+}

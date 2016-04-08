@@ -1,7 +1,41 @@
 <div ng-include="'shared/headernew.html'"></div>
 
+<div class="headimg" style="background: grey">
+  <div class="container headimg-hotelname">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <h2>{{hotel.name}}</h2>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <h3>{{hotel.city_name}}</h3>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="hotelsbutton">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Описание жилья</h4>
+        <p>{{hotel.description}}</p>
+      </div>
+      <div class="col-md-6">
+        <label class="tv tv_active" ng-if="hotel.has_tv"><img src="/assets/icon/technology.png"> <span>Телевизор</span> </label>
+        <label class="parking parking_active" ng-if="hotel.has_parking"><img src="/assets/icon/parking.png"> <span>Парковка</span> </label>
+        <label class="kitchen kitchen_active" ng-if="hotel.has_private_kitchen"><img src="/assets/icon/kitchen.png"> <span>Кухня</span> </label>
+        <label class="air air_active" ng-if="hotel.has_conditioning"><img src="/assets/icon/conditioning.png"> <span>Кондиционер</span> </label>
+        <label class="shower shower_active" ng-if="hotel.has_private_shower"><img src="/assets/icon/shower.png"> <span>Душ</span> </label>
+        <label class="wi-fi wi-fi_active" ng-if="hotel.has_wifi"><img src="/assets/icon/wi-fi.png"> <span>Wi-Fi</span> </label>
+        <label class="delivery delivery_active" ng-if="hotel.has_transfer"><img src="/assets/icon/delivery.png"> <span>Трансфер</span> </label>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
 <div class="page-header">
-  <h3>{{hotel.name}}</h3>
+  
 </div>
 
 <div class="row">
