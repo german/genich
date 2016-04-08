@@ -21,6 +21,14 @@
 @import "Swiper/dist/css/swiper.css";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+
+@media screen and (max-width: 640px) {
+	.slider {
+		display: none !important;
+	}
+}
+
+
 .red{
     color:red;
 }
@@ -218,7 +226,7 @@ md-checkbox {
 	overflow:hidden;
 }
 
-.premium h4 {
+.premium h4, .slider h4 {
 	color: #565a5c;
 	margin-bottom: 50px;
 }

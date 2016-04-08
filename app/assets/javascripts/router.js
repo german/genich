@@ -1,4 +1,4 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper'])
 .controller('Show', function($scope, $stateParams,$http) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
@@ -28,6 +28,14 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
           {image : 'http://pilipenkotour.at.ua/Krim/pljazh.jpg'}
         ]
         
+        $scope.swiper = {};
+        $scope.next = function() {
+            $scope.swiper.slideNext();
+        };
+        $scope.prev = function() {
+          $scope.swiper.slidePrev();
+        };
+
         //Buttons click
         $scope.tvActiveClass = true;
         $scope.parkingActiveClass = true;

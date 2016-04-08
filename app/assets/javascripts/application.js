@@ -17,6 +17,7 @@
 //= require angular-ui-router
 //= require angular-rails-templates
 //= require Swiper
+//= require angular-swiper
 //= require myEffects
 //= require_tree .
 //= require_tree ./templates
