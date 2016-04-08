@@ -93,15 +93,14 @@
   <div class="row">
     <div class="col-md-12" style="padding-left:0px; padding-right:0px;">
     <!-- Swiper -->
-      <ks-swiper-container swiper="swiper" initial-slide="1" loop="true" show-nav-buttons="true" slides-per-view="1" space-between="5" pagination-clickable="true">       
+      <ks-swiper-container swiper="swiper" initial-slide="1" loop="true" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">       
           <ks-swiper-slide class="swiper-slide" ng-repeat="image in images">
             <img ng-src="{{image.image}}" />
           </ks-swiper-slide>
         <!-- Add Arrows -->
-        <div class="swiper-button-next" ng-click="next()"></div>
-        <div class="swiper-button-prev" ng-click="next()"></div>
       </ks-swiper-container>
-      <a href="" ng-click="next()">Next Page</a>
+      <div class="swiper-button-next" ng-click="next()"></div>
+      <div class="swiper-button-prev" ng-click="next()"></div>
     </div>
   </div>
 </div>
