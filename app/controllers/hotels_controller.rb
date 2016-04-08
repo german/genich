@@ -23,6 +23,9 @@ class HotelsController < ApplicationController
 
 protected
 	def hotel_params
-		params.require(:hotel).permit(:name, :city_name, :has_parking, :total_rooms)
+		params.require(:hotel).permit(:name, :city_name, :has_parking, :total_rooms, :description, :email,
+      :phones, :total_luxes, :rules, :people_in_room, :price_min, :price_mean, :price_max, :longitude, 
+      :latitude, :dist_from_the_sea, :has_private_house, :has_private_kitchen, :has_private_shower, 
+      :has_fridge, :has_tv, :has_conditioning, :has_wifi, :has_transfer)
 	end
 end
