@@ -1,6 +1,6 @@
 <div ng-include="'shared/headernew.html'"></div>
 
-<div class="headimg" style="background: grey">
+<div class="headimg" style="background: url(https://a2.muscache.com/im/pictures/6922397/b731bec8_original.jpg?aki_policy=xx_large)">
   <div class="container headimg-hotelname">
     <div class="row">
       <div class="col-md-6 col-xs-12">
@@ -20,14 +20,29 @@
         <h4>Описание жилья</h4>
         <p>{{hotel.description}}</p>
       </div>
-      <div class="col-md-6">
-        <label class="tv tv_active" ng-if="hotel.has_tv"><img src="/assets/icon/technology.png"> <span>Телевизор</span> </label>
-        <label class="parking parking_active" ng-if="hotel.has_parking"><img src="/assets/icon/parking.png"> <span>Парковка</span> </label>
-        <label class="kitchen kitchen_active" ng-if="hotel.has_private_kitchen"><img src="/assets/icon/kitchen.png"> <span>Кухня</span> </label>
-        <label class="air air_active" ng-if="hotel.has_conditioning"><img src="/assets/icon/conditioning.png"> <span>Кондиционер</span> </label>
-        <label class="shower shower_active" ng-if="hotel.has_private_shower"><img src="/assets/icon/shower.png"> <span>Душ</span> </label>
-        <label class="wi-fi wi-fi_active" ng-if="hotel.has_wifi"><img src="/assets/icon/wi-fi.png"> <span>Wi-Fi</span> </label>
-        <label class="delivery delivery_active" ng-if="hotel.has_transfer"><img src="/assets/icon/delivery.png"> <span>Трансфер</span> </label>
+      <div class="col-md-6 text-center">
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_tv">
+          <label><img src="/assets/icon/technology.png"><br><p>Телевизор</p></label>
+        </div>
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_parking">
+          <label><img src="/assets/icon/parking.png"><br><p>Парковка</p> </label>
+        </div>
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_private_kitchen">
+          <label><img src="/assets/icon/kitchen.png"><br><p>Кухня</p></label>
+        </div>
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_conditioning">
+          <label><img src="/assets/icon/conditioning.png"><br><p>Кондиционер</p></label>
+        </div>
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_private_shower">
+          <label><img src="/assets/icon/shower.png"><br><p>Душ</p></label>
+        </div>
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_wifi">
+          <label><img src="/assets/icon/wi-fi.png"><br><p>Wi-Fi</p></label>
+        </div>
+        <div class="col-sm-3 col-xs-6" ng-if="hotel.has_transfer">
+          <label><img src="/assets/icon/delivery.png"><br><p>Трансфер</p></label>
+        </div>
+        
       </div>
       
     </div>

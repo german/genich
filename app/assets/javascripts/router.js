@@ -246,6 +246,14 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       url: '/new',
       templateUrl: 'hotels/new.html',
       controller: 'New'
+    }).state('premium', {
+      url: '/premium',
+      templateUrl: 'hotels/premium.html',
+      controller: 'Main'
+    }).state('allhotels', {
+      url: '/allhotels',
+      templateUrl: 'hotels/allhotels.html',
+      controller: 'Main'
     })
   $urlRouterProvider.otherwise('/');
 }]);

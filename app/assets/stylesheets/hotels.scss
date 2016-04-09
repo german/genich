@@ -9,7 +9,7 @@
 }
 
 .headimg {
-	height: 450px;
+	height: 550px;
 	position: relative;
 	margin-left: -15px;
 	margin-right: -15px;
@@ -48,7 +48,27 @@
 	padding-bottom: 50px;
 }
 
+.hotelsbutton img {
+  padding-bottom: 10px;
+}
+
 .hotelsbutton span {
 	vertical-align: sub;
 	padding-left:10px;
+}
+
+
+
+/**********************
+
+PREMIUM PAGE
+
+**********************/
+
+.premium-hotels {
+	margin-bottom: 30px;
+}
+
+.premium-hotels:nth-child(3n) {
+	width: 66.66666667% !important;
 }

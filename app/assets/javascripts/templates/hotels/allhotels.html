@@ -1,25 +1,4 @@
-<div ng-include="'shared/header.html'"></div>
-
-<div class="arrowsup">
-  <p>&#8679;</p>
-  <md-tooltip md-visible="tooltip">
-    <h5>Наверх!</h5>
-  </md-tooltip>
-</div>
-<div class="container premium">
-  <div class="row">
-    <h2 class="text-center">Рекомендуем обратить внимание:</h2>
-    <h4 class="text-center">Места, которым доверяют наши пользователи. Самые высокие оценки.</h4>
-    <div class="col-md-4" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:10 ">
-      <!-- Не работает |orderBy:random ПОЧЕМУ? -->
-      <a href="#/hotels/{{premium.id}}"><div class="premium-main" style="background: {{mycolor}}">
-        <h2>{{premium.name}}</h2>
-      </div></a>
-    </div>
-  </div>
-</div>
-
-<a href="#/premium"><button type="button" class="morepremium center-block">Больше рекомендаций</button></a>
+<div ng-include="'shared/headernew.html'"></div>
 
 <div class="container-fluid">
   <div class="mainblock">
@@ -75,7 +54,7 @@
       </div>
     </div>
     <div class="col-md-6 col-xs-12">
-      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | orderBy:sortbyprice:reverse | limitTo:10">
+      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | orderBy:sortbyprice:reverse">
         <div class="row">
           <div class="col-md-12">
             <p><span><h2><a href="#/hotels/{{hotel.id}}">{{hotel.name}}</a></h2></span></p>
@@ -93,30 +72,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<a href="#/allhotels"><button type="button" class="morehotels center-block">Весь список</button></a>
-
-<!-- SLIDER -->
-<div class="container-fluid slider">
-  <h2 class="text-center">Посетите золотые пляжи Арабатской стрелки</h2>
-  <h4 class="text-center">Проведите отдых на Арабатской стрелке вместе со своей семьей.</h4>
-  <div class="row">
-    <div class="col-md-12" style="padding-left:0px; padding-right:0px;">
-    <!-- Swiper -->
-      <ks-swiper-container swiper="swiper" initial-slide="1" loop="true" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">       
-          <ks-swiper-slide class="swiper-slide" ng-repeat="image in images">
-            <img ng-src="{{image.image}}" />
-          </ks-swiper-slide>
-        <!-- Add Arrows -->
-      </ks-swiper-container>
-      <div class="swiper-button-next" ng-click="next()"></div>
-      <div class="swiper-button-prev" ng-click="next()"></div>
-    </div>
-  </div>
-</div>
-
-<div class="add">
-  <h2 class="text-center">Добавляйте, рекомендуйте, оставляйте отзывы.</h2>
-  <h4 class="text-center">Вместе расскажем о самых лучших курортах Украины</h4>
 </div>
