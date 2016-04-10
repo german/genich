@@ -19,6 +19,7 @@
 //= require Swiper
 //= require angular-swiper
 //= require myEffects
+//= require ngstorage
 //= require_tree .
 //= require_tree ./templates
 //= require bootstrap

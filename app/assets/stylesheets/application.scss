@@ -300,6 +300,12 @@ md-checkbox {
 	border:1px solid #dce0e0
 }
 
+.close {
+	position: absolute;
+  right: 20px;
+  z-index: 1200;
+}
+
 .main a {
 	text-decoration: none !important;
 }

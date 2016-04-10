@@ -1,10 +1,10 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage'])
 .controller('Show', function($scope, $stateParams,$http) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
   })
 })
-.controller('Main', function($scope, $http) {
+.controller('Main', function($scope, $http, $localStorage, $sessionStorage) {
         $scope.hotels = [];
         $scope.ranked_hotels = [];
         $http.get('/hotels.json').success(function(data, status, headers, config){
@@ -35,7 +35,11 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
         $scope.prev = function() {
           $scope.swiper.slidePrev();
         };
-
+        
+        $scope.closeInfo = function(){
+          $scope.info = 'none';
+          $localStorage.info = $scope.info;
+        }
         //Buttons click
         $scope.tvActiveClass = true;
         $scope.parkingActiveClass = true;
