@@ -29,6 +29,10 @@
 	.navigation li {
 		width: 100% !important;
 	}
+	.info {
+		padding-left: 10px !important;
+		text-align: center !important;
+	}
 }
 
 
@@ -268,7 +272,7 @@ md-checkbox {
 	text-shadow: 1px 1px 4px black;
 }
 
-.morepremium, .morehotels {
+.morepremium, .morehotels, .info-addpans {
   margin: 50px auto;
   border-color: #c4c4c4;
   background: white;
@@ -279,6 +283,21 @@ md-checkbox {
   border: 1px solid;
   text-align: center;
   font-weight: 700;
+}
+
+.info-addpans {
+	padding: 8px 27px !important;
+	margin: 0px !important;
+}
+
+.info {
+	color: #565a5c;
+	background: #edefed;
+	padding: 10px;
+	margin-bottom: 50px;
+	margin-right: 10px;
+	padding-left: 45px;
+	border:1px solid #dce0e0
 }
 
 .main a {
