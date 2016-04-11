@@ -17,7 +17,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h4>Описание жилья</h4>
+        <h3>Описание жилья</h3>
         <p>{{hotel.description}}</p>
       </div>
       <div class="col-md-6 text-center">
@@ -42,53 +42,74 @@
         <div class="col-sm-3 col-xs-6" ng-if="hotel.has_transfer">
           <label><img src="/assets/icon/delivery.png"><br><p>Трансфер</p></label>
         </div>
-        
       </div>
-      
     </div>
   </div>
 </div>
 
-<div class="page-header">
-  
-</div>
-
-<div class="row">
-  <div class="col-md-4">Где находится</div>
-  <div class="col-md-4">{{hotel.city_name}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Описание</div>
-  <div class="col-md-4">{{hotel.description}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Email</div>
-  <div class="col-md-4">{{hotel.email}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Телефоны</div>
-  <div class="col-md-4">{{hotel.phones}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Всего комнат</div>
-  <div class="col-md-4">{{hotel.total_rooms}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Комнат класса люкс</div>
-  <div class="col-md-4">{{hotel.total_luxes}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Людей в комнате</div>
-  <div class="col-md-4">{{hotel.people_in_room}}</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">Расстояние до моря</div>
-  <div class="col-md-4">{{hotel.dist_from_the_sea}}</div>
+<div class="container" ng-controller="Main">
+  <div class="row">
+    <div class="infohotel col-md-7 col-xs-12">
+      <div class="row">
+        <div class="col-md-4"><h5><p>Правила</p></h5></div>
+        <div class="col-md-8">
+          <div class="col-md-12">
+            <h5>{{hotel.rules}}</h5>
+          </div>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-md-4"><h5><p>Комнаты</p></h5></div>
+        <div class="col-md-8">
+          <div class="col-md-6">
+            <h5>Всего комнат: {{hotel.total_rooms}}</h5>
+          </div>
+          <div class="col-md-6">
+            <h5>Комнат класса люкс: {{hotel.total_luxes}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><h5><p>Цены</p></h5></div>
+        <div class="col-md-8">
+          <div class="col-md-6">
+            <h5>Минимальная цена: {{hotel.price_min}}</h5>
+          </div>
+          <div class="col-md-6">
+            <h5>Максимальная цена: {{hotel.price_max}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><h5><p>Расстояние до моря</p></h5></div>
+        <div class="col-md-8">
+          <div class="col-md-12">
+            <h5>{{hotel.dist_from_the_sea}} метров</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><h5><p>Контакты</p></h5></div>
+        <div class="col-md-8">
+          <div class="col-md-6">
+            <h5>Телефон: {{hotel.phones}}</h5>
+          </div>
+          <div class="col-md-6">
+            <h5>Email: {{hotel.email}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="premiuminshow col-md-offset-1 col-md-4 col-xs-12">
+      <h3>Рекомендации:</h3>
+      <div class="col-md-12" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:3">
+        <a href="#/hotels/{{premium.id}}">
+          <div class="premium-main" style="background: {{mycolor}}">
+          <h2>{{premium.name}}</h2>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
