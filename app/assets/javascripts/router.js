@@ -40,6 +40,8 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
           $scope.swiper.slidePrev();
         };
         
+        $scope.$storage = $localStorage;
+
         //Buttons click
         $scope.tvActiveClass = true;
         $scope.parkingActiveClass = true;
