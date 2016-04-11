@@ -150,18 +150,18 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
           return hotels;
         }
 
-        //filters has_shower
-        $scope.includeshas_shower = function(has_shower){
-          var i = $.inArray(has_shower, $scope.has_showerIncludes);
+        //filters has_private_shower
+        $scope.includeshas_shower = function(has_private_shower){
+          var i = $.inArray(has_private_shower, $scope.has_showerIncludes);
           if (i > -1) {
             $scope.has_showerIncludes.splice(i, 1);
           } else {
-            $scope.has_showerIncludes.push(has_shower);
+            $scope.has_showerIncludes.push(has_private_shower);
           }
         }
         $scope.hasshowerFilter = function(hotels) {
           if ($scope.has_showerIncludes.length > 0) {
-            if ($.inArray(hotels.has_shower, $scope.has_showerIncludes) < 0)
+            if ($.inArray(hotels.has_private_shower, $scope.has_showerIncludes) < 0)
               return;
           } 
           return hotels;
