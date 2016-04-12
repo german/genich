@@ -255,7 +255,6 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     Hotel.save({ hotel: $scope.hotel }, function(resp) {
       console.log(resp);
       $state.go('hotel', {id: resp.id})
-      
       // Optional function. Clear html form, redirect or whatever.
     });
   };

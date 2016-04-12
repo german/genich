@@ -22,6 +22,7 @@
 //= require myEffects
 //= require ngstorage
 //= require_tree .
+//= require_tree ./services
 //= require_tree ./templates
 //= require bootstrap
 //= require angular-material
