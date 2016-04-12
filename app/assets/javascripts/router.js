@@ -24,6 +24,10 @@ app.controller('Show', function($scope, $stateParams,$http) {
         });
 
         $scope.images = [
+          {image : '/assets/slider/slider-01.jpg'},
+          {image : '/assets/slider/slider-02.jpg'},
+          {image : '/assets/slider/slider-03.jpg'},
+          {image : '/assets/slider/slider-04.jpg'},
           {image : 'http://jrmk.net/im/ac6/5aa/1cc/d5b27597a0b15e6cf4e9fa8-2.jpg'},
           {image : 'http://fakty.ictv.ua/images/gallery/2015/05/22/20150522142530.jpg'},
           {image : 'http://turuturu.ru/files/ckeditor/cd/14/82/1801.jpg'},
@@ -38,10 +42,8 @@ app.controller('Show', function($scope, $stateParams,$http) {
           $scope.swiper.slidePrev();
         };
         
-        $scope.closeInfo = function(){
-          $scope.info = 'none';
-          $localStorage.info = $scope.info;
-        }
+        $scope.$storage = $localStorage;
+
         //Buttons click
         $scope.tvActiveClass = true;
         $scope.parkingActiveClass = true;
@@ -150,18 +152,18 @@ app.controller('Show', function($scope, $stateParams,$http) {
           return hotels;
         }
 
-        //filters has_shower
-        $scope.includeshas_shower = function(has_shower){
-          var i = $.inArray(has_shower, $scope.has_showerIncludes);
+        //filters has_private_shower
+        $scope.includeshas_shower = function(has_private_shower){
+          var i = $.inArray(has_private_shower, $scope.has_showerIncludes);
           if (i > -1) {
             $scope.has_showerIncludes.splice(i, 1);
           } else {
-            $scope.has_showerIncludes.push(has_shower);
+            $scope.has_showerIncludes.push(has_private_shower);
           }
         }
         $scope.hasshowerFilter = function(hotels) {
           if ($scope.has_showerIncludes.length > 0) {
-            if ($.inArray(hotels.has_shower, $scope.has_showerIncludes) < 0)
+            if ($.inArray(hotels.has_private_shower, $scope.has_showerIncludes) < 0)
               return;
           } 
           return hotels;

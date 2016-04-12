@@ -48,6 +48,10 @@
 	padding-bottom: 50px;
 }
 
+.hotelsbutton h3 {
+	padding: 0px;
+}
+
 .hotelsbutton img {
   padding-bottom: 10px;
 }
@@ -57,7 +61,32 @@
 	padding-left:10px;
 }
 
+.premiuminshow .premium-main {
+	margin-bottom: 10px;
+}
 
+.infohotel {
+	margin-top: 10px;
+}
+
+.infohotel .row {
+	border-bottom: 1px solid #dce0e0;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.infohotel .row:last-child {
+	border-bottom: none;
+}
+
+.infohotel h5 p {
+	color:#82888a;
+	margin-left: -15px;
+}
+
+.infohotel h4 {
+	margin-left: -15px;
+}
 
 /**********************
 
@@ -71,4 +100,19 @@ PREMIUM PAGE
 
 .premium-hotels:nth-child(3n) {
 	width: 66.66666667% !important;
+}
+
+
+/*********************
+
+NEW PAGE
+
+*********************/
+
+.newhotel {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-left: -15px !important;
+	margin-right: -15px !important;
+	background: white;
 }
