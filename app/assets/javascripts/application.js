@@ -15,6 +15,7 @@
 //= require angular/angular
 //= require angular-animate
 //= require angular-ui-router
+//= require angular-resource
 //= require angular-rails-templates
 //= require Swiper
 //= require angular-swiper

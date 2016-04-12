@@ -1,4 +1,5 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 
+  'ksSwiper', 'ngStorage', 'ngResource'])
 .controller('Show', function($scope, $stateParams,$http) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
@@ -230,10 +231,34 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
           return $scope.sortbyprice === fieldName && !$scope.reverse;
         };
       })
-.controller('New', function($scope, $http) {
+.factory('Hotel', function($resource) {
+  return $resource('http://localhost:3000/hotels/:id', { id: '@id'},
+  {
+   'update': { method: 'PUT'},
+   'save': { 
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+  });
+})
+.controller('New', function($scope, $http, $state, Hotel) {
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
-  })
+  });
+  
+  //$scope.newHotel  = new Hotel();
+
+  $scope.save = function() {
+    Hotel.save({ hotel: $scope.hotel }, function(resp) {
+      console.log(resp);
+      $state.go('hotel', {id: resp.id})
+      
+      // Optional function. Clear html form, redirect or whatever.
+    });
+  };
 })
 .config([
   '$stateProvider',

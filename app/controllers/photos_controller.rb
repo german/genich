@@ -12,8 +12,8 @@ class PhotosController < ApplicationController
 
     create! do |success, failure|
       success.html { redirect_to hotel_album_url(@hotel, @album) }
-      success.js { render json: @hotel }
-      failure.js { render json: @hotel.errors, status: 422 }
+      success.js { render json: @album }
+      failure.js { render json: @album.errors, status: 422 }
       failure.html { 
         Rails.logger.warn 'Error while creating photo: ' + @photo.errors.inspect
         redirect_to hotel_album_url(@hotel, @album) 

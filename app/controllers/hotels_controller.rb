@@ -21,6 +21,13 @@ class HotelsController < ApplicationController
     end
   end
 
+  def create
+    create! do |success, failure|
+      success.json { render json: @hotel }
+      failure.json { render json: @hotel.errors, status: 422 }
+    end
+  end
+
 protected
 	def hotel_params
 		params.require(:hotel).permit(:name, :city_name, :has_parking, :total_rooms, :description, :email,
