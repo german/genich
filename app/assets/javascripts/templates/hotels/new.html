@@ -12,9 +12,9 @@
 
         <input name="utf8" type="hidden" value="&#x2713;" />
 
-        <div class="form-group string optional hotel_name">
-          <label class="string optional control-label" for="hotel_name">Название</label>
-          <input class="string optional form-control" type="text" ng-model="hotel.name" id="hotel_name" />
+        <div class="form-group string hotel_name">
+          <label class="string control-label" for="hotel_name">Название</label>
+          <input class="string form-control" type="text" ng-model="hotel.name" id="hotel_name" />
         </div>
 
         <div class="form-group text optional hotel_description">
@@ -32,9 +32,9 @@
           <input class="string tel optional form-control" type="tel" ng-model="hotel.phones" id="hotel_phones" />
         </div>
 
-        <div class="form-group select optional hotel_city_name">
-          <label class="select optional control-label" for="hotel_city_name">Где расположено</label>
-          <select class="select optional form-control" ng-model="hotel.city_name" id="hotel_city_name">
+        <div class="form-group select hotel_city_name">
+          <label class="select control-label" for="hotel_city_name">Где расположено</label>
+          <select class="select form-control" ng-model="hotel.city_name" id="hotel_city_name">
             <option value=""></option>
             <option value="Геническ">Геническ</option>
             <option value="Генгорка">Генгорка</option>
@@ -90,8 +90,8 @@
         </div>
 
         <div class="form-group integer optional hotel_dist_from_the_sea">
-          <label class="integer optional control-label" for="hotel_dist_from_the_sea">Расстояние до моря</label>
-          <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.dist_from_the_sea" id="hotel_dist_from_the_sea" />
+          <label class="integer optional control-label" for="hotel_dist_from_the_sea">Расстояние до моря в метрах: <span id="rangeValue"></span></label>
+          <input class="numeric integer optional" onchange="$('#rangeValue').html(this.value)" type="range" step="10" min="10" max="1000" value="500" ng-model="hotel.dist_from_the_sea" id="hotel_dist_from_the_sea" />
         </div>
 
         <div class="form-group boolean optional hotel_has_private_house">
