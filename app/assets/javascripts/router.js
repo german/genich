@@ -1,5 +1,7 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage'])
-.controller('Show', function($scope, $stateParams,$http) {
+app = angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 
+  'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource']);
+
+app.controller('Show', function($scope, $stateParams,$http) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
   })
@@ -228,10 +230,19 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
           return $scope.sortbyprice === fieldName && !$scope.reverse;
         };
       })
-.controller('New', function($scope, $http) {
+.controller('New', function($scope, $http, Hotel) {
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
-  })
+  });
+  
+  //$scope.newHotel  = new Hotel();
+
+  $scope.save = function() {
+    Hotel.save({ hotel: $scope.hotel }, function(resp) {
+      console.log(resp);
+      // Optional function. Clear html form, redirect or whatever.
+    });
+  };
 })
 .config([
   '$stateProvider',

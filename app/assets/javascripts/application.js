@@ -15,12 +15,14 @@
 //= require angular/angular
 //= require angular-animate
 //= require angular-ui-router
+//= require angular-resource
 //= require angular-rails-templates
 //= require Swiper
 //= require angular-swiper
 //= require myEffects
 //= require ngstorage
 //= require_tree .
+//= require_tree ./services
 //= require_tree ./templates
 //= require bootstrap
 //= require angular-material

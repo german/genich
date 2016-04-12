@@ -4,6 +4,10 @@
     "angular": "latest",
     "angular-animate": "latest",
     "angular-ui-router": "latest",
+    "angular-resource": "latest",
     "bootstrap-sass-official": "latest"
+  },
+  "resolutions": {
+    "angular": "1.5.3"
   }
 }
