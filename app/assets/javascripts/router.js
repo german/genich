@@ -37,9 +37,11 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
 .controller('Show', function($scope, $stateParams,$http, $state, Album) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
+    console.log($scope.hotel)
   });
 
   $scope.newAlbum  = new Album({hotel_id: $stateParams.id});
+
 
   $scope.save = function() {
     Album.save({ hotel_id: $stateParams.id, album: $scope.newAlbum }, function(response) {
@@ -325,7 +327,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       templateUrl: 'hotels/allhotels.html',
       controller: 'Main'
     }).state('album', {
-      url: '/hotels/:hotel_id/albums/:id',
+      url: '/albums/{id}',
       templateUrl: 'hotels/album.html',
       controller: 'Show'
     })
