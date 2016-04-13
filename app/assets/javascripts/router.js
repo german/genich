@@ -1,5 +1,4 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 
-  'ksSwiper', 'ngStorage', 'ngResource'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource'])
 .factory('Album', function($resource) {
   return $resource('http://localhost:3000/hotels/:hotel_id/albums/:id', 
     { 
@@ -13,6 +12,24 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
+      }
+    }
+  });
+})
+.factory('Photo', function($resource) {
+  return $resource ('http://localhost:3000/hotels/:hotel_id/albums/:id/photo/:id',
+    {
+      hotel_id: '@hotel_id',
+      photo_id: '@photo_id',
+      id: '@id' 
+    },
+    {
+      'update': { method: 'PUT'},
+      'save': { 
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
       }
     }
   });
@@ -307,6 +324,10 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       url: '/allhotels',
       templateUrl: 'hotels/allhotels.html',
       controller: 'Main'
+    }).state('album', {
+      url: '/hotels/:hotel_id/albums/:id',
+      templateUrl: 'hotels/album.html',
+      controller: 'Show'
     })
   $urlRouterProvider.otherwise('/');
 }]);
