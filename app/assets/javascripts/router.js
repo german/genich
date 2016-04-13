@@ -1,9 +1,36 @@
 angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 
   'ksSwiper', 'ngStorage', 'ngResource'])
-.controller('Show', function($scope, $stateParams,$http) {
+.factory('Album', function($resource) {
+  return $resource('http://localhost:3000/hotels/:hotel_id/albums/:id', 
+    { 
+      hotel_id: '@hotel_id',
+      id: '@id'
+    },
+  {
+   'update': { method: 'PUT'},
+   'save': { 
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+  });
+})
+.controller('Show', function($scope, $stateParams,$http, $state, Album) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
-  })
+  });
+
+  $scope.newAlbum  = new Album({hotel_id: $stateParams.id});
+
+  $scope.save = function() {
+    Album.save({ hotel_id: $stateParams.id, album: $scope.newAlbum }, function(response) {
+      console.log(response);
+      $state.go('hotel', {id: $stateParams.id})
+      // Optional function. Clear html form, redirect or whatever.
+    });
+  };
 })
 .controller('Main', function($scope, $http, $localStorage, $sessionStorage) {
         $scope.hotels = [];
@@ -245,16 +272,12 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
   });
 })
 .controller('New', function($scope, $http, $state, Hotel) {
-  $http.get('/hotels.json').success(function(data, status, headers, config){
-    $scope.hotels = data;
-  });
-  
   //$scope.newHotel  = new Hotel();
 
   $scope.save = function() {
-    Hotel.save({ hotel: $scope.hotel }, function(resp) {
-      console.log(resp);
-      $state.go('hotel', {id: resp.id})
+    Hotel.save({ hotel: $scope.hotel }, function(response) {
+      console.log(response);
+      $state.go('hotel', {id: response.id})
       // Optional function. Clear html form, redirect or whatever.
     });
   };

@@ -11,6 +11,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     #@album.user = current_user
     create! do |format|
+      format.json { render json: resource }
       format.html { redirect_to hotel_album_url(resource.hotel, resource), notice: "Фотоальбом #{resource.name} було успішно створено!" }
     end
   end

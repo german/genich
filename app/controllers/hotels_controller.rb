@@ -16,7 +16,7 @@ class HotelsController < ApplicationController
     show! do |format|
       format.html { render }
       format.json do
-        render json: resource
+        render json: resource.as_json(include: :albums)
       end
     end
   end
