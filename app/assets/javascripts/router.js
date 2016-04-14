@@ -1,4 +1,4 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource', 'angularFileUpload'])
 .factory('Album', function($resource) {
   return $resource('http://localhost:3000/hotels/:hotel_id/albums/:id', 
     { 
@@ -299,11 +299,11 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     });
   };
 })
-.controller('AlbumShow', function($scope, $stateParams,$http, $state, Album, Photo) {
+.controller('AlbumShow', function($scope, $stateParams,$http, $state, Album, Photo, FileUploader) {
   $http.get('/albums/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.album = data;
   });
-
+  $scope.uploader = new FileUploader({url: 'http://localhost:3000/albums/:album_id/photos/:id'});
   $scope.newPhoto  = new Photo({album_id: $stateParams.id});
 
   $scope.save = function() {
@@ -313,6 +313,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       // Optional function. Clear html form, redirect or whatever.
     });
   };
+  $scope.uploader = new FileUploader();  
 })
 .config([
   '$stateProvider',

@@ -17,6 +17,7 @@
 //= require angular-ui-router
 //= require angular-resource
 //= require angular-rails-templates
+//= require angular-file-upload
 //= require Swiper
 //= require angular-swiper
 //= require myEffects
