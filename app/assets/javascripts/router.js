@@ -37,7 +37,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
 .controller('Show', function($scope, $stateParams,$http, $state, Album) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
-    console.log($scope.hotel)
+    console.log(data);
   });
 
   $scope.newAlbum  = new Album({hotel_id: $stateParams.id});
@@ -301,6 +301,11 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     });
   };
 })
+.controller('AlbumShow', function($scope, $stateParams,$http, $state, Album) {
+  $http.get('/album/'+$stateParams.id+'.json').success(function(data, status, headers, config){
+    $scope.album = data;
+  });
+})
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -326,10 +331,10 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       url: '/allhotels',
       templateUrl: 'hotels/allhotels.html',
       controller: 'Main'
-    }).state('album', {
+    }).state('albums', {
       url: '/albums/{id}',
-      templateUrl: 'hotels/album.html',
-      controller: 'Show'
+      templateUrl: 'albums/album.html',
+      controller: 'AlbumShow'
     })
   $urlRouterProvider.otherwise('/');
 }]);
