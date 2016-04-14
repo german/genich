@@ -37,7 +37,6 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
 .controller('Show', function($scope, $stateParams,$http, $state, Album) {
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
-    console.log(data);
   });
 
   $scope.newAlbum  = new Album({hotel_id: $stateParams.id});

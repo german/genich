@@ -1,1 +1,25 @@
-<h3>Album {{album.name}}</h3>
+<div ng-include="'shared/headernew.html'"></div>
+
+
+<div class="container">
+	<h2>Альбом {{album.name}}</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-4" ng-repeat="photo in photos">
+				<img ng-src="{{photo.photo}}" alt="">
+			</div>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 add-photo">
+			<h3>Добавить фотографию</h3>
+			<div class="row">
+				<div class="col-md-6">
+					<input type="file" ng-model="picFile" name="file" required="">
+					<br>
+					<button class="btn btn-primary btn-large" ng-click="">Загрузить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
