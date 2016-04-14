@@ -17,10 +17,9 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
   });
 })
 .factory('Photo', function($resource) {
-  return $resource ('http://localhost:3000/hotels/:hotel_id/albums/:id/photo/:id',
+  return $resource ('http://localhost:3000/albums/:album_id/photos/:id',
     {
-      hotel_id: '@hotel_id',
-      photo_id: '@photo_id',
+      album_id: '@album_id',
       id: '@id' 
     },
     {
@@ -300,10 +299,20 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     });
   };
 })
-.controller('AlbumShow', function($scope, $stateParams,$http, $state, Album) {
+.controller('AlbumShow', function($scope, $stateParams,$http, $state, Album, Photo) {
   $http.get('/albums/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.album = data;
   });
+
+  $scope.newPhoto  = new Photo({album_id: $stateParams.id});
+
+  $scope.save = function() {
+    Photo.save({ album: $scope.album }, function(response) {
+      console.log(response);
+      $state.go('albums', {id: response.id})
+      // Optional function. Clear html form, redirect or whatever.
+    });
+  };
 })
 .config([
   '$stateProvider',

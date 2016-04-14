@@ -15,9 +15,11 @@
 			<h3>Добавить фотографию</h3>
 			<div class="row">
 				<div class="col-md-6">
-					<input type="file" ng-model="picFile" name="file" required="">
-					<br>
-					<button class="btn btn-primary btn-large" ng-click="">Загрузить</button>
+					<form id="add_photo" ng-submit="save()">
+						<input type="file" ng-model="newPhoto.photo" name="file" required="">
+						<br>
+						<button class="btn btn-primary btn-large" >Загрузить</button>
+					</form>
 				</div>
 			</div>
 		</div>
