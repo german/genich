@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   inherit_resources
   skip_before_filter :authenticate_user!, only: [:index, :show]
+  respond_to :html, :json
 
   def index
     @album = Album.new

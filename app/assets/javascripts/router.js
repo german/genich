@@ -302,7 +302,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
   };
 })
 .controller('AlbumShow', function($scope, $stateParams,$http, $state, Album) {
-  $http.get('/album/'+$stateParams.id+'.json').success(function(data, status, headers, config){
+  $http.get('/albums/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.album = data;
   });
 })
@@ -333,7 +333,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       controller: 'Main'
     }).state('albums', {
       url: '/albums/{id}',
-      templateUrl: 'albums/album.html',
+      templateUrl: 'albums/show.html',
       controller: 'AlbumShow'
     })
   $urlRouterProvider.otherwise('/');
