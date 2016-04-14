@@ -307,7 +307,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
   $scope.newPhoto  = new Photo({album_id: $stateParams.id});
 
   $scope.save = function() {
-    Photo.save({ album: $scope.album }, function(response) {
+    Photo.save({ album_id: $stateParams.id }, function(response) {
       console.log(response);
       $state.go('albums', {id: response.id})
       // Optional function. Clear html form, redirect or whatever.

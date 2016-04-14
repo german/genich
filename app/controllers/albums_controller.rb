@@ -22,7 +22,12 @@ class AlbumsController < ApplicationController
     album = Album.find(params[:id])
     @photo = Photo.new album: album
     @photos = album.photos.where('id IS NOT NULL')
-    show!
+    show! do |format|
+      format.html { render }
+      format.json do
+        render json: resource.as_json(include: :photos)
+      end
+    end
   rescue ActiveRecord::RecordNotFound => e
     not_found
   end
