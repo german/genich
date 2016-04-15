@@ -303,17 +303,15 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
   $http.get('/albums/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.album = data;
   });
-  $scope.uploader = new FileUploader({url: 'http://localhost:3000/albums/:album_id/photos/:id'});
-  $scope.newPhoto  = new Photo({album_id: $stateParams.id});
+  
+  var uploader = $scope.uploader = new FileUploader({
+    url: 'http://localhost:3000/albums/'+$stateParams.id+'/photos'
+  });
 
-  $scope.save = function() {
-    Photo.save({ album_id: $stateParams.id }, function(response) {
-      console.log(response);
-      $state.go('albums', {id: response.id})
-      // Optional function. Clear html form, redirect or whatever.
-    });
+  uploader.onCompleteAll = function() {
+    console.info('onCompleteAll');
+    window.location.reload(); // reload the page
   };
-  $scope.uploader = new FileUploader();  
 })
 .config([
   '$stateProvider',

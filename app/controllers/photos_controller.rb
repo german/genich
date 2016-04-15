@@ -4,20 +4,20 @@ class PhotosController < ApplicationController
   respond_to :html, :json
 
   def create
-    @photo = Photo.new(photo_params)
+    @photo = Photo.new(photo: params[:file])
 
-    @album = Album.find(params[:photo][:album_id])
+    @album = Album.find(params[:album_id])
     @hotel = @album.hotel
     #@image.user = current_user
     @photo.album_id = @album.id if @album
 
     create! do |success, failure|
-      success.html { redirect_to hotel_album_url(@hotel, @album) }
+      success.html { render text: 'OK' }
       success.js { render json: @photo }
       failure.js { render json: @photo.errors, status: 422 }
       failure.html { 
         Rails.logger.warn 'Error while creating photo: ' + @photo.errors.inspect
-        redirect_to hotel_album_url(@hotel, @album) 
+        render text: 'Error while creating photo: '+@photo.errors.inspect
       }
     end
   end
