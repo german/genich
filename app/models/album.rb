@@ -3,4 +3,10 @@ class Album < ActiveRecord::Base
   has_many :photos
 
   validates :name, presence: true
+
+  def cover
+    if self.photos.any?
+      self.photos.first.photo
+    end
+  end
 end

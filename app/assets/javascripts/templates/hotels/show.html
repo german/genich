@@ -106,6 +106,7 @@
             <h4>Фотоальбомы</h4>
             <div class="row">
               <div ng-repeat="album in hotel.albums">
+                <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/>
                 <a href="#/albums/{{album.id}}">{{album.name}}</a>
               </div>
             </div>
