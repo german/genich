@@ -19,6 +19,8 @@
 @import "angular-material/angular-material.css";
 @import "Swiper/dist/css/swiper.min.css";
 @import "Swiper/dist/css/swiper.css";
+@import "ngGallery/src/css/ngGallery.css";
+@import "ngGallery/src/css/screen.css";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 
@@ -283,6 +285,18 @@ md-checkbox {
   border: 1px solid;
   text-align: center;
   font-weight: 700;
+}
+
+.premium-main h2 {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.test {
+	background: red !important;
+}
+
+.test2 {
+	background: green !important;
 }
 
 .info-addpans {

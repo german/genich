@@ -5,7 +5,7 @@ class HotelsController < ApplicationController
     index! do |format|
       format.html { render }
       format.json do
-        render json: collection
+        render json: collection.as_json(include: {albums: {methods: :cover, include: :photos}})
       end
     end
   end
@@ -16,7 +16,7 @@ class HotelsController < ApplicationController
     show! do |format|
       format.html { render }
       format.json do
-        render json: resource.as_json(include: {albums: {methods: :cover}})
+        render json: resource.as_json(include: {albums: {methods: :cover, include: :photos}})
       end
     end
   end

@@ -1,4 +1,4 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource', 'angularFileUpload'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource', 'angularFileUpload', 'jkuri.gallery'])
 .factory('Album', function($resource) {
   return $resource('http://localhost:3000/hotels/:hotel_id/albums/:id', 
     { 
@@ -34,12 +34,21 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
   });
 })
 .controller('Show', function($scope, $stateParams,$http, $state, Album) {
+  
+  var self = this;
+  self.images = [];
+
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
+    console.log($scope.hotel.albums[0]);
+    for (var i = 0; i < $scope.hotel.albums[0].photos.length; i++) {
+      var photo = $scope.hotel.albums[0].photos[i]
+      console.log(photo.photo.thumb.url);
+      self.images.push({thumb: photo.photo.thumb.url, img: photo.photo.url, desciption: photo.photo.name})
+    };
   });
 
   $scope.newAlbum  = new Album({hotel_id: $stateParams.id});
-
 
   $scope.save = function() {
     Album.save({ hotel_id: $stateParams.id, album: $scope.newAlbum }, function(response) {

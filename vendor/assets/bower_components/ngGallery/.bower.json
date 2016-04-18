@@ -1,0 +1,41 @@
+{
+  "name": "ngGallery",
+  "homepage": "https://github.com/jkuri/ngGallery",
+  "authors": [
+    "Jan Kuri <jkuri88@gmail.com>"
+  ],
+  "description": "AngularJS Photo Gallery Directive",
+  "main": [
+    "src/js/ngGallery.js",
+    "src/css/ngGallery.css"
+  ],
+  "keywords": [
+    "AngularJS",
+    "Photo",
+    "Image",
+    "Gallery",
+    "Directive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "index.html",
+    "images"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0"
+  },
+  "_release": "2c98c12982",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2c98c1298235fdceea8f7b03fda23e9f441ac5d8"
+  },
+  "_source": "https://github.com/jkuri/ngGallery.git",
+  "_target": "*",
+  "_originalSource": "ngGallery"
+}

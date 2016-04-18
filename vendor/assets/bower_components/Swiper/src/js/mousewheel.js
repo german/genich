@@ -6,19 +6,14 @@ s.mousewheel = {
     lastScrollTime: (new window.Date()).getTime()
 };
 if (s.params.mousewheelControl) {
-    try {
-        new window.WheelEvent('wheel');
-        s.mousewheel.event = 'wheel';
-    } catch (e) {
-        if (window.WheelEvent || (s.container[0] && 'wheel' in s.container[0])) {
-            s.mousewheel.event = 'wheel';
-        }
-    }
-    if (!s.mousewheel.event && window.WheelEvent) {
-
-    }
-    if (!s.mousewheel.event && document.onmousewheel !== undefined) {
+    if (document.onmousewheel !== undefined) {
         s.mousewheel.event = 'mousewheel';
+    }
+    if (!s.mousewheel.event) {
+        try {
+            new window.WheelEvent('wheel');
+            s.mousewheel.event = 'wheel';
+        } catch (e) {}
     }
     if (!s.mousewheel.event) {
         s.mousewheel.event = 'DOMMouseScroll';
@@ -28,13 +23,13 @@ function handleMousewheel(e) {
     if (e.originalEvent) e = e.originalEvent; //jquery fix
     var we = s.mousewheel.event;
     var delta = 0;
-    var rtlFactor = s.rtl ? -1 : 1;
-
+    //Opera & IE
+    if (e.detail) delta = -e.detail;
     //WebKits
-    if (we === 'mousewheel') {
+    else if (we === 'mousewheel') {
         if (s.params.mousewheelForceToAxis) {
-            if (s.isHorizontal()) {
-                if (Math.abs(e.wheelDeltaX) > Math.abs(e.wheelDeltaY)) delta = e.wheelDeltaX * rtlFactor;
+            if (isH()) {
+                if (Math.abs(e.wheelDeltaX) > Math.abs(e.wheelDeltaY)) delta = e.wheelDeltaX;
                 else return;
             }
             else {
@@ -43,7 +38,7 @@ function handleMousewheel(e) {
             }
         }
         else {
-            delta = Math.abs(e.wheelDeltaX) > Math.abs(e.wheelDeltaY) ? - e.wheelDeltaX * rtlFactor : - e.wheelDeltaY;
+            delta = e.wheelDelta;
         }
     }
     //Old FireFox
@@ -51,8 +46,8 @@ function handleMousewheel(e) {
     //New FireFox
     else if (we === 'wheel') {
         if (s.params.mousewheelForceToAxis) {
-            if (s.isHorizontal()) {
-                if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) delta = -e.deltaX * rtlFactor;
+            if (isH()) {
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) delta = -e.deltaX;
                 else return;
             }
             else {
@@ -61,21 +56,20 @@ function handleMousewheel(e) {
             }
         }
         else {
-            delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? - e.deltaX * rtlFactor : - e.deltaY;
+            delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? - e.deltaX : - e.deltaY;
         }
     }
-    if (delta === 0) return;
 
     if (s.params.mousewheelInvert) delta = -delta;
 
     if (!s.params.freeMode) {
         if ((new window.Date()).getTime() - s.mousewheel.lastScrollTime > 60) {
             if (delta < 0) {
-                if ((!s.isEnd || s.params.loop) && !s.animating) s.slideNext();
+                if (!s.isEnd) s.slideNext();
                 else if (s.params.mousewheelReleaseOnEdges) return true;
             }
             else {
-                if ((!s.isBeginning || s.params.loop) && !s.animating) s.slidePrev();
+                if (!s.isBeginning) s.slidePrev();
                 else if (s.params.mousewheelReleaseOnEdges) return true;
             }
         }
@@ -84,32 +78,22 @@ function handleMousewheel(e) {
     }
     else {
         //Freemode or scrollContainer:
-        var position = s.getWrapperTranslate() + delta * s.params.mousewheelSensitivity;
-        var wasBeginning = s.isBeginning,
-            wasEnd = s.isEnd;
 
-        if (position >= s.minTranslate()) position = s.minTranslate();
-        if (position <= s.maxTranslate()) position = s.maxTranslate();
+        var position = s.getWrapperTranslate() + delta;
+
+        if (position > 0) position = 0;
+        if (position < s.maxTranslate()) position = s.maxTranslate();
 
         s.setWrapperTransition(0);
         s.setWrapperTranslate(position);
         s.updateProgress();
         s.updateActiveIndex();
 
-        if (!wasBeginning && s.isBeginning || !wasEnd && s.isEnd) {
-            s.updateClasses();
-        }
-
         if (s.params.freeModeSticky) {
             clearTimeout(s.mousewheel.timeout);
             s.mousewheel.timeout = setTimeout(function () {
                 s.slideReset();
             }, 300);
-        }
-        else {
-            if (s.params.lazyLoading && s.lazy) {
-                s.lazy.load();
-            }
         }
 
         // Return page scroll on edge positions

@@ -1,10 +1,11 @@
 <div ng-include="'shared/headernew.html'"></div>
 
-<div class="headimg" style="background: url(https://a2.muscache.com/im/pictures/6922397/b731bec8_original.jpg?aki_policy=xx_large)">
+<div class="headimg" ng-style="hotel.albums.length > 0 ? {'background':'url({{hotel.albums[0].photos[0].photo.medium.url}}'} : {'background':'url(http://executiveofficeleasing.com/images/PhotoNotAvailable.jpg)'}">
   <div class="container headimg-hotelname">
     <div class="row">
       <div class="col-md-6 col-xs-12">
         <h2>{{hotel.name}}</h2>
+        
       </div>
       <div class="col-md-6 col-xs-12">
         <h3>{{hotel.city_name}}</h3>
@@ -107,6 +108,7 @@
             <div class="row">
               <div ng-repeat="album in hotel.albums">
                 <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/>
+                <ng-gallery images="images" thumbs-num="5"></ng-gallery>
                 <a href="#/albums/{{album.id}}">{{album.name}}</a>
               </div>
             </div>

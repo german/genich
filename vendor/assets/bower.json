@@ -5,7 +5,8 @@
     "angular-animate": "latest",
     "angular-ui-router": "latest",
     "angular-resource": "latest",
-    "bootstrap-sass-official": "latest"
+    "bootstrap-sass-official": "latest",
+    "ngGallery": "latest"
   },
   "resolutions": {
     "angular": "1.5.2"

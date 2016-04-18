@@ -17,6 +17,7 @@
 //= require angular-ui-router
 //= require angular-resource
 //= require angular-rails-templates
+//= require ngGallery
 //= require angular-file-upload
 //= require Swiper
 //= require angular-swiper
@@ -27,4 +28,5 @@
 //= require bootstrap
 //= require angular-material
 //= require angular-aria
+
 
