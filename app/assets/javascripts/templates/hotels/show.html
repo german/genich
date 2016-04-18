@@ -1,6 +1,6 @@
 <div ng-include="'shared/headernew.html'"></div>
 
-<div class="headimg" ng-style="hotel.albums.length > 0 ? {'background':'url({{hotel.albums[0].photos[0].photo.medium.url}}'} : {'background':'url(http://executiveofficeleasing.com/images/PhotoNotAvailable.jpg)'}">
+<div class="headimg" ng-style="hotel.albums.length > 0 ? {'background':'url('+hotel.albums[0].photos[0].photo.url+')'} : {'background':'url(http://executiveofficeleasing.com/images/PhotoNotAvailable.jpg)'}">
   <div class="container headimg-hotelname">
     <div class="row">
       <div class="col-md-6 col-xs-12">
@@ -135,7 +135,7 @@
       <h3>Рекомендации:</h3>
       <div class="col-md-12" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:3">
         <a href="#/hotels/{{premium.id}}">
-          <div class="premium-main" style="background: {{mycolor}}">
+          <div class="premium-main" ng-style="premium.albums.length > 0 ? {'background': 'url({{premium.albums[0].photos[0].photo.mysize.url}}', 'background-size':'cover'} : {'background':'url(http://www.stat.colostate.edu/statpeople/images/photos/photo_not_available.png)', 'background-size':'cover'}">
           <h2>{{premium.name}}</h2>
           </div>
         </a>
