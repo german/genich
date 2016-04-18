@@ -85,10 +85,12 @@ header {
 }
 
 .headernew {
-	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+	-webkit-box-shadow: 0 1px 8px rgba(0,0,0,.3);
+  box-shadow: 0 1px 8px rgba(0,0,0,.3);
 	background-color: #039BE5;
 	margin-left: -15px;
 	margin-right: -15px;
+	z-index:1;
 }
 
 .togglemenu {
@@ -234,6 +236,7 @@ li {
 .navigation li {
 	float: left;
 	padding: 30px;
+	padding-bottom: 20px;
 }
 
 .comfort span {
@@ -297,14 +300,6 @@ md-checkbox {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-.test {
-	background: red !important;
-}
-
-.test2 {
-	background: green !important;
-}
-
 .info-addpans {
 	padding: 8px 27px !important;
 	margin: 0px !important;
@@ -333,6 +328,7 @@ md-checkbox {
 .sortbyprice {
 	color: darkblue;
 	cursor: pointer;
+	outline: none;
 }
 
 .tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower {

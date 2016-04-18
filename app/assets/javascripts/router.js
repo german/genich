@@ -48,6 +48,11 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     };
   });
 
+  // var self = this;
+  //   self.images = [
+  //     {thumb: 'http://cyber.sports.ru/storage/0000/1/0/1032462331/1440511756.943683_49.png', img: 'http://screenshot.ru/a18107369ded971149e17b51ead02b09.png'}
+  //   ];
+
   $scope.newAlbum  = new Album({hotel_id: $stateParams.id});
 
   $scope.save = function() {
