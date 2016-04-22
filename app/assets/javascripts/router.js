@@ -44,7 +44,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     for (var i = 0; i < $scope.hotel.albums[0].photos.length; i++) {
       var photo = $scope.hotel.albums[0].photos[i]
       console.log(photo.photo.thumb.url);
-      self.images.push({thumb: photo.photo.thumb.url, img: photo.photo.url, desciption: photo.photo.name})
+      self.images.push({thumb: photo.photo.medium.url, img: photo.photo.url, desciption: photo.photo.name})
     };
   });
 
