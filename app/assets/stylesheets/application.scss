@@ -379,6 +379,12 @@ md-checkbox {
 	margin-bottom: 50px;
 }
 
+/*********************
+
+				FOOTER
+
+*********************/
+
 .footer {
 	background: lightblue;
 	padding:20px 0px;
@@ -390,6 +396,19 @@ md-checkbox {
 	border-top: 2px solid grey;
   margin-top: 20px;
   padding-top: 20px;
+}
+
+.footer-bottom>.phone {
+	font-size: 25px;
+}
+
+.footer-bottom>.social li {
+	float: left;
+	padding:0px 15px;
+}
+
+.footer-bottom>.social li img {
+	width: 32px;
 }
 
 .showfilters {

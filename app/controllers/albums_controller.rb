@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     show! do |format|
       format.html { render }
       format.json do
-        render json: resource.as_json(include: :photos)
+        render json: resource.as_json(include: [:photos, :hotel])
       end
     end
   rescue ActiveRecord::RecordNotFound => e
