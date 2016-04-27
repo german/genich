@@ -18,6 +18,7 @@
 //= require angular-resource
 //= require angular-rails-templates
 //= require ngGallery
+//= require angular-devise
 //= require angular-file-upload
 //= require Swiper
 //= require angular-swiper

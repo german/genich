@@ -1,0 +1,29 @@
+<div ng-include="'shared/headernew.html'"></div>
+
+<h2>Log up</h2>
+
+<form name="user" ng-click="save()">
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="email" ng-model="email" name="email" require/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <input type="password" ng-model="password" name="password"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <input type="password" name="password_confirmation" ng-model="password_confirmation"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button>Sign Up</button>
+  </div>
+</form>

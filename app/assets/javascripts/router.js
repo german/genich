@@ -1,4 +1,5 @@
-angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 'ksSwiper', 'ngStorage', 'ngResource', 'angularFileUpload', 'jkuri.gallery'])
+angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMaterial', 
+  'ksSwiper', 'ngStorage', 'ngResource', 'angularFileUpload', 'jkuri.gallery', 'Devise'])
 .factory('Album', function($resource) {
   return $resource('http://localhost:3000/hotels/:hotel_id/albums/:id', 
     { 
@@ -67,7 +68,7 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     });
   };
 })
-.controller('Main', function($scope, $http, $localStorage, $sessionStorage) {
+.controller('Main', function($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.hotels = [];
         $scope.ranked_hotels = [];
         $http.get('/hotels.json').success(function(data, status, headers, config){
@@ -82,6 +83,14 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
         $scope.$on('$viewContentLoaded', 
           function(event){
             init();
+        });
+
+        Auth.currentUser().then(function(user) {
+            // User was logged in, or Devise returned
+            // previously authenticated session.
+            console.log(user); // => {id: 1, ect: '...'}
+        }, function(error) {
+            // unauthenticated error
         });
 
         $scope.images = [
@@ -306,8 +315,9 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     }
   });
 })
-.controller('New', function($scope, $http, $state, Hotel) {
-  //$scope.newHotel  = new Hotel();
+.controller('NewHotel', function($scope, $http, $state, Hotel, Auth) {
+  $scope.isAuthenticated = Auth.isAuthenticated();
+  console.log('isAuthenticated', $scope.isAuthenticated);
 
   $scope.save = function() {
     Hotel.save({ hotel: $scope.hotel }, function(response) {
@@ -331,6 +341,42 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
     window.location.reload(); // reload the page
   };
 })
+.controller('RegistrationCtrl', function($scope, $stateParams, $http) {
+  $scope.save = function() {
+    $http.post('/users', {user: {email: $scope.email, password: $scope.password, password_confirmation: $scope.password_confirmation}})
+      .success(function(data, status, headers, config){
+        console.log(data);
+    });
+  }
+})
+.controller('LoginCtrl', function($scope, $stateParams, $http, Auth) {
+  $scope.save = function() {
+    var credentials = {
+      email: $scope.email,
+      password: $scope.password
+    };
+    var config = {
+      headers: {
+        'X-HTTP-Method-Override': 'POST'
+      }
+    };
+
+    Auth.login(credentials, config).then(function(user) {
+      console.log(user); // => {id: 1, ect: '...'}
+    }, function(error) {
+      // Authentication failed...
+    });
+
+    $scope.$on('devise:login', function(event, currentUser) {
+      console.log('currentUser', currentUser);
+      // after a login, a hard refresh, a new tab
+    });
+
+    $scope.$on('devise:new-session', function(event, currentUser) {
+      // user logged in by Auth.login({...})
+    });
+  }
+})
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -344,10 +390,10 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       url: '/hotels/{id}',
       templateUrl: 'hotels/show.html',
       controller: 'Show'
-    }).state('new', {
+    }).state('new_hotel', {
       url: '/new',
       templateUrl: 'hotels/new.html',
-      controller: 'New'
+      controller: 'NewHotel'
     }).state('premium', {
       url: '/premium',
       templateUrl: 'hotels/premium.html',
@@ -360,6 +406,14 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
       url: '/albums/{id}',
       templateUrl: 'albums/show.html',
       controller: 'AlbumShow'
+    }).state('login', {
+      url: '/login',
+      templateUrl: 'devise/sessions/new.html',
+      controller: 'LoginCtrl'
+    }).state('registration', {
+      url: '/registration',
+      templateUrl: 'devise/registration/new.html',
+      controller: 'RegistrationCtrl'
     })
   $urlRouterProvider.otherwise('/');
 }]);
