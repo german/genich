@@ -40,12 +40,16 @@ angular.module('pansionatApp', ['ngAnimate', 'ui.router', 'templates', 'ngMateri
 
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
-    console.log($scope.hotel.albums[0]);
-    for (var i = 0; i < $scope.hotel.albums[0].photos.length; i++) {
-      var photo = $scope.hotel.albums[0].photos[i]
-      console.log(photo.photo.thumb.url);
+    //console.log($scope.hotel.albums[0]);
+    $.each($scope.hotel.albums[0].photos, function(index, photo) {
+      console.log(photo);
       self.images.push({thumb: photo.photo.medium.url, img: photo.photo.url, desciption: photo.photo.name})
-    };
+    });
+    // for (var i = 0; i < $scope.hotel.albums[0].photos.length; i++) {
+    //   var photo = $scope.hotel.albums[0].photos[i]
+    //   console.log(photo.photo.thumb.url);
+    //   self.images.push({thumb: photo.photo.medium.url, img: photo.photo.url, desciption: photo.photo.name})
+    // };
   });
 
   // var self = this;
