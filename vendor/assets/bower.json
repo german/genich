@@ -3,12 +3,12 @@
   "dependencies": {
     "angular": "latest",
     "angular-animate": "latest",
+    "angular-aria": "latest",
+    "angular-material": "latest",
     "angular-ui-router": "latest",
     "angular-resource": "latest",
     "bootstrap-sass-official": "latest",
-    "ngGallery": "latest"
-  },
-  "resolutions": {
-    "angular": "1.5.2"
+    "ngGallery": "latest",
+    "angular-devise": "latest"
   }
 }
