@@ -27,6 +27,7 @@
 //= require ngstorage
 //= require router
 //= require_tree ./controllers
+//= require_tree ./models
 //= require_tree ./templates
 //= require angular-aria
 //= require angular-material
