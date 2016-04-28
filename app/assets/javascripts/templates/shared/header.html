@@ -1,6 +1,6 @@
-<header>
+<header ng-controller="Header">
 	<div class="videocontainer">
-		<video id="myVideo"  autoplay loop>
+		<video id="myVideo" autoplay loop>
 		sea_background
 			<source src="/assets/sea_background.mp4" type="video/mp4">
 		</video>
@@ -14,7 +14,7 @@
 					<ul>
 					<a href="#/new"><li class="addpans">Добавить пансионат</li></a>
 					<li><a href="#">Помощь</a></li>
-					<li><a href="#/registration">Регистрация</a></li>
+					<li ng-if="!isAuthenticated"><a href="#/registration">Регистрация</a></li>
 					<li><a href="#/login">Войти</a></li>
 					</ul>
 				</div>
