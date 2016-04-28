@@ -5,11 +5,12 @@ angular.module('pansionatApp').controller('Show', function($scope, $stateParams,
 
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
-    //console.log($scope.hotel.albums[0]);
-    $.each($scope.hotel.albums[0].photos, function(index, photo) {
-      console.log(photo);
-      self.images.push({thumb: photo.photo.medium.url, img: photo.photo.url, desciption: photo.photo.name})
-    });
+    if($scope.hotel.albums.length > 0) {
+      $.each($scope.hotel.albums[0].photos, function(index, photo) {
+        console.log(photo);
+        self.images.push({thumb: photo.photo.medium.url, img: photo.photo.url, desciption: photo.photo.name})
+      });
+    }
   });
 
   // var self = this;

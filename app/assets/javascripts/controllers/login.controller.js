@@ -13,14 +13,15 @@ angular.module('pansionatApp').controller('LoginCtrl', function($scope, $statePa
 
     Auth.login(credentials, config).then(function(user) {
       console.log(user); // => {id: 1, ect: '...'}
-      $state.go('Main');
+      $state.go('home');
     }, function(error) {
       // Authentication failed...
+      alert('Неправильный логин или пароль')
     });
 
     $scope.$on('devise:login', function(event, currentUser) {
       console.log('currentUser', currentUser);
-      $state.go('Main');
+      $state.go('home');
       // after a login, a hard refresh, a new tab
     });
 

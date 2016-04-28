@@ -26,6 +26,7 @@
 //= require myEffects
 //= require ngstorage
 //= require router
+//= require_tree ./models
 //= require_tree ./controllers
 //= require_tree ./models
 //= require_tree ./templates
