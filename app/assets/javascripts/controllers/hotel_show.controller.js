@@ -1,4 +1,4 @@
-angular.module('pansionatApp').controller('Show', function($scope, $stateParams,$http, $state, Album) {
+angular.module('pansionatApp').controller('HotelShow', function($scope, $stateParams,$http, $state, Album) {
   
   var self = this;
   self.images = [];
@@ -7,16 +7,11 @@ angular.module('pansionatApp').controller('Show', function($scope, $stateParams,
     $scope.hotel = data;
     if($scope.hotel.albums.length > 0) {
       $.each($scope.hotel.albums[0].photos, function(index, photo) {
-        console.log(photo);
+        //console.log(photo);
         self.images.push({thumb: photo.photo.medium.url, img: photo.photo.url, desciption: photo.photo.name})
       });
     }
   });
-
-  // var self = this;
-  //   self.images = [
-  //     {thumb: 'http://cyber.sports.ru/storage/0000/1/0/1032462331/1440511756.943683_49.png', img: 'http://screenshot.ru/a18107369ded971149e17b51ead02b09.png'}
-  //   ];
 
   $scope.newAlbum  = new Album({hotel_id: $stateParams.id});
 

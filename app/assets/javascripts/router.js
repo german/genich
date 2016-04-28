@@ -15,13 +15,11 @@ angular.module('pansionatApp', [
   function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
-      url: '/',
-      templateUrl: 'hotels/index.html',
-      controller: 'MainController'
+      url: '/', controller: 'MainController',
+      templateUrl: 'hotels/index.html'
     }).state('hotel', {
-      url: '/hotels/{id}',
-      templateUrl: 'hotels/show.html',
-      controller: 'Show'
+      url: '/hotels/{id}', controller: 'HotelShow',
+      templateUrl: 'hotels/show.html'
     }).state('new_hotel', {
       url: '/new',
       templateUrl: 'hotels/new.html',

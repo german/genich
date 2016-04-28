@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div class="container" ng-controller="Main">
+<div class="container">
   <div class="row">
     <div class="infohotel col-md-7 col-xs-12">
       <div class="row">
@@ -108,7 +108,7 @@
               <div ng-repeat="album in hotel.albums | limitTo:1">
                 <!-- <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/> -->
                 <a href="#/albums/{{album.id}}"><h3>{{album.name}}</h3></a>
-                <div class="gallery" ng-controller="Show as ctrl">
+                <div class="gallery" ng-controller="HotelShow as ctrl">
                   <ng-gallery images="ctrl.images"></ng-gallery>
                 </div>
               </div>
