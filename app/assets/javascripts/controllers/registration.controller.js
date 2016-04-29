@@ -1,4 +1,4 @@
-angular.module('pansionatApp').controller('RegistrationCtrl', function($scope, $stateParams, $http, $state,  $mdToast, $document) {
+angular.module('pansionatApp').controller('RegistrationCtrl', function($scope, $stateParams, $http, $state) {
   $scope.save = function() {
   	console.log($scope.user.$valid)
     if ($scope.user.$valid == true)

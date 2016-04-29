@@ -16,7 +16,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
           function(event){
             init();
         });
-
+        
         $scope.images = [
           {image : '/assets/slider/slider-01.jpg'},
           {image : '/assets/slider/slider-02.jpg'},

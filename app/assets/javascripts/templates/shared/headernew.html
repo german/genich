@@ -16,7 +16,7 @@
 				<li><a href="#">Помощь</a></li>
 				<li ng-if="!isAuthenticated"><a href="#/registration">Регистрация</a></li>
 				<li ng-if="!isAuthenticated"><a href="#/login">Войти</a></li>
-				<li ng-if="isAuthenticated"><a href="#" ng-click="">Выйти</a></li>
+				<li ng-if="isAuthenticated" ng-controller="Logout"><a href="#" ng-click="logout()">Выйти</a></li>
 				</ul>
 			</div>
 		</div>

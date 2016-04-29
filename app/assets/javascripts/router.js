@@ -44,6 +44,10 @@ angular.module('pansionatApp', [
       url: '/registration',
       templateUrl: 'devise/registration/new.html',
       controller: 'RegistrationCtrl'
+    }).state('help', {
+      url: '/help',
+      templateUrl: 'help/help.html',
+      controller: 'MainController'
     })
   $urlRouterProvider.otherwise('/');
 }]);
