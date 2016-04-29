@@ -17,14 +17,6 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
             init();
         });
 
-        Auth.currentUser().then(function(user) {
-            // User was logged in, or Devise returned
-            // previously authenticated session.
-            console.log(user); // => {id: 1, ect: '...'}
-        }, function(error) {
-            // unauthenticated error
-        });
-
         $scope.images = [
           {image : '/assets/slider/slider-01.jpg'},
           {image : '/assets/slider/slider-02.jpg'},

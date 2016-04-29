@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-12">
         <md-input-container>
-          <input type="email" placeholder="Email" ng-model="email" name="email" size="40" autofocus require/>
+          <input type="email" placeholder="Email" ng-model="email" name="email" size="40" autofocus required/>
         </md-input-container>
       </div>
     </div>
@@ -15,21 +15,24 @@
     <div class="row">
       <div class="col-md-12">
         <md-input-container>
-          <input type="password" placeholder="Пароль" ng-model="password" name="password" size="40"/>
+          <input type="password" placeholder="Пароль" ng-model="password" name="password" ng-minlength="8" size="40" required/>
         </md-input-container>
+        <p class="error" ng-show="user.password.$error.minlength">Слишком простой - введите больше символов!</p></br>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
         <md-input-container>
-          <input type="password" placeholder="Подтвердите пароль" name="password_confirmation" ng-model="password_confirmation" size="40"/>
+          <input type="password" placeholder="Подтвердите пароль" name="password_confirmation" ng-model="password_confirmation" size="40" required/>
         </md-input-container>
       </div>
     </div>
+
   </div>
 
   <div class="form-actions">
-    <button class="btn btn-success btn-lg" ng-click="save()">Зарегистрироваться</button>
+    <button ng-disabled="!user.$valid" class="btn btn-success btn-lg" ng-click="save()">Зарегистрироваться</button>
   </div>
+
 </form>

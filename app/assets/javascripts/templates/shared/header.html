@@ -15,7 +15,8 @@
 					<a href="#/new"><li class="addpans">Добавить пансионат</li></a>
 					<li><a href="#">Помощь</a></li>
 					<li ng-if="!isAuthenticated"><a href="#/registration">Регистрация</a></li>
-					<li><a href="#/login">Войти</a></li>
+					<li ng-if="!isAuthenticated"><a href="#/login">Войти</a></li>
+					<li ng-if="isAuthenticated"><a href="#" ng-click="Auth.logout()">Выйти</a></li>
 					</ul>
 				</div>
 			</div>

@@ -1,15 +1,15 @@
-angular.module('pansionatApp').controller('LoginCtrl', function($scope, $stateParams, $http, Auth, $state) {
+angular.module('pansionatApp').controller('LoginCtrl', function($scope, $stateParams, $http, Auth, $state, $localStorage) {
   $scope.save = function() {
     var credentials = {
       email: $scope.email,
-      password: $scope.password
+      password: $scope.password,
+      remember_me: $scope.remember_me ? 1 : 0
     };
     var config = {
       headers: {
         'X-HTTP-Method-Override': 'POST'
       }
     };
-
 
     Auth.login(credentials, config).then(function(user) {
       console.log(user); // => {id: 1, ect: '...'}

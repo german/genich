@@ -229,8 +229,7 @@ li {
 }
 
 .addpans:hover {
-	background-color: #000;
-  background-color: rgba(0,0,0,0.2);
+	background: white;
 }
 
 .addpans a:hover {
@@ -338,6 +337,8 @@ md-checkbox {
 
 .main a {
 	text-decoration: none !important;
+	font-size: large;
+	font-weight: 900;
 }
 
 .sortbyprice {
