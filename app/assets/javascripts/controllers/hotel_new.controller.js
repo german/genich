@@ -1,6 +1,5 @@
 angular.module('pansionatApp').controller('NewHotel', function($scope, $http, $state, Hotel, Auth) {
-  $scope.isAuthenticated = Auth.isAuthenticated();
-  console.log('isAuthenticated', $scope.isAuthenticated);
+  $scope.myuser = window.localStorage.getItem('currentUser');
 
   $scope.save = function() {
     Hotel.save({ hotel: $scope.hotel }, function(response) {

@@ -5,7 +5,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.ranked_hotels = [];
         $http.get('/hotels.json').success(function(data, status, headers, config){
           $scope.hotels = data;
-          
+
           angular.forEach(data, function(item) {
             item.rank = 0.5 - Math.random();
             $scope.ranked_hotels.push(item);
@@ -36,7 +36,8 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
           $scope.swiper.slidePrev();
         };
         
-        $scope.$storage = $localStorage;
+        $scope.$storage = $sessionStorage;
+
 
         //Buttons click
         $scope.tvActiveClass = true;

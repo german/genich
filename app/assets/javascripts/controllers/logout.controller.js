@@ -9,6 +9,7 @@ angular.module('pansionatApp').
       // Log in user...
       // ...
       Auth.logout(config).then(function(user) {
+        localStorage.clear();
         $state.go('help');
       }, function(error) {
           // An error occurred logging out.

@@ -48,6 +48,10 @@ angular.module('pansionatApp', [
       url: '/help',
       templateUrl: 'help/help.html',
       controller: 'MainController'
+    }).state('edit', {
+      url: '/edit/{id}',
+      templateUrl: 'hotels/edit.html',
+      controller: 'HotelShow'
     })
   $urlRouterProvider.otherwise('/');
 }]);

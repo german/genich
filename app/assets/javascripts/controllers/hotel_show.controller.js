@@ -1,5 +1,7 @@
-angular.module('pansionatApp').controller('HotelShow', function($scope, $stateParams,$http, $state, Album) {
+angular.module('pansionatApp').controller('HotelShow', function($scope, $stateParams,$http, $state, Album, Hotel) {
   
+  $scope.myuser = window.localStorage.getItem('currentUser');
+
   var self = this;
   self.images = [];
 
@@ -22,4 +24,11 @@ angular.module('pansionatApp').controller('HotelShow', function($scope, $statePa
       // Optional function. Clear html form, redirect or whatever.
     });
   };
+
+  $scope.edit = function(){
+    Hotel.edit({ hotel: $scope.hotel }, function(response) {
+      console.log('обновляем');
+      $state.go('hotel', {id: response.id})
+    });
+  }
 })

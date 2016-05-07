@@ -237,7 +237,15 @@ li {
 }
 
 .brand {
-	padding: 30px;
+	padding: 15px;
+	img {
+		width: 48px;
+	}
+	li {
+		float:right;
+		margin-top: 15px;
+		font-size: larger;
+	}
 }
 
 .navigation li {
@@ -436,6 +444,14 @@ md-checkbox {
 md-input-container {
 	margin: 10px !important;
 }
+
+/*********************
+
+		Login
+
+*********************/
+
+
 
 .showfilters {
 	opacity: 1;

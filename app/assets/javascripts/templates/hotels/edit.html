@@ -1,23 +1,16 @@
-<div ng-include="'shared/headernew.html'"></div> 
+<div ng-include="'shared/headernew.html'"></div>
 
 <div class="container-fluid newhotel">
-  <h2 class="text-center">Добавьте свой пансионат | {{myuser.id}}</h2>
+  <h2 class="text-center">Редактировать пансионат "{{hotel.name}}"</h2>
   <h4 class="text-center">С нами вы увеличите количество звонков и бронирований</h4>
 </div>
 
-<div class="container" ng-if="!myuser">
-  <div class="row">
-    <h3 class="text-center">Добавить пансионат могут только зарегистрированные пользователи</h3>
-    <div class="col-md-12">
-      <h4 class="text-center"><a href="#login">Войти</a> | <a href="#/registration">Регистрация</a></h4>
-    </div>
-  </div>
-</div>
+<div class="container">
+<h3 class="text-center" ng-if="!myuser">К сожалению, вы не имеете доступа к этой странице</h3>
 
-<div class="container" ng-if="myuser">
-  <div class="row">
+  <div class="row" ng-if="myuser">
     <div class="col-lg-6 col-md-6">
-      <form class="simple_form form-horizontal" novalidate="novalidate" id="new_hotel" ng-submit="save()" accept-charset="UTF-8">
+      <form class="simple_form form-horizontal" novalidate="novalidate" id="edit_hotel" ng-submit="edit()" accept-charset="UTF-8">
 
         <input name="utf8" type="hidden" value="&#x2713;" />
 
@@ -183,7 +176,7 @@
           </div>
         </div>
 
-        <input type="submit" name="commit" class="btn btn-lg btn-info" value="Создать отель" />
+        <input type="submit" name="commit" class="btn btn-lg btn-info" value="Обновить информацию" />
       </form>
     </div>
     <div class="newhotel-buypremium ">

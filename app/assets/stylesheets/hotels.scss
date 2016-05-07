@@ -6,6 +6,13 @@
 	.headimg-hotelname h3 {
 		float:left !important;
 	}
+	.premium-hotels {
+		width: 100% !important;
+	}
+	.newhotel-buypremium {
+		position: relative !important;
+
+	}
 }
 
 .headimg {
@@ -124,7 +131,7 @@ PREMIUM PAGE
 }
 
 .premium-hotels:nth-child(3n) {
-	width: 66.66666667% !important;
+	width: 66.66666667% ;
 }
 
 
@@ -140,4 +147,27 @@ NEW PAGE
 	margin-left: -15px !important;
 	margin-right: -15px !important;
 	background: white;
+}
+
+.newhotel-buypremium {
+	position: absolute;
+	right: 133.5px;
+	width: 487px !important;
+		h2 {
+			font-size: 28px;
+			margin-bottom: 30px;
+			line-height: 1.5;
+		}
+		h4 {
+			margin-bottom: 30px;
+			line-height: 1.5;
+		}
+
+}
+
+.fixed-newhotel-buy {
+	position: fixed !important;
+  right: 133.5px;
+  top: 60px;
+  width: 487px !important;
 }

@@ -1,10 +1,11 @@
-angular.module('pansionatApp').controller('LoginCtrl', function($scope, $stateParams, $http, Auth, $state, $localStorage) {
+angular.module('pansionatApp').controller('LoginCtrl', function($scope, $stateParams, $http, Auth, $state, $localStorage, $sessionStorage) {
   $scope.save = function() {
     var credentials = {
       email: $scope.email,
       password: $scope.password,
       remember_me: $scope.remember_me ? 1 : 0
     };
+
     var config = {
       headers: {
         'X-HTTP-Method-Override': 'POST'
@@ -12,8 +13,11 @@ angular.module('pansionatApp').controller('LoginCtrl', function($scope, $statePa
     };
 
     Auth.login(credentials, config).then(function(user) {
-      console.log(user); // => {id: 1, ect: '...'}
-      $scope.user = user;
+      // console.log(user); // => {id: 1, ect: '...'}
+      // $scope.user = user;
+      // localStorage.setItem('user', JSON.stringify(user));
+      // $scope.myuser = window.localStorage.getItem('user');
+      // console.log($scope.user.id);
       $state.go('home');
     }, function(error) {
       // Authentication failed...
@@ -21,9 +25,10 @@ angular.module('pansionatApp').controller('LoginCtrl', function($scope, $statePa
     });
 
     $scope.$on('devise:login', function(event, currentUser) {
-      console.log('currentUser', currentUser);
       $scope.currentUser = currentUser;
-      $state.go('home');
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      console.log($scope.currentUser.id)
+      $state.go('premium');
       // after a login, a hard refresh, a new tab
     });
 
@@ -33,3 +38,4 @@ angular.module('pansionatApp').controller('LoginCtrl', function($scope, $statePa
     });
   }
 })
+

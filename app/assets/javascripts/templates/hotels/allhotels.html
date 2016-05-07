@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="col-md-6 col-xs-12">
-      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | orderBy:sortbyprice:reverse">
+      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse">
         <div class="row">
           <div class="col-md-12">
             <div class="col-md-5">

@@ -1,3 +1,3 @@
 angular.module('pansionatApp').controller('Header', function($scope, Auth){
-	$scope.isAuthenticated = Auth.isAuthenticated();
+	$scope.myuser = window.localStorage.getItem('currentUser');
 })
