@@ -23,12 +23,6 @@
     <h4 class="text-center">Найдите идеально место, которое полностью подойдет вам.</h4>  
   </div>
 
-  <div ng-controller="LoginCtrl">
-    <p>{{myuser[0]}}
-    <p>{{myuser}}
-    <p>{{myuser.id[0]}}
-  </div>
-
   <div class="row">
     <div class="leftsidebar col-md-4 col-md-offset-1 col-xs-12">
       <div class="pansfilter">
@@ -49,6 +43,22 @@
             Стрелковое
           </md-checkbox>
         </div>
+        <h3>Тип</h3>
+        <md-checkbox>
+          Пансионат
+        </md-checkbox>
+        <br><md-checkbox>
+          База отдыха
+        </md-checkbox>
+        <br><md-checkbox>
+          Гостиница/Отель
+        </md-checkbox>
+        <br><md-checkbox>
+          Детский лагерь
+        </md-checkbox>
+        <br><md-checkbox>
+          Частный сектор
+        </md-checkbox>
         <div class="price">
           <h3>Стоимость</h3>
           <input type="range" min="0" max="100" data-ng-model="qty" />
