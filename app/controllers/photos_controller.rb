@@ -22,6 +22,18 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    destroy! do |success, failure|
+      success.html { render text: 'OK' }
+      success.js { render json: @photo }
+      failure.js { render json: @photo.errors, status: 422 }
+      failure.html { 
+        Rails.logger.warn 'Error while creating photo: ' + @photo.errors.inspect
+        render text: 'Error while creating photo: '+@photo.errors.inspect
+      }
+    end
+  end
+
   private
     def photo_params
       params.require(:photo).permit(:name, :album_id, :hotel_id, :photo, :description)

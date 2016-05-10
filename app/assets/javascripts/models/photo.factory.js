@@ -6,7 +6,7 @@ angular.module('pansionatApp').factory('Photo', function($resource) {
     },
     {
       'update': { method: 'PUT'},
-      'delete': { method: 'DELETE'},
+      'delete': { method: 'DELETE', url: 'http://localhost:3000/photos/:id'},
       'save': { 
         method: 'POST', 
         headers: {

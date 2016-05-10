@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<div class="col-md-4 album-photo_thumb" ng-repeat="photo in album.photos">
 				<img ng-src="{{photo.photo.url}}" alt="">
-        <div class="text-center"><button class="btn btn-danger btn-md" ng-click="delete()">Удалить</button></div>
+        <div class="text-center"><button class="btn btn-danger btn-md" ng-click="delete(photo.id)">Удалить</button></div>
 			</div>	
 		</div>
 	</div>

@@ -14,11 +14,12 @@ function AlbumShow($scope, $stateParams,$http, $state, Album, Photo, FileUploade
     window.location.reload(); // reload the page
   };
 
-  $scope.delete = function() {
-    Photo.delete({ album_id: $stateParams.id, id: $scope.album.photos.url }, function(response) {
-      console.log(response);
-      $state.go('hotel', {id: $stateParams.id})
-      // Optional function. Clear html form, redirect or whatever.
-    });
+  $scope.delete = function(photo_id) {
+    if(confirm('Вы уверены, что хотите удалить эту фотограцию?')){
+      Photo.delete({ id: photo_id }, function(response) {
+        $state.go('albums', {id: $stateParams.id})
+        // Optional function. Clear html form, redirect or whatever.
+      });
+    }
   };
 };
