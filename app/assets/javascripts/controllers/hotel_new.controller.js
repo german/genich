@@ -8,4 +8,11 @@ angular.module('pansionatApp').controller('NewHotel', function($scope, $http, $s
       // Optional function. Clear html form, redirect or whatever.
     });
   };
+
+  $scope.update = function(){
+    Hotel.update({ hotel: $scope.hotel }, function(response) {
+      console.log('обновляем');
+      $state.go('hotel', {id: response.id})
+    });
+  }
 })

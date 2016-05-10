@@ -11,7 +11,8 @@
 	}
 	.newhotel-buypremium {
 		position: relative !important;
-
+		right: 0px !important; 
+		width: 100% !important;
 	}
 }
 
@@ -104,6 +105,10 @@ img.ng-thumb {
 	height: 150px !important;
 }
 
+.add-review {
+	margin-top: 40px;
+}
+
 
 /**********************
 
@@ -137,7 +142,7 @@ PREMIUM PAGE
 
 /*********************
 
-NEW PAGE
+NEW HOTEL
 
 *********************/
 
@@ -152,7 +157,7 @@ NEW PAGE
 .newhotel-buypremium {
 	position: absolute;
 	right: 133.5px;
-	width: 487px !important;
+	width: 487px;
 		h2 {
 			font-size: 28px;
 			margin-bottom: 30px;

@@ -15,10 +15,9 @@ function init() {
 	});
 
 	var newhotel_buypremium = 175;
-	var width = document.body.clientWidth;
+	var width = document.body.clientWidth;	
 	// var width = $(document).width();
 
-	
 	$(window).on('scroll', function() {
 		var scroll = getCurrentScroll();
 		if ( scroll >= newhotel_buypremium && width > 600 ) {
@@ -41,5 +40,22 @@ function init() {
 	  return false;
   });
 
-	
+	var howitwork_count = 0; 
+	$('.howitwork-button').click(function(){
+		if (howitwork_count == 0) {
+			$('.howitwork').animate({"height":"200px"}, 500);
+			howitwork_count = 1;	
+		} else {
+			$('.howitwork').animate({"height":"0px"}, 500);
+			howitwork_count = 0;
+		}
+	})
+
+	// PRELOADER //
+  $(window).on('load', function () {
+    var $preloader = $('#page-preloader'),
+		$spinner   = $preloader.find('.spinner');
+		$spinner.fadeOut();
+    $preloader.delay(350).fadeOut('slow');
+});
 }

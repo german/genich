@@ -131,7 +131,22 @@
           </div>
         </div>
       </div>
-      <a href="#/edit/{{hotel.id}}"><h3>Изменить информацию</h3></a>
+      <a href="#/edit/{{hotel.id}}" ng-if="myuser"><h3>Изменить информацию</h3></a>
+      <h3>Отзывы</h3>
+      <div class="reviews" ng-repeat="review in hotel.reviews">
+        {{review}}
+      </div>
+      <div class="add-review">
+        <md-input-container class="md-icon-float md-block">
+          <label>Ваше имя</label>
+          <input ng-model="newReview.name" type="text">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Ваш отзыв</label>
+          <textarea ng-model="newReview.description" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-button class="md-raised md-primary">Добавить отзыв</md-button>
+      </div>
     </div>
 
     <div class="premiuminshow col-md-offset-2 col-md-3 col-xs-12" ng-controller="MainController">

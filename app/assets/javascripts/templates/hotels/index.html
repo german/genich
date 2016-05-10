@@ -44,20 +44,20 @@
           </md-checkbox>
         </div>
         <h3>Тип</h3>
-        <md-checkbox>
+        <md-checkbox ng-click="includesType('Пансионат')">
           Пансионат
         </md-checkbox>
-        <br><md-checkbox>
+        <br><md-checkbox ng-click="includesType('База отдыха')">
           База отдыха
         </md-checkbox>
-        <br><md-checkbox>
+        <br><md-checkbox ng-click="includesType('Гостиница/Отель')">
           Гостиница/Отель
         </md-checkbox>
-        <br><md-checkbox>
+        <br><md-checkbox ng-click="includesType('Детский лагерь')">
           Детский лагерь
         </md-checkbox>
-        <br><md-checkbox>
-          Частный сектор
+        <br><md-checkbox ng-click="includesType('Дом/Квартира/Комната')">
+          Дом/Квартира/Комната
         </md-checkbox>
         <div class="price">
           <h3>Стоимость</h3>
@@ -88,7 +88,7 @@
       </div>
     </div>
     <div class="col-md-6 col-xs-12" style="padding-right: 0px;">
-      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
+      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
         <div class="row">
           <div class="col-md-12">
             <div class="col-md-5">
@@ -96,8 +96,8 @@
               </div>
             </div>
             <div class="col-md-7">
-              <p><span><h2><a href="#/hotels/{{hotel.id}}">{{hotel.name}}</a></h2></span></p>
-              <p><span><h4>{{hotel.city_name}}</h4></span></p>
+              <p><span><h2><a href="#/hotels/{{hotel.id}}">{{hotel.name}} </a></h2></span></p>
+              <p><span><h4>{{hotel.hotel_type}}, {{hotel.city_name}}</h4></span></p>
               {{hotel.price_min}}</br>
               <button type="button" class="btn btn-primary btn-xs" ng-if="hotel.has_tv">TV</button>
               <button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_parking">Парковка</button>
@@ -107,7 +107,6 @@
               <button type="button" class="btn btn-warning btn-xs" ng-if="hotel.has_wifi">Wi-Fi</button>
               <button type="button" class="btn btn-danger btn-xs" ng-if="hotel.has_transfer">Трансфер</button>
             </div>
-            
           </div>
         </div>
       </div>
@@ -120,7 +119,7 @@
   <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 info">
     <div class="close" ng-click="$storage.display = 'none' ">&#10006;</div>
     <div class="col-md-8">
-      <h4>Хотите разместить свой пансионат? Легко! Это не займет и 5 минут</h4>
+      <h4>Хотите предложить свое жилье? Легко! Это не займет и 5 минут</h4>
     </div>
     <div class="col-md-3 col-md-offset-1">
       <a href="#/new"><button class="info-addpans">Добавить пансионат</button></a>
@@ -136,7 +135,7 @@
     <!-- Swiper -->
       <ks-swiper-container swiper="swiper" initial-slide="1" loop="true" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">       
           <ks-swiper-slide class="swiper-slide" ng-repeat="image in images">
-            <img ng-src="{{image.image}}" />
+            <a href="#/premium"><img ng-src="{{image.image}}" /></a>
           </ks-swiper-slide>
         <!-- Add Arrows -->
       </ks-swiper-container>

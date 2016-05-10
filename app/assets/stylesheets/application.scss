@@ -35,8 +35,37 @@
 		padding-left: 10px !important;
 		text-align: center !important;
 	}
+	.howitwork-button {
+		display: none !important;
+	}
 }
 
+
+/***************
+		PRELOADER
+***************/
+ 
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #79cccd;
+    z-index: 100500;
+}
+
+#page-preloader .spinner {
+    position: absolute;
+    top: 44%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: #fff;
+    font-size:26px;
+    text-align: center;
+}
 
 .red{
     color:red;
@@ -80,12 +109,48 @@ ul.strelkovoe .strelkovoe {
 }
 */
 
+.howitwork {
+	height: 0px;
+}
+
 header {
 	height: 400px;
 	position: relative;
 	margin-bottom: 15px;
 	margin-left: -15px;
 	margin-right: -15px;
+	.howitwork-button {
+	  width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+	}
+	h3 {
+		position: relative;
+		margin-top: 55px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    text-shadow: 0px 0px 1px black;
+	}
+	h4 {
+	  width: 230px;
+    background: rgba(255,255,255,0.7);
+    color: #4A4956;
+    font-size: 21px;
+    padding: 9px 27px;
+    border-radius: 3px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+	}
+	h4:hover {
+		color: #fff;
+		background: rgba(0,0,0,0.6);
+	}
 }
 
 .headernew {

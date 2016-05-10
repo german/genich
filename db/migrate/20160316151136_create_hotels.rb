@@ -16,6 +16,7 @@ class CreateHotels < ActiveRecord::Migration
       t.string :longitude
       t.string :latitude
       t.string :city_name
+      t.string :type
       t.integer :dist_from_the_sea
 
       t.boolean :has_private_house
@@ -36,6 +37,7 @@ class CreateHotels < ActiveRecord::Migration
     add_index :hotels, :price_mean
 
     add_index :hotels, :city_name
+    add_index :hotels, :type
     add_index :hotels, :dist_from_the_sea
     add_index :hotels, :has_transfer
     add_index :hotels, :has_parking

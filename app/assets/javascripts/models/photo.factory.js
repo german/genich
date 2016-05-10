@@ -6,6 +6,7 @@ angular.module('pansionatApp').factory('Photo', function($resource) {
     },
     {
       'update': { method: 'PUT'},
+      'delete': { method: 'DELETE'},
       'save': { 
         method: 'POST', 
         headers: {

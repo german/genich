@@ -25,8 +25,8 @@ angular.module('pansionatApp').controller('HotelShow', function($scope, $statePa
     });
   };
 
-  $scope.edit = function(){
-    Hotel.edit({ hotel: $scope.hotel }, function(response) {
+  $scope.update = function(){
+    Hotel.update({ hotel: $scope.hotel }, function(response) {
       console.log('обновляем');
       $state.go('hotel', {id: response.id})
     });

@@ -13,4 +13,12 @@ function AlbumShow($scope, $stateParams,$http, $state, Album, Photo, FileUploade
     console.info('onCompleteAll');
     window.location.reload(); // reload the page
   };
+
+  $scope.delete = function() {
+    Photo.delete({ album_id: $stateParams.id, id: $scope.album.photos.url }, function(response) {
+      console.log(response);
+      $state.go('hotel', {id: $stateParams.id})
+      // Optional function. Clear html form, redirect or whatever.
+    });
+  };
 };

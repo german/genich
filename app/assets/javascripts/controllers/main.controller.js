@@ -54,6 +54,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
 
         //ALL MY FILTERS MASSIVE
         $scope.city_nameIncludes = [];
+        $scope.typeIncludes = [];
         $scope.has_tvIncludes = [];
         $scope.has_parkingIncludes = [];
         $scope.has_private_kitchenIncludes = [];
@@ -74,6 +75,23 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.citynameFilter = function(hotels) {
           if ($scope.city_nameIncludes.length > 0) {
             if ($.inArray(hotels.city_name, $scope.city_nameIncludes) < 0)
+              return;
+          }
+          return hotels;
+        }
+
+        // filter Type 
+        $scope.includesType = function(hotel_type){
+          var i = $.inArray(hotel_type, $scope.typeIncludes);
+          if (i > -1) {
+            $scope.typeIncludes.splice(i, 1);
+          } else {
+            $scope.typeIncludes.push(hotel_type);
+          }
+        }
+        $scope.typeFilter = function(hotels) {
+          if ($scope.typeIncludes.length > 0) {
+            if ($.inArray(hotels.hotel_type, $scope.typeIncludes) < 0)
               return;
           }
           return hotels;

@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update]
+  # before_action :authenticate_user!, only: [:create, :update]
   inherit_resources
 
   def index
