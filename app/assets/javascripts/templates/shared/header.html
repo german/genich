@@ -2,7 +2,6 @@
 <header ng-controller="Header">
 	<div class="videocontainer">
 		<video id="myVideo" autoplay loop>
-		sea_background
 			<source src="/assets/sea_background.mp4" type="video/mp4">
 		</video>
 	</div>
@@ -13,7 +12,8 @@
 				<div class="brand pull-left"><a href="#/home"><img src="/assets/icon/logo.png" alt=""> <li>Rest In <b style="color:yellow;font-weight:900">Ukraine</b></li></a></div>
 				<div class="navigation pull-right">
 					<ul>
-					<a href="#/new"><li class="addpans">Добавить место</li></a>
+					<li class="addpans-material"><a href="#/new"><md-button class="md-raised">Добавить место</md-button></a></li>
+					<!-- <a href="#/new"><li class="addpans">Добавить место</li></a> -->
 					<li><a href="#/help">Помощь</a></li>
 					<li ng-if="!myuser"><a href="#/registration">Регистрация</a></li>
 					<li ng-if="!myuser"><a href="#/login">Войти</a></li>

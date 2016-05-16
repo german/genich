@@ -41,7 +41,7 @@ function init() {
   });
 
 	var howitwork_count = 0; 
-	$('.howitwork-button').click(function(){
+	$(document).on("click", ".howitwork-button", function() {
 		if (howitwork_count == 0) {
 			$('.howitwork').animate({"height":"200px"}, 500);
 			howitwork_count = 1;	

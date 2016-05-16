@@ -17,6 +17,7 @@ function AlbumShow($scope, $stateParams,$http, $state, Album, Photo, FileUploade
   $scope.delete = function(photo_id) {
     if(confirm('Вы уверены, что хотите удалить эту фотограцию?')){
       Photo.delete({ id: photo_id }, function(response) {
+        window.location.reload();
         $state.go('albums', {id: $stateParams.id})
         // Optional function. Clear html form, redirect or whatever.
       });

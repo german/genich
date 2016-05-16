@@ -24,11 +24,4 @@ angular.module('pansionatApp').controller('HotelShow', function($scope, $statePa
       // Optional function. Clear html form, redirect or whatever.
     });
   };
-
-  $scope.update = function(){
-    Hotel.update({ hotel: $scope.hotel }, function(response) {
-      console.log('обновляем');
-      $state.go('hotel', {id: response.id})
-    });
-  }
 })

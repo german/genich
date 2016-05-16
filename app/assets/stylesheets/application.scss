@@ -38,6 +38,14 @@
 	.howitwork-button {
 		display: none !important;
 	}
+	.brand {
+		li {
+			margin-top: 10px !important;
+		}
+		img {
+			margin-top: -3px; 
+		}
+	}
 }
 
 
@@ -137,7 +145,7 @@ header {
     text-shadow: 0px 0px 1px black;
 	}
 	h4 {
-	  width: 230px;
+	  width: 240px;
     background: rgba(255,255,255,0.7);
     color: #4A4956;
     font-size: 21px;
@@ -248,6 +256,12 @@ h1 {
 	margin-bottom: 50px;
 	background: white;
   box-shadow: 0 2px 4px rgba(#000, 0.2);
+  h2 {
+  	line-height: 0.8;
+  }
+  .btn-xs {
+  	margin-bottom: 10px;
+  }
 }
 
 .panslist:hover {
@@ -284,6 +298,14 @@ li {
   width: 100%;
   bottom: 0%;
   -webkit-transform: translate(0, 20%);
+}
+
+.addpans-material {
+	padding: 10px !important;
+	margin-top: 10px;
+	a button {
+		padding: 0 1.6rem; 
+	}
 }
 
 .addpans {
