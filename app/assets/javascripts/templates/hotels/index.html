@@ -17,7 +17,7 @@
 
 <a href="#/premium"><button type="button" class="morepremium center-block">Больше рекомендаций</button></a>
 
-<div class="container-fluid">
+<div id="filters" class="container-fluid">
   <div class="mainblock">
     <h2 class="text-center">Используйте удобные фильтры</h2>
     <h4 class="text-center">Найдите идеально место, которое полностью подойдет вам.</h4>  
@@ -84,6 +84,7 @@
           <label class="shower" ng-class="{'shower_one': showerActiveClass, 'shower_active': !showerActiveClass}" ng-click="includeshas_shower(true);showerActiveClass = !showerActiveClass"><img src="/assets/icon/shower.png"> <span>Душ</span> </label>
           <label class="wi-fi" ng-class="{'wi-fi_one': WifiActiveClass, 'wi-fi_active': !WifiActiveClass}" ng-click="includeshas_wifi(true);WifiActiveClass = !WifiActiveClass"><img src="/assets/icon/wi-fi.png"> <span>Wi-Fi</span> </label>
           <label class="delivery" ng-class="{'delivery_one': deliveryActiveClass, 'delivery_active': !deliveryActiveClass}" ng-click="includeshas_transfer(true);deliveryActiveClass = !deliveryActiveClass"><img src="/assets/icon/delivery.png"> <span>Трансфер</span> </label>
+          <label class="pool" ng-class="{'pool_one': poolActiveClass, 'pool_active': !poolActiveClass}" ng-click="includeshas_pool(true);poolActiveClass = !poolActiveClass"><img src="/assets/icon/pool.png"> <span>Бассейн</span> </label>
         </div>
       </div>
     </div>
@@ -140,7 +141,7 @@
         <!-- Add Arrows -->
       </ks-swiper-container>
       <div class="swiper-button-next" ng-click="next()"></div>
-      <div class="swiper-button-prev" ng-click="next()"></div>
+      <div class="swiper-button-prev" ng-click="prev()"></div>
     </div>
   </div>
 </div>

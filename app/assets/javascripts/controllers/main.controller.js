@@ -47,8 +47,9 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.showerActiveClass = true;
         $scope.WifiActiveClass = true;
         $scope.deliveryActiveClass = true;
+        $scope.poolActiveClass = true;
         //
-        $scope.qty = 100;
+        $scope.qty = 1000;
         $scope.mycolor = 'blue';
         
 

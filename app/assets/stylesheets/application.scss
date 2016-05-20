@@ -46,6 +46,9 @@
 			margin-top: -3px; 
 		}
 	}
+	.text-center .form-inputs {
+		margin: 20px 0px !important;
+	}
 }
 
 
@@ -85,6 +88,11 @@
 
 .margin-bottom {
 	margin-bottom: 30px;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
 }
 
 body {
@@ -442,7 +450,7 @@ md-checkbox {
 	outline: none;
 }
 
-.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower {
+.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool {
 	float: left;
 	background: white;
 	padding: 10px;
@@ -454,7 +462,7 @@ md-checkbox {
   outline: none
 }
 
-.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active {
+.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active {
   background: #edefed;
   cursor:pointer;
 }
@@ -530,6 +538,18 @@ md-checkbox {
 
 md-input-container {
 	margin: 10px !important;
+}
+
+md-radio-group {
+	text-align: left;
+}
+
+.text-center .form-inputs {
+	background: white;
+  margin: 20px 35%;
+  padding: 30px 0px;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  box-shadow: 0 2px 4px rgba(#000, 0.2);
 }
 
 /*********************

@@ -31,8 +31,8 @@ function init() {
 	function getCurrentScroll() {
 		return window.pageYOffset || document.documentElement.scrollTop;
 	}
-
-	$('.arrowsup').on('click', function () {
+	
+	$(document).on("click", ".arrowsup", function(){
 		console.log('Work!')
 		$('body').animate({
 		  scrollTop: 0
@@ -40,6 +40,12 @@ function init() {
 	  return false;
   });
 
+	$(document).on("click", ".foundFilter", function(){
+		$('body').animate({
+		  scrollTop: 1000
+	  }, 800);
+	  return false;
+	})
 	var howitwork_count = 0; 
 	$(document).on("click", ".howitwork-button", function() {
 		if (howitwork_count == 0) {

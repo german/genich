@@ -17,7 +17,7 @@
         <md-input-container>
           <input type="password" placeholder="Пароль" ng-model="password" name="password" ng-minlength="8" size="40" required/>
         </md-input-container>
-        <p class="error" ng-show="user.password.$error.minlength">Слишком простой - введите больше символов!</p></br>
+        <p class="error" ng-show="user.password.$error.minlength">Слишком простой - нужно минимум 8 символов!</p></br>
       </div>
     </div>
 
@@ -29,6 +29,14 @@
       </div>
     </div>
 
+   <div class="row">
+      <div class="col-md-12 flex">
+        <md-radio-group>
+          <md-radio-button value="restman" class="md-primary">Отдыхающий</md-radio-button>
+          <md-radio-button value="own">Владелец жилья </md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

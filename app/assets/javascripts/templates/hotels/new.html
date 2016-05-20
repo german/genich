@@ -23,12 +23,12 @@
 
         <div class="form-group string hotel_name">
           <label class="string control-label" for="hotel_name">Название</label>
-          <input class="string form-control" type="text" ng-model="hotel.name" id="hotel_name" maxlength="50" required/>
+          <input class="string form-control" type="text" ng-model="hotel.name" id="hotel_name" maxlength="50" placeholder="Не пишите длинных названий" required/>
         </div>
 
         <div class="form-group text optional hotel_description">
           <label class="text optional control-label" for="hotel_description">Описание</label>
-          <textarea class="text optional form-control" ng-model="hotel.description" id="hotel_description" rows="5" required></textarea>
+          <textarea class="text optional form-control" ng-model="hotel.description" id="hotel_description" rows="5" placeholder="Расскажите о своих преимущества..." required></textarea>
         </div>
 
         <div class="form-group email optional hotel_email">
@@ -65,18 +65,18 @@
         </div>
 
         <div class="form-group integer optional hotel_total_rooms">
-          <label class="integer optional control-label" for="hotel_total_rooms">Всего аппартаментов</label>
-          <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.total_rooms" id="hotel_total_rooms" required />
+          <label class="integer optional control-label" for="hotel_total_rooms">Всего аппартаментов (комнат, номеров)</label>
+          <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.total_rooms" id="hotel_total_rooms" value="0" required />
         </div>
 
         <div class="form-group integer optional hotel_total_luxes">
           <label class="integer optional control-label" for="hotel_total_luxes">Всего люксов</label>
-          <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.total_luxes" id="hotel_total_luxes" required />
+          <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.total_luxes" id="hotel_total_luxes" value="0" required />
         </div>
 
         <div class="form-group text optional hotel_rules">
           <label class="text optional control-label" for="hotel_rules">Правила размещения</label>
-          <textarea class="text optional form-control" ng-model="hotel.rules" id="hotel_rules" required>
+          <textarea class="text optional form-control" ng-model="hotel.rules" id="hotel_rules" rows="4" placeholder="Например, нельзя курить в номере, не заселяем с домашними животными..." required>
         </textarea>
         </div>
 
@@ -101,8 +101,26 @@
         </div>
 
         <div class="form-group integer optional hotel_dist_from_the_sea">
-          <label class="integer optional control-label" for="hotel_dist_from_the_sea">Расстояние до моря в метрах: <span id="rangeValue"></span></label>
+          <label class="integer optional control-label" for="hotel_dist_from_the_sea">Расстояние до моря в метрах: <span id="rangeValue" style="font-weight:700;"></span></label>
           <input class="numeric integer optional" onchange="$('#rangeValue').html(this.value)" type="range" step="10" min="10" max="1000" value="500" ng-model="hotel.dist_from_the_sea" id="hotel_dist_from_the_sea" />
+          <div class="row">
+            <div class="col-md-6">
+              <p class="pull-left">10 M</p>
+            </div>
+            <div class="col-md-6">
+              <p class="pull-right">1000 M</p>
+            </div>
+          </div>
+          <!-- <p>Используйте ползунок</p> -->
+        </div>
+        
+        <div class="form-group boolean optional hotel_has_wifi">
+          <div class="checkbox">
+            <input value="0" type="hidden" name="hotel[has_wifi]" />
+            <label class="boolean optional" for="hotel_has_wifi">
+              <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_wifi" id="hotel_has_wifi" />Есть wifi?
+            </label>
+          </div>
         </div>
 
         <div class="form-group boolean optional hotel_has_private_house">
@@ -158,15 +176,6 @@
           </div>
         </div>
 
-        <div class="form-group boolean optional hotel_has_wifi">
-          <div class="checkbox">
-            <input value="0" type="hidden" name="hotel[has_wifi]" />
-            <label class="boolean optional" for="hotel_has_wifi">
-              <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_wifi" id="hotel_has_wifi" />Есть wifi?
-            </label>
-          </div>
-        </div>
-
         <div class="form-group boolean optional hotel_has_parking">
           <div class="checkbox">
             <input value="0" type="hidden" name="hotel[has_parking]" />
@@ -181,6 +190,15 @@
             <input value="0" type="hidden" name="hotel[has_transfer]" />
             <label class="boolean optional" for="hotel_has_transfer">
               <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_transfer" id="hotel_has_transfer" />Есть трансфер?
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group boolean optional hotel_has_pool">
+          <div class="checkbox">
+            <input value="0" type="hidden" name="hotel[has_pool]" />
+            <label class="boolean optional" for="hotel_has_pool">
+              <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_pool" id="hotel_has_pool" />Есть бассейн?
             </label>
           </div>
         </div>
