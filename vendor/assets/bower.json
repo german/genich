@@ -9,6 +9,7 @@
     "angular-resource": "latest",
     "bootstrap-sass-official": "latest",
     "ngGallery": "latest",
-    "angular-devise": "latest"
+    "angular-devise": "latest",
+    "ng-token-auth": "latest"
   }
 }

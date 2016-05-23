@@ -1,4 +1,8 @@
-angular.module('pansionatApp').controller('LoginCtrl', function($scope, $stateParams, $http, Auth, $state, $localStorage, $sessionStorage) {
+angular.module('pansionatApp').controller('LoginCtrl', 
+  function($scope, $stateParams, $http, Auth, $state, $localStorage, $sessionStorage) {
+
+    $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+
   $scope.save = function() {
     var credentials = {
       email: $scope.email,
@@ -13,11 +17,6 @@ angular.module('pansionatApp').controller('LoginCtrl', function($scope, $statePa
     };
 
     Auth.login(credentials, config).then(function(user) {
-      // console.log(user); // => {id: 1, ect: '...'}
-      // $scope.user = user;
-      // localStorage.setItem('user', JSON.stringify(user));
-      // $scope.myuser = window.localStorage.getItem('user');
-      // console.log($scope.user.id);
       $state.go('home');
     }, function(error) {
       // Authentication failed...

@@ -21,6 +21,8 @@
 //= require ngGallery
 //= require angular-devise
 //= require angular-file-upload
+//= require angular-cookie
+//= require ng-token-auth
 //= require Swiper
 //= require angular-swiper
 //= require myEffects

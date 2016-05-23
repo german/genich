@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509110812) do
+ActiveRecord::Schema.define(version: 20160523165301) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160509110812) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "hotel_type"
+    t.integer  "user_id"
   end
 
   add_index "hotels", ["city_name"], name: "index_hotels_on_city_name"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160509110812) do
   add_index "hotels", ["price_max"], name: "index_hotels_on_price_max"
   add_index "hotels", ["price_mean"], name: "index_hotels_on_price_mean"
   add_index "hotels", ["price_min"], name: "index_hotels_on_price_min"
+  add_index "hotels", ["user_id"], name: "index_hotels_on_user_id"
 
   create_table "photos", force: :cascade do |t|
     t.string   "photo"
@@ -89,9 +91,14 @@ ActiveRecord::Schema.define(version: 20160509110812) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "role"
+    t.string   "provider"
+    t.integer  "uid"
+    t.text     "tokens"
+    t.datetime "confirmed_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

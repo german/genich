@@ -7,12 +7,24 @@ angular.module('pansionatApp', [
   'ngStorage', 
   'ngResource', 
   'angularFileUpload', 
-  'jkuri.gallery', 
+  'jkuri.gallery',
+  'ng-token-auth', 
   'Devise'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+  '$authProvider',
+  function($stateProvider, $urlRouterProvider, $authProvider) {
+    /*$authProvider.configure({
+      apiUrl:                  '/users',
+      tokenValidationPath:     '/users/validate_token',
+      signOutUrl:              '/sign_out',
+      emailRegistrationPath:   '/',
+      emailSignInPath:         '/sign_in',
+      accountUpdatePath:       '/',
+      accountDeletePath:       '/',
+    });*/
+
   $stateProvider
     .state('home', {
       url: '/', controller: 'MainController',
@@ -23,7 +35,12 @@ angular.module('pansionatApp', [
     }).state('new_hotel', {
       url: '/new',
       templateUrl: 'hotels/new.html',
-      controller: 'NewHotel'
+      controller: 'NewHotel',
+      /*resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
+        }
+      }*/
     }).state('premium', {
       url: '/premium',
       templateUrl: 'hotels/premium.html',

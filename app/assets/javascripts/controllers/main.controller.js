@@ -1,32 +1,35 @@
 angular.module('pansionatApp').controller('MainController', MainController);
 
 function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
-        $scope.hotels = [];
-        $scope.ranked_hotels = [];
-        $http.get('/hotels.json').success(function(data, status, headers, config){
-          $scope.hotels = data;
+  $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 
-          angular.forEach(data, function(item) {
-            item.rank = 0.5 - Math.random();
-            $scope.ranked_hotels.push(item);
-          });
-        });
+  $scope.hotels = [];
+  $scope.ranked_hotels = [];
 
-        $scope.$on('$viewContentLoaded', 
-          function(event){
-            init();
-        });
+  $http.get('/hotels.json').success(function(data, status, headers, config){
+    $scope.hotels = data;
+
+    angular.forEach(data, function(item) {
+      item.rank = 0.5 - Math.random();
+      $scope.ranked_hotels.push(item);
+    });
+  });
+
+  $scope.$on('$viewContentLoaded', 
+    function(event){
+      init();
+  });
         
-        $scope.images = [
-          {image : '/assets/slider/slider-01.jpg'},
-          {image : '/assets/slider/slider-02.jpg'},
-          {image : '/assets/slider/slider-03.jpg'},
-          {image : '/assets/slider/slider-04.jpg'},
-          {image : 'http://jrmk.net/im/ac6/5aa/1cc/d5b27597a0b15e6cf4e9fa8-2.jpg'},
-          {image : 'http://fakty.ictv.ua/images/gallery/2015/05/22/20150522142530.jpg'},
-          {image : 'http://turuturu.ru/files/ckeditor/cd/14/82/1801.jpg'},
-          {image : 'http://pilipenkotour.at.ua/Krim/pljazh.jpg'}
-        ]
+  $scope.images = [
+    {image : '/assets/slider/slider-01.jpg'},
+    {image : '/assets/slider/slider-02.jpg'},
+    {image : '/assets/slider/slider-03.jpg'},
+    {image : '/assets/slider/slider-04.jpg'},
+    {image : 'http://jrmk.net/im/ac6/5aa/1cc/d5b27597a0b15e6cf4e9fa8-2.jpg'},
+    {image : 'http://fakty.ictv.ua/images/gallery/2015/05/22/20150522142530.jpg'},
+    {image : 'http://turuturu.ru/files/ckeditor/cd/14/82/1801.jpg'},
+    {image : 'http://pilipenkotour.at.ua/Krim/pljazh.jpg'}
+  ]
         
         $scope.swiper = {};
         $scope.next = function() {

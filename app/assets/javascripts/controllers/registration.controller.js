@@ -1,6 +1,10 @@
-angular.module('pansionatApp').controller('RegistrationCtrl', function($scope, $stateParams, $http, $state) {
+angular.module('pansionatApp').controller('RegistrationCtrl', 
+  function($scope, $stateParams, $http, $state, Auth, $http) {
+
+  $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+
   $scope.save = function() {
-    console.log($scope.user.$valid);
+    console.log($scope.user.$valid);    
     if ($scope.user.$valid == true)
     	// ($scope.email && $scope.password && $scope.password_confirmation)
     	 {
