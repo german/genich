@@ -26,6 +26,7 @@
 //= require Swiper
 //= require angular-swiper
 //= require myEffects
+//= require directives/comfort
 //= require ngstorage
 //= require router
 //= require_tree ./models
