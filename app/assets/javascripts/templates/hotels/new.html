@@ -10,7 +10,16 @@
   <div class="row">
     <h3 class="text-center">Добавить жилье могут только зарегистрированные пользователи</h3>
     <div class="col-md-12">
-      <h4 class="text-center"><a href="#login">Войти</a> | <a href="#/registration">Регистрация</a></h4>
+      <h4 class="text-center"><a href="#/login">Войти</a> | <a href="#/registration">Регистрация</a></h4>
+    </div>
+  </div>
+</div>
+
+<div class="container" ng-if="myuser.role == 'restman'">
+  <div class="row">
+    <h3 class="text-center">Добавить жилье могут только владельцы, вы же зарегистрировались, как <b>отдыхающий</b> :(</h3>
+    <div class="col-md-12">
+      <h4 class="text-center"><a href="#/allhotels">Подобрать жилье</a></h4>
     </div>
   </div>
 </div>
@@ -23,7 +32,7 @@
         <input name="utf8" type="hidden" value="&#x2713;" />
 
         <div class="form-group string hotel_name">
-          <label class="string control-label" for="hotel_name">Название | {{myuser.role}}</label>
+          <label class="string control-label" for="hotel_name">Название</label>
           <input class="string form-control" type="text" ng-model="hotel.name" id="hotel_name" maxlength="50" placeholder="Не пишите длинных названий" required/>
         </div>
 

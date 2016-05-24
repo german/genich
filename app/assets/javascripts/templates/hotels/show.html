@@ -140,7 +140,9 @@
           </div>
         </div>
       </div>
-      <a href="#/edit/{{hotel.id}}" ng-if="myuser"><h3>Изменить информацию</h3></a>
+      
+      <h2 ng-if="myuser.id === hotel.user_id"><a href="#/edit/{{hotel.id}}">Изменить информацию</a></h2>
+
       <h3>Отзывы</h3>
       <div class="reviews" ng-repeat="review in hotel.reviews">
         {{review}}

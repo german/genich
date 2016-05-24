@@ -1,6 +1,6 @@
 angular.module('pansionatApp').controller('HotelShow', function($scope, $stateParams,$http, $state, Album, Hotel) {
-  
-  $scope.myuser = window.localStorage.getItem('currentUser');
+  $scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
+  // $scope.myuser = window.localStorage.getItem('currentUser');
 
   var self = this;
   self.images = [];
