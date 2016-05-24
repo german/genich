@@ -26,7 +26,6 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
     {image : '/assets/slider/slider-03.jpg'},
     {image : '/assets/slider/slider-04.jpg'},
     {image : 'http://jrmk.net/im/ac6/5aa/1cc/d5b27597a0b15e6cf4e9fa8-2.jpg'},
-    {image : 'http://fakty.ictv.ua/images/gallery/2015/05/22/20150522142530.jpg'},
     {image : 'http://turuturu.ru/files/ckeditor/cd/14/82/1801.jpg'},
     {image : 'http://pilipenkotour.at.ua/Krim/pljazh.jpg'}
   ]

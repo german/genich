@@ -26,7 +26,7 @@ angular.module('pansionatApp').controller('LoginCtrl',
     $scope.$on('devise:login', function(event, currentUser) {
       $scope.currentUser = currentUser;
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      console.log($scope.currentUser.id)
+      console.log($scope.currentUser)
       $state.go('premium');
       // after a login, a hard refresh, a new tab
     });

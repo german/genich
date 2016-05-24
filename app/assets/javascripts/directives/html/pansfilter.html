@@ -1,0 +1,49 @@
+<h3>Найдите идеальное место:</h3>
+  <input type="text" placeholder="Поиск" ng-model="query"></br>
+  <div class="choosecity">
+    <h3>Город/поселок</h3>
+    <md-checkbox ng-click="includesCity_name('Геническ')">
+      Геническ 
+    </md-checkbox>
+    <br><md-checkbox ng-click="includesCity_name('Генгорка')">
+      Генгорка
+    </md-checkbox>
+    <br><md-checkbox ng-click="includesCity_name('Счастливцево')">
+      Счастливцево
+    </md-checkbox>
+    <br><md-checkbox ng-click="includesCity_name('Стрелковое')">
+      Стрелковое
+    </md-checkbox>
+  </div>
+  <h3>Тип</h3>
+  <md-checkbox ng-click="includesType('Пансионат')">
+    Пансионат
+  </md-checkbox>
+  <br><md-checkbox ng-click="includesType('База отдыха')">
+    База отдыха
+  </md-checkbox>
+  <br><md-checkbox ng-click="includesType('Гостиница/Отель')">
+    Гостиница/Отель
+  </md-checkbox>
+  <br><md-checkbox ng-click="includesType('Детский лагерь')">
+    Детский лагерь
+  </md-checkbox>
+  <br><md-checkbox ng-click="includesType('Дом/Квартира/Комната')">
+    Дом/Квартира/Комната
+  </md-checkbox>
+  <div class="price">
+    <h3>Стоимость</h3>
+    <input type="range" min="0" max="1000" data-ng-model="qty" />
+    <div class="row">
+      <div class="col-md-6">
+        <p class="pull-left">0</p>
+      </div>
+      <div class="col-md-6">
+        <p class="pull-right">{{qty}}</p>
+      </div>
+    </div>
+    <p class="sortbyprice" ng-click="sort('price_min')">Отсортировать по цене <i class="glyphicon" ng-class="{
+      'glyphicon-chevron-down' : isSortDown('price_min'), 
+      'glyphicon-chevron-up' : isSortUp('price_min')
+    }"></i></p>
+  </div>

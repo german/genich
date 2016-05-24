@@ -1,3 +1,4 @@
+<title>Добавить пансионат на сайт</title>
 <div ng-include="'shared/headernew.html'"></div> 
 
 <div class="container-fluid newhotel">
@@ -14,7 +15,7 @@
   </div>
 </div>
 
-<div class="container" ng-if="myuser" ng-controller="NewHotel">
+<div class="container" ng-if="myuser.role == 'own'" ng-controller="NewHotel">
   <div class="row">
     <div class="col-lg-6 col-md-6">
       <form name="hotelnew" class="simple_form form-horizontal" novalidate="novalidate" id="new_hotel" ng-submit="save()" accept-charset="UTF-8">
@@ -22,7 +23,7 @@
         <input name="utf8" type="hidden" value="&#x2713;" />
 
         <div class="form-group string hotel_name">
-          <label class="string control-label" for="hotel_name">Название</label>
+          <label class="string control-label" for="hotel_name">Название | {{myuser.role}}</label>
           <input class="string form-control" type="text" ng-model="hotel.name" id="hotel_name" maxlength="50" placeholder="Не пишите длинных названий" required/>
         </div>
 
