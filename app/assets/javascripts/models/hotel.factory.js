@@ -1,7 +1,7 @@
 angular.module('pansionatApp').factory('Hotel', function($resource) {
-  return $resource('http://localhost:3000/hotels/:id', { id: '@id'},
+  return $resource('/hotels/:id', { id: '@id'},
   {
-   'update': { method: 'PUT', url: 'http://localhost:3000/hotels/:id'},
+   'update': { method: 'PUT', url: '/hotels/:id'},
    'save': { 
       method: 'POST', 
       headers: {

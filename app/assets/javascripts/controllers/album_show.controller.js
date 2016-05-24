@@ -6,7 +6,7 @@ function AlbumShow($scope, $stateParams,$http, $state, Album, Photo, FileUploade
   });
   
   var uploader = $scope.uploader = new FileUploader({
-    url: 'http://localhost:3000/albums/'+$stateParams.id+'/photos'
+    url: '/albums/'+$stateParams.id+'/photos'
   });
 
   uploader.onCompleteAll = function() {

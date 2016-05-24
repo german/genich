@@ -1,12 +1,12 @@
 angular.module('pansionatApp').factory('Photo', function($resource) {
-  return $resource ('http://localhost:3000/albums/:album_id/photos/:id',
+  return $resource ('/albums/:album_id/photos/:id',
     {
       album_id: '@album_id',
       id: '@id' 
     },
     {
       'update': { method: 'PUT'},
-      'delete': { method: 'DELETE', url: 'http://localhost:3000/photos/:id'},
+      'delete': { method: 'DELETE', url: '/photos/:id'},
       'save': { 
         method: 'POST', 
         headers: {
