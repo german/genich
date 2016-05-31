@@ -47,14 +47,25 @@ function init() {
 	  return false;
 	})
 	var howitwork_count = 0; 
-	$(document).on("click", ".howitwork-button", function() {
+	$(document).on("click", ".howitwork-button", function(){
 		if (howitwork_count == 0) {
-			$('.howitwork').animate({"height":"200px"}, 500);
+			$('.howitwork').animate({"top":"0px"});
+			$('header').animate({"margin-top":"420px"})
+			setTimeout(function(){
+				$('.step-one img').delay(3000).addClass('fall-animate')
+			}, 5000);
 			howitwork_count = 1;	
 		} else {
-			$('.howitwork').animate({"height":"0px"}, 500);
+			$('.howitwork').animate({"top":"-420px"});
+			$('header').animate({"margin-top":"0px"})
 			howitwork_count = 0;
 		}
+	})
+
+	$(document).on("click", ".howitwork", function(){
+		$('.howitwork').animate({"top":"-420px"});
+		$('header').animate({"margin-top":"0px"})
+		howitwork_count = 0;
 	})
 
 	// PRELOADER //

@@ -24,6 +24,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 
+@font-face {
+	font-family: Epsilon;
+  src: url(/assets/Epsilon.TTF); 
+}
+
 @media screen and (max-width: 640px) {
 	.slider {
 		display: none !important;
@@ -126,15 +131,55 @@ ul.strelkovoe .strelkovoe {
 */
 
 .howitwork {
-	height: 0px;
+	position: absolute;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+	
+	img {
+		padding: 40px 35px 0px 35px;
+		position: relative;
+		z-index:1;
+	}
+
+	.fall {
+		position: relative;
+
+		.howitwork-allhotels {
+		  position: absolute;
+    	bottom: 140px;
+    	left: 120px;
+    	z-index: 0;
+    	font-family: 'Epsilon';
+		}
+	}
+}
+
+.fall-animate {
+	-webkit-animation: step-one 1.8s;
+  -moz-animation: step-one 1.8s; 
+  -o-animation: step-one 1.8s; 
+	animation: step-one 1.8s  ;
+	animation-iteration-count: 1;
+	-webkit-animation-fill-mode:both;
+	animation-fill-mode:both;
+}
+
+.flex-howitwork {
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
 }
 
 header {
 	height: 400px;
 	position: relative;
+	margin-top: 0px;
 	margin-bottom: 15px;
 	margin-left: -15px;
 	margin-right: -15px;
+	z-index:1;
 	.howitwork-button {
 	  width: 100%;
     position: relative;
@@ -459,7 +504,7 @@ md-checkbox {
   border: 1px solid #dce0e0;
   margin: 5px;
   cursor:pointer;
-  outline: none
+  outline: none;
 }
 
 .tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active {
@@ -587,4 +632,30 @@ md-radio-group {
 
 .myfade.ng-leave.ng-leave-active {
   opacity: 0;
+}
+
+
+/*************************
+				KEYFRAMES
+*************************/
+
+@-webkit-keyframes step-one {
+  0%   { transform: rotateZ(0deg) }
+  40% { transform: rotateZ(-20deg) }
+  100% { transform: translateY(440px) }  
+}
+@-moz-keyframes step-one {
+  0%   { transform: rotateZ(0deg) }
+  40% { transform: rotateZ(-20deg) }
+  100% { transform: translateY(440px) }  
+}
+@-o-keyframes step-one {
+  0%   { transform: rotateZ(0deg) }
+  40% { transform: rotateZ(-20deg) }
+  100% { transform: translateY(440px) }  
+}
+@keyframes step-one {
+  0%   { transform: rotateZ(0deg) }
+  40% { transform: rotateZ(-20deg) }
+  100% { transform: translateY(440px) }  
 }
