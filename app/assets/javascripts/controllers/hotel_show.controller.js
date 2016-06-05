@@ -1,4 +1,4 @@
-angular.module('pansionatApp').controller('HotelShow', function($scope, $stateParams,$http, $state, Album, Hotel) {
+angular.module('pansionatApp').controller('HotelShow', function($scope, $stateParams,$http, $state, Album, Hotel, Review) {
   $scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
   // $scope.myuser = window.localStorage.getItem('currentUser');
 
@@ -22,6 +22,15 @@ angular.module('pansionatApp').controller('HotelShow', function($scope, $statePa
       console.log(response);
       $state.go('hotel', {id: $stateParams.id})
       // Optional function. Clear html form, redirect or whatever.
+    });
+  };
+
+  $scope.newReview  = new Review({hotel_id: $stateParams.id});
+
+  $scope.save_review = function() {
+    Review.save({ hotel_id: $stateParams.id, album: $scope.newReview,  }, function(response) {
+      console.log(response);
+      $state.go('hotel', {id: response.id})
     });
   };
 })
