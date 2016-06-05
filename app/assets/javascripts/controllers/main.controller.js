@@ -19,6 +19,11 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
     function(event){
       init();
   });
+
+  
+  $scope.width = function(clientWidth){
+   return document.body.clientWidth;    
+  }
         
   $scope.images = [
     {image : '/assets/slider/slider-01.jpg'},
@@ -65,6 +70,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.has_showerIncludes = [];
         $scope.has_wifiIncludes = [];
         $scope.has_transferIncludes = [];
+        $scope.has_poolIncludes = [];
 
         // filters City
         $scope.includesCity_name = function(city_name){
@@ -214,6 +220,23 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.hastransferFilter = function(hotels) {
           if ($scope.has_transferIncludes.length > 0) {
             if ($.inArray(hotels.has_transfer, $scope.has_transferIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
+        //filters has_pool
+        $scope.includeshas_pool = function(has_pool){
+          var i = $.inArray(has_pool, $scope.has_poolIncludes);
+          if (i > -1) {
+            $scope.has_poolIncludes.splice(i, 1);
+          } else {
+            $scope.has_poolIncludes.push(has_pool);
+          }
+        }
+        $scope.haspoolFilter = function(hotels) {
+          if ($scope.has_poolIncludes.length > 0) {
+            if ($.inArray(hotels.has_pool, $scope.has_poolIncludes) < 0)
               return;
           } 
           return hotels;

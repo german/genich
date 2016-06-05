@@ -235,7 +235,7 @@ header {
 	box-shadow: none !important;
 }
 
-.arrowsup {
+#arrowsup {
 	display:none;
 	color: rgba(255,255,255,0.87);
 	background-color: rgb(16,108,200);
@@ -260,13 +260,13 @@ header {
   transition-property: background-color,box-shadow,transform;
 }
 
-.arrowsup p {
+#arrowsup p {
 	font-size: 40px;
 	text-align: center;
 }
 
 
-.arrowsup2 {
+#arrowsup2 {
 	display:none;
 	z-index:1200;
 	position: fixed;

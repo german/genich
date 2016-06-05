@@ -1,6 +1,7 @@
 <title>Отдых на Арабатской стрелке 2016 | Удобный выбор жилья | Отдыхайте в Украине</title>
-<div ng-include="'shared/header.html'"></div>
-<div class="arrowsup">
+<div ng-if="width() > 993" ng-include="'shared/header.html'"></div>
+<div ng-if="width() < 993" ng-include="'shared/headernew.html'"></div>
+<div id="arrowsup">
   <p>&#8679;</p>
 </div>
 <div class="container premium">
@@ -33,7 +34,7 @@
       </div>
     </div>
     <div class="col-md-6 col-xs-12" style="padding-right: 0px;">
-      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
+      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | filter: haspoolFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
         <!-- Список пансионатов // ROW -->
         <panslistrow></panslistrow>
       </div>

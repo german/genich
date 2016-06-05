@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523165301) do
+ActiveRecord::Schema.define(version: 20160601120152) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160523165301) do
     t.datetime "updated_at",          null: false
     t.string   "hotel_type"
     t.integer  "user_id"
+    t.boolean  "has_pool"
   end
 
   add_index "hotels", ["city_name"], name: "index_hotels_on_city_name"
@@ -75,6 +76,11 @@ ActiveRecord::Schema.define(version: 20160523165301) do
     t.integer  "album_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
