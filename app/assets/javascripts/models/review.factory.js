@@ -1,5 +1,5 @@
 angular.module('pansionatApp').factory('Review', function($resource) {
-  return $resource('/hotels/:hotel_id/review/:id', 
+  return $resource('/hotels/:hotel_id/reviews/:id', 
     { 
       hotel_id: '@hotel_id',
       id: '@id'

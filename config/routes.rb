@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   }
 
   resources :hotels do
+    resources :reviews
+    
     resources :albums, shallow: true do
       resources :photos
     end
