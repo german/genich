@@ -18,6 +18,7 @@
 //= require angular-ui-router
 //= require angular-resource
 //= require angular-rails-templates
+//= require angular-xeditable
 //= require ngGallery
 //= require angular-devise
 //= require angular-file-upload

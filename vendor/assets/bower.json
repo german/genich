@@ -10,6 +10,7 @@
     "bootstrap-sass-official": "latest",
     "ngGallery": "latest",
     "angular-devise": "latest",
-    "ng-token-auth": "latest"
+    "ng-token-auth": "latest",
+    "angular-xeditable": "latest"
   }
 }

@@ -23,7 +23,6 @@ angular.module('pansionatApp').controller('NewHotel',
 
   $scope.update = function(){
     $scope.hotel.user_id = $scope.myuser.id;
-
     Hotel.update({ hotel: $scope.hotel, id: $scope.hotel.id }, function(response) {
       console.log('обновляем');
       $state.go('hotel', {id: response.id})

@@ -9,7 +9,8 @@ angular.module('pansionatApp', [
   'angularFileUpload', 
   'jkuri.gallery',
   'ng-token-auth', 
-  'Devise'])
+  'Devise',
+  'xeditable'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',

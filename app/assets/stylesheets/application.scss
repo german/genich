@@ -21,6 +21,7 @@
 @import "Swiper/dist/css/swiper.css";
 @import "ngGallery/src/css/ngGallery.css";
 @import "ngGallery/src/css/screen.css";
+@import "angular-xeditable/dist/css/xeditable.min.css";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 
@@ -53,6 +54,12 @@
 	}
 	.text-center .form-inputs {
 		margin: 20px 0px !important;
+	}
+	label {
+		font-size: 14px !important;
+	}
+	.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool {
+		width: 160px !important;
 	}
 }
 

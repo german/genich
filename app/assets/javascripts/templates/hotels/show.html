@@ -116,7 +116,7 @@
             <div class="row">
               <div ng-repeat="album in hotel.albums | limitTo:1">
                 <!-- <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/> -->
-                <a href="#/albums/{{album.id}}"><h3>{{album.name}}</h3></a>
+                <h3><a href="#/albums/{{album.id}}" editable-text="album.name">{{album.name}}</a></h3> 
                 <div class="gallery" ng-controller="HotelShow as ctrl">
                   <ng-gallery images="ctrl.images"></ng-gallery>
                 </div>
@@ -142,26 +142,30 @@
       </div>
       
       <h2 ng-if="myuser.id === hotel.user_id"><a href="#/edit/{{hotel.id}}">Изменить информацию</a></h2>
-
-      <h3>Отзывы</h3>
-      <div class="reviews" ng-repeat="review in hotel.reviews">
-        {{review}}
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Отзывы</h4>
+          <div class="reviews" ng-repeat="review in hotel.reviews">
+            {{review}}
+          </div>
+          <div class="add-review">
+            <form name="reviewnew" class="simple_form form-horizontal" novalidate="novalidate" id="new-review" ng-submit="save_review()" accept-charset="UTF-8">
+              <md-input-container class="md-icon-float md-block">
+                <label>Ваше имя</label>
+                <input ng-model="newReview.name" type="text">
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label>Ваш отзыв</label>
+                <textarea ng-model="newReview.description" rows="5" md-select-on-focus></textarea>
+              </md-input-container>
+              <md-button type="submit" class="md-raised md-primary">
+                Добавить отзыв
+              </md-button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="add-review">
-        <form name="reviewnew" class="simple_form form-horizontal" novalidate="novalidate" id="new-review" ng-submit="save_review()" accept-charset="UTF-8">
-          <md-input-container class="md-icon-float md-block">
-            <label>Ваше имя</label>
-            <input ng-model="newReview.name" type="text">
-          </md-input-container>
-          <md-input-container class="md-block">
-            <label>Ваш отзыв</label>
-            <textarea ng-model="newReview.description" rows="5" md-select-on-focus></textarea>
-          </md-input-container>
-          <md-button type="submit" class="md-raised md-primary">
-            Добавить отзыв
-          </md-button>
-        </form>
-      </div>
+      
     </div>
 
     <div class="premiuminshow col-md-offset-2 col-md-3 col-xs-12" ng-controller="MainController">
