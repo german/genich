@@ -116,7 +116,7 @@
             <div class="row">
               <div ng-repeat="album in hotel.albums | limitTo:1">
                 <!-- <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/> -->
-                <h3><a href="#/albums/{{album.id}}" editable-text="album.name">{{album.name}}</a></h3> 
+                <h3><a href="#/albums/{{album.id}}" editable-text="album.name" onbeforesave="updateAlbumname($data)">{{album.name}}</a></h3> 
                 <div class="gallery" ng-controller="HotelShow as ctrl">
                   <ng-gallery images="ctrl.images"></ng-gallery>
                 </div>

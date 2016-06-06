@@ -26,6 +26,12 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
       // Optional function. Clear html form, redirect or whatever.
     });
   };
+  
+  $scope.updateAlbumname = function() {
+    Album.save({hotel_id: $stateParams.id, album: $scope.newAlbum }, function(response) {
+      console.log('edit');
+    })
+  };
 
   $scope.newReview  = new Review({hotel_id: $stateParams.id});
 
