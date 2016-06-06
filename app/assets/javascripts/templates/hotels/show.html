@@ -116,7 +116,7 @@
             <div class="row">
               <div ng-repeat="album in hotel.albums | limitTo:1">
                 <!-- <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/> -->
-                <form editable-form name="editableForm" onaftersave="updateAlbumname()">
+                <form editable-form name="editableForm" onaftersave="updateAlbumname(album.id)">
                   <h3><a href="#/albums/{{album.id}}" editable-text="album.name" e-name="name" onbeforesave="checkName($data)" e-required>{{album.name}}</a></h3> 
                   <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
                     Редактировать

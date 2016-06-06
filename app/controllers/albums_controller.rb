@@ -17,6 +17,14 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def update
+    @album = Album.find(params[:id])
+    update! do |format|
+      format.json { render json: resource }
+      format.html { redirect_to hotel_url(resource.hotel), notice: "Фотоальбом #{resource.name} було успішно оновлено!" }
+    end
+  end
+
   def show
     #@user = User.find(params[:user_id])
     album = Album.find(params[:id])
