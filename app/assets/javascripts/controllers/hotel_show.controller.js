@@ -36,9 +36,9 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
   $scope.newReview  = new Review({hotel_id: $stateParams.id});
 
   $scope.save_review = function() {
-    Review.save({ hotel_id: $stateParams.id, album: $scope.newReview,  }, function(response) {
+    Review.save({ hotel_id: $stateParams.id, review: $scope.newReview,  }, function(response) {
       console.log(response);
-      $state.go('hotel', {id: response.id})
+      $state.go('hotel', {id: $stateParams.id})
     });
   };
 })

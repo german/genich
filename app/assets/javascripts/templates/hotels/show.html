@@ -149,7 +149,7 @@
             {{review}}
           </div>
           <div class="add-review">
-            <form name="reviewnew" class="simple_form form-horizontal" novalidate="novalidate" id="new-review" ng-submit="save_review()" accept-charset="UTF-8">
+            <form name="reviewnew" class="simple_form form-horizontal" novalidate="novalidate" id="new-review" accept-charset="UTF-8">
               <md-input-container class="md-icon-float md-block">
                 <label>Ваше имя</label>
                 <input ng-model="newReview.name" type="text">
@@ -158,7 +158,7 @@
                 <label>Ваш отзыв</label>
                 <textarea ng-model="newReview.description" rows="5" md-select-on-focus></textarea>
               </md-input-container>
-              <md-button type="submit" class="md-raised md-primary">
+              <md-button type="submit" ng-click="save_review()" class="md-raised md-primary">
                 Добавить отзыв
               </md-button>
             </form>
