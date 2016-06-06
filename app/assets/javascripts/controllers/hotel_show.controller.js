@@ -27,8 +27,8 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
     });
   };
   
-  $scope.updateAlbumname = function() {
-    Album.save({hotel_id: $stateParams.id, album: $scope.newAlbum }, function(response) {
+  $scope.updateAlbumname = function(album_id) {
+    Album.update({hotel_id: $stateParams.id, id: album_id, album: $scope.newAlbum }, function(response) {
       console.log(response);
     })
   };
