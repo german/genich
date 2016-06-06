@@ -8,6 +8,7 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
 
   $http.get('/hotels/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.hotel = data;
+    $scope.edit_album = data.albums[0];
     if($scope.hotel.albums.length > 0) {
       $.each($scope.hotel.albums[0].photos, function(index, photo) {
         //console.log(photo);
@@ -28,7 +29,8 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
   };
   
   $scope.updateAlbumname = function(album_id) {
-    Album.update({hotel_id: $stateParams.id, id: album_id, album: $scope.newAlbum }, function(response) {
+    console.log('$scope.edit_album', $scope.edit_album);
+    Album.update({id: album_id, album: {name: $scope.edit_album.name} }, function(response) {
       console.log(response);
     })
   };
