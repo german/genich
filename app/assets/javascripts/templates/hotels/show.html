@@ -116,7 +116,21 @@
             <div class="row">
               <div ng-repeat="album in hotel.albums | limitTo:1">
                 <!-- <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/> -->
-                <h3><a href="#/albums/{{album.id}}" editable-text="album.name" onbeforesave="updateAlbumname($data)">{{album.name}}</a></h3> 
+                <form editable-form name="editableForm" onaftersave="updateAlbumname()">
+                  <h3><a href="#/albums/{{album.id}}" editable-text="album.name" e-name="name" onbeforesave="checkName($data)" e-required>{{album.name}}</a></h3> 
+                  <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+                    Редактировать
+                  </button>
+                  <!-- buttons to submit / cancel form -->
+                  <span ng-show="editableForm.$visible">
+                    <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                      Сохранить
+                    </button>
+                    <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                      Отмена
+                    </button>
+                  </span>
+                </form>
                 <div class="gallery" ng-controller="HotelShow as ctrl">
                   <ng-gallery images="ctrl.images"></ng-gallery>
                 </div>
