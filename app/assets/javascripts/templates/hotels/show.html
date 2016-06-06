@@ -158,22 +158,33 @@
       <h2 ng-if="myuser.id === hotel.user_id"><a href="#/edit/{{hotel.id}}">Изменить информацию</a></h2>
       <div class="row">
         <div class="col-md-12">
-          <h4>Отзывы</h4>
-          <div class="reviews" ng-repeat="review in hotel.reviews">
-            {{review}}
+          <h4>Отзывы и комментарии</h4>
+          <div class="reviews" ng-repeat="review in hotel.reviews | orderBy:review.id:!reverse">
+            <div class="reviews-wrapper">
+              <div class="row">
+                <div class="col-md-3 text-center">
+                  <h5>{{review.name}}</h5>    
+                </div>
+                <div class="col-md-9">
+                  <h5>{{review.description}}</h5>      
+                  <h5>{{review.created_at | date }}</h5>
+                  <h5 class="reviews-wrapper__moderator"><span>Удалить</span> | <span>Ответить</span> | <span>Мне нравится</span></h5>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="add-review">
+          <div ng-hide="myuser.role == 'own'" class="add-review">
             <form name="reviewnew" class="simple_form form-horizontal" novalidate="novalidate" id="new-review" accept-charset="UTF-8">
               <md-input-container class="md-icon-float md-block">
                 <label>Ваше имя</label>
                 <input ng-model="newReview.name" type="text">
               </md-input-container>
               <md-input-container class="md-block">
-                <label>Ваш отзыв</label>
+                <label>Ваш комментарий</label>
                 <textarea ng-model="newReview.description" rows="5" md-select-on-focus></textarea>
               </md-input-container>
               <md-button type="submit" ng-click="save_review()" class="md-raised md-primary">
-                Добавить отзыв
+                Добавить комментарий
               </md-button>
             </form>
           </div>

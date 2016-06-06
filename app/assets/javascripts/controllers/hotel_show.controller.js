@@ -38,6 +38,7 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
   $scope.save_review = function() {
     Review.save({ hotel_id: $stateParams.id, review: $scope.newReview,  }, function(response) {
       console.log(response);
+      window.location.reload();
       $state.go('hotel', {id: $stateParams.id})
     });
   };
