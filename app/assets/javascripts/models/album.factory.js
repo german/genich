@@ -5,7 +5,12 @@ angular.module('pansionatApp').factory('Album', function($resource) {
       id: '@id'
     },
   {
-   'update': { method: 'PUT', url: '/albums/:id'},
+   'update': { method: 'PUT', url: '/albums/:id',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+  },
    'save': { 
       method: 'POST', 
       headers: {
