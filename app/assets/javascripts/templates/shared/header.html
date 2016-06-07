@@ -47,6 +47,7 @@
 					<li><a href="#/help">Помощь</a></li>
 					<li ng-if="!myuser"><a href="#/registration">Регистрация</a></li>
 					<li ng-if="!myuser"><a href="#/login">Войти</a></li>
+					<li ng-if="myuser.role == 'own'"><a href="#/profile/{{user.id}}">Мой профиль</a></li>
 					<li ng-if="myuser" ng-controller="Logout"><a href="#" ng-click="logout()">Выйти</a></li>
 					</ul>
 				</div>

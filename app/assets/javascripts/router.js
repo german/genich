@@ -70,6 +70,10 @@ angular.module('pansionatApp', [
       url: '/edit/{id}',
       templateUrl: 'hotels/edit.html',
       controller: 'HotelShow'
+    }).state('profile', {
+      url: '/profile/{id}',
+      templateUrl: 'users/profile.html',
+      controller: 'UserCtrl'
     })
   $urlRouterProvider.otherwise('/');
 }]);
