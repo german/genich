@@ -428,6 +428,8 @@ md-checkbox {
 	font-size:16px;
 }
 
+
+
 .premium {
 	height:476px; 
 	overflow:hidden;
@@ -580,6 +582,30 @@ md-checkbox {
 
 .footer-bottom>.social li img {
 	width: 32px;
+}
+
+/*********************
+
+		HELP
+
+*********************/
+
+.help {
+	margin-top: 20px;
+}
+
+md-toolbar {
+	padding: 0px 24px;
+	outline: none;
+		h3 {
+			outline: none;
+		}
+}
+
+md-content {
+  padding: 24px; 
+  font-size: 1.6rem;
+  line-height: 1.6em;
 }
 
 /*********************

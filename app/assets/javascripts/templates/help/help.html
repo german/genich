@@ -1,2 +1,36 @@
 <div ng-include="'shared/headernew.html'"></div>
-<h2>Помощь</h2>
+<div class="container">
+	<div class="row help">
+		<div class="col-md-12">
+			<md-toolbar ng-click="click.$help1 = !click.$help1">
+				<h3 class="md-flex">Могу ли я бесплатно добавить свое предложение?</h3>
+			</md-toolbar>
+			<md-content ng-show="click.$help1"><p>Да, конечно. Мы можете абсолютно бесплатно добавить свое предложение на сайт. Для этого нужно <a href="#/new">перейти по ссылке</a> и заполнить все поля. Чтобы использовать все возможности сайта, например, редактирование комментариев и отзывов, вам необходимо купить Премиум аккаунт. Более подробно <a href="#">о Премиум аккаунте.</a></md-content>
+		</div>
+	</div>
+	<div class="row help">
+		<div class="col-md-12">
+			<md-toolbar ng-click="click.$help2 = !click.$help2">
+				<h3 class="md-flex">У меня не получается зарегистрироваться</h3>
+			</md-toolbar>
+			<md-content ng-show="click.$help2"><p>Если у вас возникли трудности с регистрацией, пожалуйста, напишите нам: marginbit@gmail.com - мы постараемся решить проблему и помочь вам.</md-content>
+		</div>
+	</div>
+	<div class="row help ">
+		<div class="col-md-12">
+			<md-toolbar ng-click="click.$help3 = !click.$help3">
+				<h3 class="md-flex">Могу ли я забронировать дату приезда через сайт?</h3>
+			</md-toolbar>
+			<md-content ng-show="click.$help3"><p>На данный момент такой возможности нет. Мы рекомендуем связаться с владельцем жилья по телефону или через email, и в личной беседе забронировать нужную вам дату.</md-content>
+		</div>
+	</div>
+	<div class="row help ">
+		<div class="col-md-12">
+			<md-toolbar ng-click="click.$help4 = !click.$help4">
+				<h3 class="md-flex">Че так сложно?</h3>
+			</md-toolbar>
+			<md-content ng-show="click.$help4"><p>На данный момент такой возможности нет. Мы рекомендуем связаться с владельцем жилья по телефону или через email, и в личной беседе забронировать нужную вам дату.</md-content>
+		</div>
+	</div>
+</div>
+
