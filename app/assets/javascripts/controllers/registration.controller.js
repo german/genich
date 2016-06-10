@@ -5,23 +5,31 @@ angular.module('pansionatApp').controller('RegistrationCtrl',
 
   $scope.save = function() {
     console.log($scope.user.$valid);    
-    if ($scope.user.$valid == true)
-      // ($scope.email && $scope.password && $scope.password_confirmation)
-       {
-      $http.post('/users', {user: {
-        email: $scope.email, 
-        password: $scope.password, 
-        password_confirmation: $scope.password_confirmation,
-        role: $scope.role
-      }})
-        .success(function(data, status, headers, config){
-          if(data.errors) { 
-            show_errors(data.errors);
-          } else {
-            $state.go('login');
+    if ($scope.user.$valid == true){
+      $http.post('/users', 
+        {
+          user: {
+            email: $scope.email, 
+            password: $scope.password, 
+            password_confirmation: $scope.password_confirmation,
+            role: $scope.role
           }
-          //console.log(data);
-      });
+        }, {
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(
+          // successFunction
+          function(data, status, headers, config){
+            console.log(data);
+            $state.go('login');
+          },
+          // failureFunction
+          function(data, status, headers, config) {
+            console.log(data.data.errors);
+          }
+        )
     } else {
       alert('Исправьте ошибки')
     }
