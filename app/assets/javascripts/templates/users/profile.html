@@ -1,7 +1,7 @@
 <div ng-include="'shared/headernew.html'"></div>
 
 <h2 class="text-center">Изменить профиль</h2>
-{{myuser.id}}, {{myuser.email}}, {{myuser.password}}
+{{myuser.id}}, {{myuser.email}}, {{myuser.current_password}}
 
 <form editable-form name="editableForm" onaftersave="updateUser(myuser.id)">
     <div>
@@ -20,7 +20,7 @@
           <span class="title">Ваш пароль </span>    
         </div>
         <div class="col-md-6">
-          <span editable-text="myuser.password" ng-model="myuser.password" e-name="name" onbeforesave="checkName($data)" e-required>{{ myuser.password || '*********' }}</span>
+          <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-name="name" onbeforesave="checkName($data)" e-required>{{ myuser.current_password || '*********' }}</span>
         </div>
       </div>
     </div> 
