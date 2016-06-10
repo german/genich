@@ -1,29 +1,29 @@
 angular.module('pansionatApp').controller('RegistrationCtrl', 
-  function($scope, $stateParams, $http, $state, Auth, $http) {
+	function($scope, $stateParams, $http, $state, Auth, $http) {
 
-  $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+	$http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 
-  $scope.save = function() {
-    console.log($scope.user.$valid);    
-    if ($scope.user.$valid == true)
-    	// ($scope.email && $scope.password && $scope.password_confirmation)
-    	 {
-	    $http.post('/users', {user: {
-	    	email: $scope.email, 
-	    	password: $scope.password, 
-	    	password_confirmation: $scope.password_confirmation,
-        role: $scope.role
-	    }})
-	      .success(function(data, status, headers, config){
-	        if(data.errors) { 
-  					show_errors(data.errors);
+	$scope.save = function() {
+		console.log($scope.user.$valid);    
+		if ($scope.user.$valid == true)
+			// ($scope.email && $scope.password && $scope.password_confirmation)
+			 {
+			$http.post('/users', {user: {
+				email: $scope.email, 
+				password: $scope.password, 
+				password_confirmation: $scope.password_confirmation,
+				role: $scope.role
+			}})
+				.success(function(data, status, headers, config){
+					if(data.errors) { 
+						show_errors(data.errors);
 					} else {
-  					$state.go('login');
+						$state.go('login');
 					}
-	        //console.log(data);
-	    });
-	  } else {
+					//console.log(data);
+			});
+		} else {
 			alert('Исправьте ошибки')
-	  }
-  }
+		}
+	}
 })
