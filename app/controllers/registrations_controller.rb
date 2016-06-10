@@ -23,12 +23,10 @@ protected
       :password_confirmation) }
   end
 
-  
-
 private
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :email, :password, 
+    params.require(:user).permit(:first_name, :email, :password, :current_password,
       :password_confirmation, :role)
   end
 

@@ -17,13 +17,23 @@
     <div>   
       <div class="row">
         <div class="col-md-2">
-          <span class="title">Ваш пароль </span>    
+          <span class="title">Ваш текущий пароль</span>    
         </div>
         <div class="col-md-6">
-          <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-name="name" onbeforesave="checkName($data)" e-required>{{ myuser.current_password || '*********' }}</span>
+          <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-required><span>
         </div>
       </div>
-    </div> 
+    </div>
+    <div>   
+      <div class="row">
+        <div class="col-md-2">
+          <span class="title">Ваш новый пароль</span>    
+        </div>
+        <div class="col-md-6">
+          <span editable-text="myuser.password" ng-model="myuser.password" e-required></span>
+        </div>
+      </div>
+    </div>
 
     <div>
       <!-- button to show form -->
