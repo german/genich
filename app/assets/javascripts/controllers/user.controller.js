@@ -5,7 +5,7 @@ angular.module('pansionatApp').controller('UserCtrl',
 		$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
 
 		$scope.updateUser = function(myuser_id, credentials) {
-    	User.update({id: myuser_id, user: {email: $scope.myuser.email, password: $scope.myuser.current_password} }, function(response) {
+    	User.update({id: myuser_id, user: {email: $scope.myuser.email, current_password: $scope.myuser.password} }, function(response) {
       	console.log(response);
     	})
   	};
