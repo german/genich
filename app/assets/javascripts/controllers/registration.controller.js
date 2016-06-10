@@ -15,8 +15,12 @@ angular.module('pansionatApp').controller('RegistrationCtrl',
         role: $scope.role
 	    }})
 	      .success(function(data, status, headers, config){
-	        console.log(data);
-	        $state.go('login');
+	        if(data.errors) { 
+  					show_errors(data.errors);
+					} else {
+  					$state.go('login');
+					}
+	        //console.log(data);
 	    });
 	  } else {
 			alert('Исправьте ошибки')

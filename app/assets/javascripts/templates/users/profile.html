@@ -1,85 +1,53 @@
 <div ng-include="'shared/headernew.html'"></div>
 
 <h2 class="text-center">Изменить профиль</h2>
-{{myuser.id}}, {{myuser.email}}, {{myuser.current_password}}
-
-<form editable-form name="editableForm" onaftersave="updateUser(myuser.id)">
-    <div>
-      <div class="row">
-        <div class="col-md-2">
-          <span class="title">Ваш email </span>    
-        </div>
-        <div class="col-md-6">
-          <span editable-text="myuser.email" ng-model="myuser.email" onbeforesave="checkName($data)" e-required>{{ myuser.email || 'empty' }}</span> 
-        </div>
+<form editable-form name="editableForm" onaftersave="updateUser(myuser.id)" class="text-center">
+<div class="form-inputs">
+  <div>
+    <div class="row padding20-0">
+      <div class="col-md-6">
+        <span class="title">Ваш email:</span>    
       </div>
-    </div> 
-    <div>   
-      <div class="row">
-        <div class="col-md-2">
-          <span class="title">Ваш текущий пароль</span>    
-        </div>
-        <div class="col-md-6">
-          <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-required><span>
-        </div>
+      <div class="col-md-6">
+        <span editable-text="myuser.email" ng-model="myuser.email" onbeforesave="checkName($data)" e-required>{{ myuser.email || 'empty' }}</span> 
       </div>
     </div>
-    <div>   
-      <div class="row">
-        <div class="col-md-2">
-          <span class="title">Ваш новый пароль</span>    
-        </div>
-        <div class="col-md-6">
-          <span editable-text="myuser.password" ng-model="myuser.password" e-required></span>
-        </div>
+  </div> 
+  <div>   
+    <div class="row padding20-0">
+      <div class="col-md-6">
+        <span class="title">Ваш текущий пароль:</span>    
+      </div>
+      <div class="col-md-6">
+        <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-required>{{ myuser.current_password || '********' }}<span>
       </div>
     </div>
+  </div>
+  <div>   
+    <div class="row padding20-0">
+      <div class="col-md-6">
+        <span class="title">Ваш новый пароль:</span>    
+      </div>
+      <div class="col-md-6">
+        <span editable-text="myuser.password" ng-model="myuser.password" e-required>{{ myuser.password || '********' }}</span>
+      </div>
+    </div>
+  </div>
 
-    <div>
-      <!-- button to show form -->
-      <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-        Изменить данные
+  <div class="button-edit_user">
+    <!-- button to show form -->
+    <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+      Изменить данные
+    </button>
+    <!-- buttons to submit / cancel form -->
+    <span  ng-show="editableForm.$visible">
+      <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+        Сохранить
       </button>
-      <!-- buttons to submit / cancel form -->
-      <span ng-show="editableForm.$visible">
-        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-          Сохранить
-        </button>
-        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-          Отмена
-        </button>
-      </span>
-    </div>
-  </form>  
-
-<form name="user" class="text-center">
-  <div class="form-inputs">
-    <div class="row">
-      <div class="col-md-12">
-        <md-input-container>
-          <input type="email" placeholder="Email" ng-model="email" name="email" size="40" autofocus require/>
-        </md-input-container>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <md-input-container>
-          <input type="password" placeholder="Пароль" ng-model="password" size="40" name="password"/>
-        </md-input-container>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <md-checkbox name="remember_me" ng-model="remember_me">
-          Запомнить меня
-        </md-checkbox>
-      </div>
-    </div> 
+      <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+        Отмена
+      </button>
+    </span>
   </div>
-
-  <div class="form-actions">
-    <button class="btn btn-success btn-lg" ng-click="save()">Войти на сайт</button>
-  </div>
-</form>
+</div>
+</form>  
