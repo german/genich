@@ -12,7 +12,6 @@ angular.module('pansionatApp').controller('UserCtrl',
         } 
       }
 
-      console.log('user_params', user_params);
     	User.update(user_params, function(response) {
       	console.log(response);
     	})
