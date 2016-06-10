@@ -3,7 +3,7 @@ $(function(){
 });
 
 function init() {
-
+	
 	// ARROWSUP при клике выполняем функцию скрола вверх
   var up = document.getElementById('arrowsup');
   if(up){
@@ -73,6 +73,7 @@ function init() {
 	var howitwork_count = 0; 
 	$(document).on("click", ".howitwork-button", function(){
 		if (howitwork_count == 0) {
+			$('.howitwork').css("z-index","0");
 			$('.howitwork').animate({"top":"0px"});
 			$('header').animate({"margin-top":"420px"})
 			setTimeout(function(){

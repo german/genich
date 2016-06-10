@@ -143,6 +143,7 @@ ul.strelkovoe .strelkovoe {
 	right:0;
 	margin-left:auto;
 	margin-right:auto;
+	z-index:-1;
 	
 	img {
 		padding: 40px 35px 0px 35px;
@@ -427,8 +428,6 @@ li {
 md-checkbox {
 	font-size:16px;
 }
-
-
 
 .premium {
 	height:476px; 

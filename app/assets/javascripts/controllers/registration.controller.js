@@ -16,7 +16,7 @@ angular.module('pansionatApp').controller('RegistrationCtrl',
       }})
         .success(function(data, status, headers, config){
           if(data.errors) { 
-            show_errors(data.errors);
+            console.log('error');
           } else {
             $state.go('login');
           }
