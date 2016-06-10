@@ -1,4 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
+  include DeviseTokenAuth::Concerns::SetUserByToken
+
+  skip_before_filter :authenticate_scope!, only: [:update]
   before_filter :configure_permitted_parameters, :only => [:create]
 
   def create
@@ -8,6 +11,11 @@ class RegistrationsController < Devise::RegistrationsController
   #  UsersMailer.welcome(@user).deliver_now unless @user.invalid?
   end
 
+  def update
+    super
+    Rails.logger.warn 'user.errors ' + resource.errors.inspect
+  end
+
 protected
 
   def configure_permitted_parameters
@@ -15,10 +23,26 @@ protected
       :password_confirmation) }
   end
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
 private
 
   def sign_up_params
     params.require(:user).permit(:first_name, :email, :password, 
       :password_confirmation, :role)
+  end
+
+  def authenticate_user!(opts={})
+    unless current_user
+      return render json: {
+        errors: ["Authorized users only."]
+      }, status: 401
+    end
+  end
+
+  def current_user
+    super || User.find(params[:id])
   end
 end
