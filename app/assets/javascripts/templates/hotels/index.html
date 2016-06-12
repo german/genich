@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="col-md-6 col-xs-12" style="padding-right: 0px;">
-      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | filter: haspoolFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
+      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | filter: haspoolFilter | filter: hasfoodFilter | filter: haskettleFilter | filter: hassunbedsFilter | filter: hasplaygroundFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
         <!-- Список пансионатов // ROW -->
         <panslistrow></panslistrow>
       </div>

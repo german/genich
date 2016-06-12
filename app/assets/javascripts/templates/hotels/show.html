@@ -30,6 +30,12 @@
         <div class="col-sm-2 col-xs-6" ng-if="hotel.has_private_kitchen">
           <label><img src="/assets/icon/kitchen.png"><br><p>Кухня</p></label>
         </div>
+        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_food">
+          <label><img src="/assets/icon/pool.png"><br><p>Питание</p></label>
+        </div>
+        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_kettle">
+          <label><img src="/assets/icon/pool.png"><br><p>Чайник</p></label>
+        </div>
         <div class="col-sm-2 col-xs-6" ng-if="hotel.has_conditioning">
           <label><img src="/assets/icon/conditioning.png"><br><p>Кондиционер</p></label>
         </div>
@@ -42,8 +48,14 @@
         <div class="col-sm-2 col-xs-6" ng-if="hotel.has_transfer">
           <label><img src="/assets/icon/delivery.png"><br><p>Трансфер</p></label>
         </div>
-        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_wifi">
+        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_pool">
           <label><img src="/assets/icon/pool.png"><br><p>Бассейн</p></label>
+        </div>
+        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_sunbeds">
+          <label><img src="/assets/icon/pool.png"><br><p>Лежаки</p></label>
+        </div>
+        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_playground">
+          <label><img src="/assets/icon/pool.png"><br><p>Детская площадка</p></label>
         </div>
       </div>
     </div>

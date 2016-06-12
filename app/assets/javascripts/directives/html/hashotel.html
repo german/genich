@@ -1,0 +1,208 @@
+<input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="form-group string hotel_name">
+    <label class="string control-label" for="hotel_name">Название</label>
+    <input class="string form-control" type="text" ng-model="hotel.name" id="hotel_name" maxlength="50" placeholder="Не пишите длинных названий" required/>
+  </div>
+
+  <div class="form-group text optional hotel_description">
+    <label class="text optional control-label" for="hotel_description">Описание</label>
+    <textarea class="text optional form-control" ng-model="hotel.description" id="hotel_description" rows="5" placeholder="Расскажите о своих преимущества..." required></textarea>
+  </div>
+
+  <div class="form-group email optional hotel_email">
+    <label class="email optional control-label" for="hotel_email">Email</label>
+    <input class="string email optional form-control" type="email" ng-model="hotel.email" id="hotel_email" required />
+  </div>
+
+  <div class="form-group tel optional hotel_phones">
+    <label class="tel optional control-label" for="hotel_phones">Телефоны</label>
+    <input class="string tel optional form-control" type="tel" ng-model="hotel.phones" id="hotel_phones" required />
+  </div>
+
+  <div class="form-group select hotel_city_name">
+    <label class="select control-label" for="hotel_city_name">Где расположено</label>
+    <select class="select form-control" ng-model="hotel.city_name" id="hotel_city_name" required>
+      <option value=""></option>
+      <option value="Геническ">Геническ</option>
+      <option value="Генгорка">Генгорка</option>
+      <option value="Счастливцево">Счастливцево</option>
+      <option value="Стрелковое">Стрелковое</option>
+    </select>
+  </div>
+
+  <div class="form-group select hotel_type">
+    <label class="select control-label" for="hotel_type">Выберите тип жилья</label>
+    <select class="select form-control" ng-model="hotel.type" id="hotel_type" required>
+      <option value=""></option>
+      <option value="Геническ">Пансионат</option>
+      <option value="Генгорка">База отдыха</option>
+      <option value="Счастливцево">Гостиница/Отель</option>
+      <option value="Стрелковое">Детский лагерь</option>
+      <option value="Стрелковое">Дом/Квартира/Комната</option>
+    </select>
+  </div>
+
+  <div class="form-group integer optional hotel_total_rooms">
+    <label class="integer optional control-label" for="hotel_total_rooms">Всего аппартаментов (комнат, номеров)</label>
+    <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.total_rooms" id="hotel_total_rooms" value="0" required />
+  </div>
+
+  <div class="form-group text optional hotel_rules">
+    <label class="text optional control-label" for="hotel_rules">Правила размещения</label>
+    <textarea class="text optional form-control" ng-model="hotel.rules" id="hotel_rules" rows="4" placeholder="Например, нельзя курить в номере, не заселяем с домашними животными..." required>
+  </textarea>
+  </div>
+
+  <div class="form-group integer optional hotel_people_in_room">
+    <label class="integer optional control-label" for="hotel_people_in_room">Сколько максимальное кол-во людей в комнате</label>
+    <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.people_in_room" id="hotel_people_in_room" required />
+  </div>
+
+  <div class="form-group integer optional hotel_price_min">
+    <label class="integer optional control-label" for="hotel_price_min">Мин. цена</label>
+    <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.price_min" id="hotel_price_min" required />
+  </div>
+
+  <div class="form-group integer optional hotel_price_max">
+    <label class="integer optional control-label" for="hotel_price_max">Макс. цена</label>
+    <input class="numeric integer optional form-control" type="number" step="1" ng-model="hotel.price_max" id="hotel_price_max" required />
+  </div>
+
+  <div class="form-group integer optional hotel_dist_from_the_sea">
+    <label class="integer optional control-label" for="hotel_dist_from_the_sea">Расстояние до моря в метрах: <span id="rangeValue" style="font-weight:700;"></span></label>
+    <input class="numeric integer optional" onchange="$('#rangeValue').html(this.value)" type="range" step="10" min="10" max="1000" value="500" ng-model="hotel.dist_from_the_sea" id="hotel_dist_from_the_sea" />
+    <div class="row">
+      <div class="col-md-6">
+        <p class="pull-left">10 M</p>
+      </div>
+      <div class="col-md-6">
+        <p class="pull-right">1000 M</p>
+      </div>
+    </div>
+    <!-- <p>Используйте ползунок</p> -->
+  </div>
+  
+  <div class="form-group boolean optional hotel_has_wifi">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_wifi]" />
+      <label class="boolean optional" for="hotel_has_wifi">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_wifi" id="hotel_has_wifi" />Есть wifi?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_private_house">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_private_house]" />
+      <label class="boolean optional" for="hotel_has_private_house">
+      <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_private_house" id="hotel_has_private_house" />Есть отдельные домики в аренду?</label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_private_kitchen">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_private_kitchen]" />
+      <label class="boolean optional" for="hotel_has_private_kitchen">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_private_kitchen" id="hotel_has_private_kitchen" />Есть кухня?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_food">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_food]" />
+      <label class="boolean optional" for="hotel_has_food">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_food" id="hotel_has_food" />Есть трехразовое питание?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_private_shower">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_private_shower]" />
+      <label class="boolean optional" for="hotel_has_private_shower">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_private_shower" id="hotel_has_private_shower" />Есть душ в номере?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_fridge">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_fridge]" />
+      <label class="boolean optional" for="hotel_has_fridge">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_fridge" id="hotel_has_fridge" />Есть холодильник в номере?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_tv">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_tv]" />
+      <label class="boolean optional" for="hotel_has_tv">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_tv" id="hotel_has_tv" />Есть ТВ в номере?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_conditioning">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_conditioning]" />
+      <label class="boolean optional" for="hotel_has_conditioning">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_conditioning" id="hotel_has_conditioning" />Есть кондиционер в номере?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_kettle">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_kettle]" />
+      <label class="boolean optional" for="hotel_has_kettle">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_kettle" id="hotel_has_kettle" />Есть чайник в номере?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_parking">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_parking]" />
+      <label class="boolean optional" for="hotel_has_parking">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_parking" id="hotel_has_parking" />Есть паркинг?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_transfer">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_transfer]" />
+      <label class="boolean optional" for="hotel_has_transfer">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_transfer" id="hotel_has_transfer" />Есть трансфер?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_pool">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_pool]" />
+      <label class="boolean optional" for="hotel_has_pool">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_pool" id="hotel_has_pool" />Есть бассейн?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_playground">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_playground]" />
+      <label class="boolean optional" for="hotel_has_playground">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_playground" id="hotel_has_playground" />Есть детская площадка?
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group boolean optional hotel_has_sunbeds">
+    <div class="checkbox">
+      <input value="0" type="hidden" name="hotel[has_sunbeds]" />
+      <label class="boolean optional" for="hotel_has_sunbeds">
+        <input class="boolean optional" type="checkbox" value="1" ng-model="hotel.has_sunbeds" id="hotel_has_sunbeds" />Есть лежаки и зонтики на пляже?
+      </label>
+    </div>
+  </div>

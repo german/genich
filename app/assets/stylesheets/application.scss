@@ -405,6 +405,7 @@ li {
 .comfort span {
 	vertical-align: sub;
 	padding-left:10px;
+	font-size: 14px;
 }
 
 .main {
@@ -503,7 +504,7 @@ md-checkbox {
 	outline: none;
 }
 
-.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool {
+.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground {
 	float: left;
 	background: white;
 	padding: 10px;
@@ -515,7 +516,7 @@ md-checkbox {
   outline: none;
 }
 
-.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active {
+.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active , .playground_active, .sunbeds_active, .kettle_active, .food_active {
   background: #edefed;
   cursor:pointer;
 }

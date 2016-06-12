@@ -28,6 +28,7 @@ angular.module('pansionatApp').controller('RegistrationCtrl',
           // failureFunction
           function(data, status, headers, config) {
             console.log(data.data.errors);
+            alert('Исправьте ошибки')
           }
         )
     } else {

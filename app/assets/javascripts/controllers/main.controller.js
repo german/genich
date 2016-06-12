@@ -54,7 +54,12 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.showerActiveClass = true;
         $scope.WifiActiveClass = true;
         $scope.deliveryActiveClass = true;
-        $scope.poolActiveClass = true;
+        $scope.poolActiveClass = true;        
+        $scope.foodActiveClass = true;
+        $scope.kettleActiveClass = true;
+        $scope.playgroundActiveClass = true;
+        $scope.sunbedsActiveClass = true;
+
         //
         $scope.qty = 1000;
         $scope.mycolor = 'blue';
@@ -71,6 +76,10 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.has_wifiIncludes = [];
         $scope.has_transferIncludes = [];
         $scope.has_poolIncludes = [];
+        $scope.has_foodIncludes = [];
+        $scope.has_kettleIncludes = [];
+        $scope.has_playgroundIncludes = [];
+        $scope.has_sunbedsIncludes = [];
 
         // filters City
         $scope.includesCity_name = function(city_name){
@@ -241,6 +250,75 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
           } 
           return hotels;
         }
+
+        //filters has_food
+        $scope.includeshas_food = function(has_food){
+          var i = $.inArray(has_food, $scope.has_foodIncludes);
+          if (i > -1) {
+            $scope.has_foodIncludes.splice(i, 1);
+          } else {
+            $scope.has_foodIncludes.push(has_food);
+          }
+        }
+        $scope.hasfoodFilter = function(hotels) {
+          if ($scope.has_foodIncludes.length > 0) {
+            if ($.inArray(hotels.has_food, $scope.has_foodIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
+        //filters has_kettle
+        $scope.includeshas_kettle = function(has_kettle){
+          var i = $.inArray(has_kettle, $scope.has_kettleIncludes);
+          if (i > -1) {
+            $scope.has_kettleIncludes.splice(i, 1);
+          } else {
+            $scope.has_kettleIncludes.push(has_kettle);
+          }
+        }
+        $scope.haskettleFilter = function(hotels) {
+          if ($scope.has_kettleIncludes.length > 0) {
+            if ($.inArray(hotels.has_kettle, $scope.has_kettleIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
+        //filters has_playground
+        $scope.includeshas_playground = function(has_playground){
+          var i = $.inArray(has_playground, $scope.has_playgroundIncludes);
+          if (i > -1) {
+            $scope.has_playgroundIncludes.splice(i, 1);
+          } else {
+            $scope.has_playgroundIncludes.push(has_playground);
+          }
+        }
+        $scope.hasplaygroundFilter = function(hotels) {
+          if ($scope.has_playgroundIncludes.length > 0) {
+            if ($.inArray(hotels.has_playground, $scope.has_playgroundIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
+        //filters has_sunbeds
+        $scope.includeshas_sunbeds = function(has_sunbeds){
+          var i = $.inArray(has_sunbeds, $scope.has_sunbedsIncludes);
+          if (i > -1) {
+            $scope.has_sunbedsIncludes.splice(i, 1);
+          } else {
+            $scope.has_sunbedsIncludes.push(has_sunbeds);
+          }
+        }
+        $scope.hassunbedsFilter = function(hotels) {
+          if ($scope.has_sunbedsIncludes.length > 0) {
+            if ($.inArray(hotels.has_sunbeds, $scope.has_sunbedsIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
 
         //filter price_min
         $scope.minpriceFilter = function(hotels, qty, price_min) {
