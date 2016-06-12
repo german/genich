@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601120152) do
+ActiveRecord::Schema.define(version: 20160612215421) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160601120152) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "city_name"
-    t.string   "type"
     t.integer  "dist_from_the_sea"
     t.boolean  "has_private_house"
     t.boolean  "has_private_kitchen"
@@ -52,6 +51,10 @@ ActiveRecord::Schema.define(version: 20160601120152) do
     t.string   "hotel_type"
     t.integer  "user_id"
     t.boolean  "has_pool"
+    t.boolean  "has_food"
+    t.boolean  "has_kettle"
+    t.boolean  "has_sunbeds"
+    t.boolean  "has_playground"
   end
 
   add_index "hotels", ["city_name"], name: "index_hotels_on_city_name"
@@ -68,7 +71,6 @@ ActiveRecord::Schema.define(version: 20160601120152) do
   add_index "hotels", ["price_max"], name: "index_hotels_on_price_max"
   add_index "hotels", ["price_mean"], name: "index_hotels_on_price_mean"
   add_index "hotels", ["price_min"], name: "index_hotels_on_price_min"
-  add_index "hotels", ["type"], name: "index_hotels_on_type"
   add_index "hotels", ["user_id"], name: "index_hotels_on_user_id"
 
   create_table "photos", force: :cascade do |t|
@@ -100,12 +102,12 @@ ActiveRecord::Schema.define(version: 20160601120152) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.text     "tokens"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "role"
     t.string   "provider"
     t.integer  "uid"
+    t.text     "tokens"
     t.datetime "confirmed_at"
   end
 
