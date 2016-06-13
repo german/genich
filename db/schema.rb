@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612215421) do
+ActiveRecord::Schema.define(version: 20160613122257) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160612215421) do
     t.boolean  "has_kettle"
     t.boolean  "has_sunbeds"
     t.boolean  "has_playground"
+    t.integer  "cover_photo_id"
   end
 
   add_index "hotels", ["city_name"], name: "index_hotels_on_city_name"
