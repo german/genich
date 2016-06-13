@@ -8,7 +8,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
 
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
-
+    console.log($scope.hotels)
     angular.forEach(data, function(item) {
       item.rank = 0.5 - Math.random();
       $scope.ranked_hotels.push(item);
@@ -61,7 +61,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.sunbedsActiveClass = true;
 
         //
-        $scope.qty = 1000;
+        $scope.qty = 10000;
         $scope.mycolor = 'blue';
         
 
@@ -320,10 +320,7 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         }
 
 
-        //filter price_min
-        $scope.minpriceFilter = function(hotels, qty, price_min) {
-          return hotels.price_min <= $scope.qty
-        }
+        
 
         //sort price
         $scope.sortbyprice = undefined;
