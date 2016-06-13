@@ -7,7 +7,7 @@ class HotelsController < ApplicationController
     index! do |format|
       format.html { render }
       format.json do
-        render json: collection.as_json(include: {albums: {methods: :cover, include: :photos}})
+        render json: collection.as_json(methods: :cover_url, include: {albums: {methods: :cover, include: :photos}})
       end
     end
   end
@@ -18,7 +18,7 @@ class HotelsController < ApplicationController
     show! do |format|
       format.html { render }
       format.json do
-        render json: resource.as_json(include: {albums: {methods: :cover, include: :photos}, reviews: {}})
+        render json: resource.as_json(methods: :cover_url, include: {albums: {methods: :cover, include: :photos}, reviews: {}})
       end
     end
   end
@@ -43,6 +43,6 @@ protected
       :phones, :total_luxes, :rules, :people_in_room, :price_min, :price_mean, :price_max, :longitude, 
       :latitude, :dist_from_the_sea, :has_private_house, :has_private_kitchen, :has_private_shower, 
       :has_fridge, :has_tv, :has_conditioning, :has_wifi, :has_transfer, :user_id, :has_food, :has_kettle,
-      :has_playground, :has_sunbeds)
+      :has_playground, :has_sunbeds, :cover_photo_id)
 	end
 end

@@ -1,6 +1,6 @@
 angular.module('pansionatApp').controller('AlbumShow', AlbumShow);
 
-function AlbumShow($scope, $stateParams,$http, $state, Album, Photo, FileUploader) {
+function AlbumShow($scope, $stateParams,$http, $state, Hotel, Album, Photo, FileUploader) {
   $http.get('/albums/'+$stateParams.id+'.json').success(function(data, status, headers, config){
     $scope.album = data;
   });
@@ -14,6 +14,13 @@ function AlbumShow($scope, $stateParams,$http, $state, Album, Photo, FileUploade
     window.location.reload(); // reload the page
   };
 
+  $scope.set_cover = function(hotel_id, photo_id) {
+    console.log(photo_id);
+    Hotel.update({ id: hotel_id, hotel: {cover_photo_id: photo_id} }, function(response) {
+      console.log(response);
+      alert('Обложка пансионата была успешно заменена!')
+    });
+  }
   $scope.delete = function(photo_id) {
     if(confirm('Вы уверены, что хотите удалить эту фотограцию?')){
       Photo.delete({ id: photo_id }, function(response) {
