@@ -33,6 +33,8 @@ gem 'carrierwave'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'devise'
+gem 'rails_admin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
