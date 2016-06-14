@@ -9,7 +9,7 @@ class Hotel < ActiveRecord::Base
 
   def cover_url
   	if self.cover_photo_id
-  	  Photo.find(self.cover_photo_id).try(:photo).try(:url, :medium)
+  	  Photo.find(self.cover_photo_id).try(:photo).try(:url)
   	end
   end
 end
