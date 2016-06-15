@@ -36,4 +36,5 @@
 //= require_tree ./templates
 //= require angular-aria
 //= require angular-material
+//= statistic
 
