@@ -58,7 +58,7 @@
 	label {
 		font-size: 14px !important;
 	}
-	.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground {
+	.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground, .fridge, .laundry {
 		width: 160px !important;
 	}
 }
@@ -317,6 +317,7 @@ h1 {
 	margin-bottom: 50px;
 	background: white;
   box-shadow: 0 2px 4px rgba(#000, 0.2);
+  cursor: pointer;
   h3 {
   	color: #337ab7;
   	line-height: 0.8;
@@ -512,7 +513,7 @@ md-checkbox {
 	outline: none;
 }
 
-.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground {
+.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground, .fridge, .laundry {
 	float: left;
 	background: white;
 	padding: 10px;
@@ -524,7 +525,7 @@ md-checkbox {
   outline: none;
 }
 
-.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active , .playground_active, .sunbeds_active, .kettle_active, .food_active {
+.tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active , .playground_active, .sunbeds_active, .kettle_active, .food_active, .fridge_active, .laundry_active {
   background: #edefed;
   cursor:pointer;
 }

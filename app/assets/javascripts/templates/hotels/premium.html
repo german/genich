@@ -1,10 +1,12 @@
+<title>Лучшие предложения жилья на Арабатской стрелке 2016 | Rest In Ukraine</title>
 <div ng-include="'shared/headernew.html'"></div>
 <div class="container">
   <div class="row">
     <h2 class="text-center">Рекомендуем обратить внимание:</h2>
     <h4 class="text-center">Места, которым доверяют наши пользователи. Самые высокие оценки.</h4>
-    <div class="col-md-4 premium-hotels" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:10 ">
-      <a href="#/hotels/{{premium.id}}"><div class="premium-main" ng-style="premium.albums.length > 0 ? {'background': 'url({{premium.albums[0].photos[0].photo.mysize.url}}', 'background-size':'cover'} : {'background':'url(http://www.stat.colostate.edu/statpeople/images/photos/photo_not_available.png)', 'background-size':'cover'}">
+
+    <div class="col-md-4 premium-hotels" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' ">
+      <a href="#/hotels/{{premium.id}}"><div class="premium-main" ng-style="premium.albums.length > 0 ? {'background': 'url({{premium.cover_url}}', 'background-size':'cover'} : {'background':'url(http://www.stat.colostate.edu/statpeople/images/photos/photo_not_available.png)', 'background-size':'cover'}">
         <h2>{{premium.name}}</h2>
       </div></a>
     </div>

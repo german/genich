@@ -20,7 +20,6 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
       init();
   });
 
-  
   $scope.width = function(clientWidth){
    return document.body.clientWidth;    
   }
@@ -59,6 +58,8 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.kettleActiveClass = true;
         $scope.playgroundActiveClass = true;
         $scope.sunbedsActiveClass = true;
+        $scope.fridgeActiveClass = true;
+        $scope.laundryActiveClass = true;
 
         //
         $scope.qty = 10000;
@@ -80,6 +81,8 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.has_kettleIncludes = [];
         $scope.has_playgroundIncludes = [];
         $scope.has_sunbedsIncludes = [];
+        $scope.has_fridgeIncludes = [];
+        $scope.has_laundryIncludes = [];
 
         // filters City
         $scope.includesCity_name = function(city_name){
@@ -314,6 +317,40 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
         $scope.hassunbedsFilter = function(hotels) {
           if ($scope.has_sunbedsIncludes.length > 0) {
             if ($.inArray(hotels.has_sunbeds, $scope.has_sunbedsIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
+        //filters has_fridge
+        $scope.includeshas_fridge = function(has_fridge){
+          var i = $.inArray(has_fridge, $scope.has_fridgeIncludes);
+          if (i > -1) {
+            $scope.has_fridgeIncludes.splice(i, 1);
+          } else {
+            $scope.has_fridgeIncludes.push(has_fridge);
+          }
+        }
+        $scope.hasfridgeFilter = function(hotels) {
+          if ($scope.has_fridgeIncludes.length > 0) {
+            if ($.inArray(hotels.has_fridge, $scope.has_fridgeIncludes) < 0)
+              return;
+          } 
+          return hotels;
+        }
+
+        //filters has_laundry
+        $scope.includeshas_laundry = function(has_laundry){
+          var i = $.inArray(has_laundry, $scope.has_laundryIncludes);
+          if (i > -1) {
+            $scope.has_laundryIncludes.splice(i, 1);
+          } else {
+            $scope.has_laundryIncludes.push(has_laundry);
+          }
+        }
+        $scope.haslaundryFilter = function(hotels) {
+          if ($scope.has_laundryIncludes.length > 0) {
+            if ($.inArray(hotels.has_laundry, $scope.has_laundryIncludes) < 0)
               return;
           } 
           return hotels;

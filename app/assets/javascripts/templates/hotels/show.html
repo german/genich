@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-</div>  
+</div>
 
 <div class="hotelsbutton">
   <div class="container">
@@ -35,6 +35,9 @@
         </div>
         <div class="col-sm-2 col-xs-6" ng-if="hotel.has_fridge">
           <label><img src="/assets/icon/fridge.png"><br><p>Холодильник</p></label>
+        </div>
+        <div class="col-sm-2 col-xs-6" ng-if="hotel.has_laundry">
+          <label><img src="/assets/icon/laundry.png"><br><p>Стиральная машина</p></label>
         </div>
         <div class="col-sm-2 col-xs-6" ng-if="hotel.has_kettle">
           <label><img src="/assets/icon/kettle.png"><br><p>Чайник</p></label>
@@ -72,7 +75,11 @@
         <div class="col-md-4"><h5><p>Описание</p></h5></div>
         <div class="col-md-8">
           <div class="col-md-12">
-            <h5>{{hotel.description}}</h5>
+          <pre><h5 ng-text-truncate="hotel.description"
+            ng-tt-chars-threshold="250"
+            ng-tt-more-label="Далее"
+            ng-tt-less-label="Скрыть"></h5></pre>
+            <!-- <pre><h5>{{hotel.description}}</h5></pre> -->
           </div>
         </div>
       </div>
@@ -81,7 +88,10 @@
         <div class="col-md-4"><h5><p>Правила</p></h5></div>
         <div class="col-md-8">
           <div class="col-md-12">
-            <h5>{{hotel.rules}}</h5>
+            <pre><h5 ng-text-truncate="hotel.rules"
+            ng-tt-chars-threshold="250"
+            ng-tt-more-label="Далее"
+            ng-tt-less-label="Скрыть">{{hotel.rules}}</h5></pre>
           </div>
         </div>
       </div>
@@ -164,12 +174,15 @@
 
           <div class="row">
             <div class="col-md-6">
-              <form class="simple_form form-horizontal" novalidate="novalidate" id="new_album" ng-submit="save()" accept-charset="UTF-8">
+              <form class="simple_form form-horizontal" novalidate="novalidate" id="new_album"  accept-charset="UTF-8">
                 <div class="form-group string album_name">
                   <label class="string control-label" for="album_name">Название</label>
                   <input class="string form-control" type="text" ng-model="newAlbum.name" id="album_name" />
                 </div>
-                <input type="submit" name="commit" class="btn btn-lg btn-info" value="Создать фотоальбом" />
+                <md-button type="submit" ng-click="save()" class="md-raised md-primary" style="margin:0px 0px 0px -15px;">
+                  Создать фотоальбом
+                </md-button>
+               <!--  <input type="submit" name="commit" class="btn btn-lg btn-info" value="Создать фотоальбом" /> -->
             </div>
           </div>
           </div>
@@ -218,7 +231,7 @@
       <h3>Рекомендации:</h3>
       <div class="col-md-12" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:4">
         <a href="#/hotels/{{premium.id}}">
-          <div class="premium-main" ng-style="premium.albums.length > 0 ? {'background': 'url({{premium.albums[0].photos[0].photo.mysize.url}}', 'background-size':'cover'} : {'background':'url(http://www.stat.colostate.edu/statpeople/images/photos/photo_not_available.png)', 'background-size':'cover'}">
+          <div class="premium-main" ng-style="premium.albums.length > 0 ? {'background': 'url({{premium.cover_url}}', 'background-size':'cover'} : {'background':'url(http://www.stat.colostate.edu/statpeople/images/photos/photo_not_available.png)', 'background-size':'cover'}">
           <h2>{{premium.name}}</h2>
           </div>
         </a>

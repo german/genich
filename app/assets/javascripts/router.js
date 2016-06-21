@@ -10,7 +10,8 @@ angular.module('pansionatApp', [
   'jkuri.gallery',
   'ng-token-auth', 
   'Devise',
-  'xeditable'])
+  'xeditable',
+  'ngTextTruncate'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',

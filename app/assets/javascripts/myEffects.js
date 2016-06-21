@@ -3,6 +3,8 @@ $(function(){
 });
 
 function init() {
+
+	
 	
 	// ARROWSUP при клике выполняем функцию скрола вверх
   var up = document.getElementById('arrowsup');

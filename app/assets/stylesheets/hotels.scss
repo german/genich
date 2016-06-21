@@ -162,8 +162,16 @@ PREMIUM PAGE
 	margin-bottom: 30px;
 }
 
-.premium-hotels:nth-child(3n) {
+.premium-hotels:nth-child(4n) {
 	width: 66.66666667% ;
+}
+
+.premium-hotels:nth-child(6n) {
+	width: 33.3333334% ;
+}
+
+.premium-hotels:last-child {
+	width: 33.33333334% ;	
 }
 
 
@@ -202,4 +210,13 @@ NEW HOTEL
   right: 133.5px;
   top: 60px;
   width: 487px !important;
+}
+
+
+pre {
+	word-break: normal !important;
+	border: none !important;
+	white-space: pre-line;
+	font-family: inherit !important;
+	padding: 0px !important;
 }

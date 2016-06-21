@@ -28,6 +28,7 @@
 //= require angular-swiper
 //= require myEffects
 //= require ngstorage
+//= require ng-text-truncate/ng-text-truncate.js
 //= require router
 //= require_tree ./models
 //= require_tree ./directives
@@ -36,5 +37,5 @@
 //= require_tree ./templates
 //= require angular-aria
 //= require angular-material
-//= statistic
+
 
