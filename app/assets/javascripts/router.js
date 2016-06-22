@@ -29,20 +29,17 @@ angular.module('pansionatApp', [
 
   $stateProvider
     .state('home', {
-      url: '/', controller: 'MainController',
+      url: '/', 
+      controller: 'MainController',
       templateUrl: 'hotels/index.html'
     }).state('hotel', {
-      url: '/hotels/{id}', controller: 'HotelShow',
+      url: '/hotels/{id}', 
+      controller: 'HotelShow',
       templateUrl: 'hotels/show.html'
     }).state('new_hotel', {
       url: '/new',
       templateUrl: 'hotels/new.html',
       controller: 'NewHotel',
-      /*resolve: {
-        auth: function($auth) {
-          return $auth.validateUser();
-        }
-      }*/
     }).state('premium', {
       url: '/premium',
       templateUrl: 'hotels/premium.html',
@@ -82,6 +79,10 @@ angular.module('pansionatApp', [
     }).state('article', {
       url: '/articles/{id}',
       templateUrl: 'articles/show.html',
+      controller: 'ArticlesCtrl'
+    }).state('add_article', {
+      url: '/articles/add',
+      templateUrl: 'articles/add.html',
       controller: 'ArticlesCtrl'
     })
   $urlRouterProvider.otherwise('/');
