@@ -43,6 +43,6 @@ protected
       :phones, :total_luxes, :rules, :people_in_room, :price_min, :price_mean, :price_max, :longitude, 
       :latitude, :dist_from_the_sea, :has_private_house, :has_private_kitchen, :has_private_shower, 
       :has_fridge, :has_tv, :has_conditioning, :has_wifi, :has_transfer, :user_id, :has_food, :has_kettle,
-      :has_playground, :has_sunbeds, :cover_photo_id)
+      :has_playground, :has_sunbeds, :has_laundry, :cover_photo_id)
 	end
 end
