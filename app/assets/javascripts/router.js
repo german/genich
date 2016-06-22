@@ -75,6 +75,14 @@ angular.module('pansionatApp', [
       url: '/profile/{id}',
       templateUrl: 'users/profile.html',
       controller: 'UserCtrl'
+    }).state('articles', {
+      url: '/articles/articles',
+      templateUrl: 'articles/articles.html',
+      controller: 'ArticlesCtrl'
+    }).state('article', {
+      url: '/articles/{id}',
+      templateUrl: 'articles/show.html',
+      controller: 'ArticlesCtrl'
     })
   $urlRouterProvider.otherwise('/');
 }]);

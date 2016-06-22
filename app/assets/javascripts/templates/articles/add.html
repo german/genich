@@ -1,0 +1,18 @@
+<title>Добавить статью | Отдыхайте в Украине</title>
+<div ng-include="'shared/headernew.html'"></div>
+<h2>Add Articles</h2>
+<div class="container">
+	<form ng-submit="addArticle()">
+
+	  <label class="string control-label" for="article_title">Title</label>
+	  <input class="string form-control" type="text" ng-model="article.title" id="article_title" maxlength="50" placeholder="Article's title" required/>
+
+	  <label class="string control-label" for="article_text">Text</label>
+	  <input class="string form-control" type="text" ng-model="article.text" id="article_text" maxlength="50" placeholder="Article's text" required/>
+
+	  <label class="string control-label" for="article_author">Author</label>
+	  <input class="string form-control" type="text" ng-model="article.author" id="article_author" maxlength="50" placeholder="Author" required/>
+
+	  <input class="btn btn-info" type="submit" value="Add">
+	</form>
+</div>
