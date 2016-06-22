@@ -61,6 +61,11 @@
 	.tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground, .fridge, .laundry {
 		width: 160px !important;
 	}
+	.help {
+		img {
+			display:none;
+		}
+	}
 }
 
 
@@ -601,6 +606,10 @@ md-checkbox {
 
 .help {
 	margin-top: 20px;
+	img {
+		width: 100%;
+		padding: 20px 0px;
+	}
 }
 
 md-toolbar {

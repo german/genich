@@ -30,9 +30,11 @@
       <form name="hotelnew" class="simple_form form-horizontal" novalidate="novalidate" id="new_hotel" ng-submit="save()" accept-charset="UTF-8">
 
         <hashotel></hashotel>
-
-        <input ng-disabled="!hotelnew.$valid" type="submit" name="commit" class="btn btn-lg btn-info" value="Добавить место" />
-        <p ng-show="!hotelnew.$valid" style="color: red;"><br>Вам необходимо заполнить все поля</p>
+        <md-button type="submit" ng-disabled="!hotelnew.$valid" ng-click="save()" class="md-raised md-primary" style="margin:0px 0px 0px -15px;">
+          Добавить место
+        </md-button>
+        <!-- <input ng-disabled="!hotelnew.$valid" type="submit" name="commit" class="btn btn-lg btn-info" value="Добавить место" /> -->
+        <p ng-show="!hotelnew.$valid" style="color: red;margin:0px 0px 0px -15px;"><br>Вам необходимо заполнить все поля</p>
       </form>
     </div>
     <div class="newhotel-buypremium ">

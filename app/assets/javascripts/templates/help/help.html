@@ -1,6 +1,24 @@
 <title>Помощь по сайту | Rest In Ukraine</title>
 <div ng-include="'shared/headernew.html'"></div>
 <div class="container">
+	<h3>Для отдыхающих:</h3>
+	<div class="row help ">
+		<div class="col-md-12">
+			<md-toolbar class="md-primary md-hue-1" ng-click="click.$help3 = !click.$help3">
+				<h3 class="md-flex">Могу ли я забронировать дату приезда через сайт?</h3>
+			</md-toolbar>
+			<md-content ng-show="click.$help3"><p>На данный момент такой возможности нет. Мы рекомендуем связаться с владельцем жилья по телефону или через email, и в личной беседе забронировать нужную вам дату.</md-content>
+		</div>
+	</div>
+	<div class="row help ">
+		<div class="col-md-12">
+			<md-toolbar class="md-primary md-hue-1" ng-click="click.$help7 = !click.$help7">
+				<h3 class="md-flex">Предложение не соответсвует действительности</h3>
+			</md-toolbar>
+			<md-content ng-show="click.$help7"><p>Если вы нашли какую-то ошибку на сайте, если владелец жилья сообщает не ту информацию, которая находиться на сайте, пожалуйста, сообщите нам об этом. Наша почта: marginbit@gmail.com</md-content>
+		</div>
+	</div>
+	<h3>Для владельцев жилья:</h3>
 	<div class="row help">
 		<div class="col-md-12">
 			<md-toolbar ng-click="click.$help1 = !click.$help1">
@@ -17,14 +35,7 @@
 			<md-content ng-show="click.$help2"><p>Если у вас возникли трудности с регистрацией, пожалуйста, напишите нам: marginbit@gmail.com - мы постараемся решить проблему и помочь вам.</md-content>
 		</div>
 	</div>
-	<div class="row help ">
-		<div class="col-md-12">
-			<md-toolbar ng-click="click.$help3 = !click.$help3">
-				<h3 class="md-flex">Могу ли я забронировать дату приезда через сайт?</h3>
-			</md-toolbar>
-			<md-content ng-show="click.$help3"><p>На данный момент такой возможности нет. Мы рекомендуем связаться с владельцем жилья по телефону или через email, и в личной беседе забронировать нужную вам дату.</md-content>
-		</div>
-	</div>
+	
 	<div class="row help ">
 		<div class="col-md-12">
 			<md-toolbar ng-click="click.$help4 = !click.$help4">
@@ -38,24 +49,23 @@
 			<md-toolbar ng-click="click.$help5 = !click.$help5">
 				<h3 class="md-flex">Как добавить фотографии?</h3>
 			</md-toolbar>
-			<md-content ng-show="click.$help5"><p>Для начала, вам необходимо создать альбом. После этого, вы нажимаете на его имя и оказываетесь на странице, где у вас появляется возможность загрузить в этот альбом нужные вам фотографии. После того, как вы выбрали фотографии (можно загружать сразу несколько картинок за раз) вы нажимаете на кнопку "Загрузить все". Очень просто и легко. Не забудьте после этого выбрать обложку для вашей страницы с предложением жилья.</md-content>
+			<md-content ng-show="click.$help5"><p>Для начала, вам необходимо создать альбом. После этого, вы нажимаете на его имя и оказываетесь на странице, где у вас появляется возможность загрузить в этот альбом нужные вам фотографии. 
+			<img src="assets/help/help-editalbum.png" alt="">
+			После того, как вы выбрали фотографии (можно загружать сразу несколько картинок за раз) вы нажимаете на кнопку "Загрузить все". Очень просто и легко. 
+			<img src="assets/help/help-addphoto.png" alt="">
+			Не забудьте после этого выбрать обложку для вашей страницы с предложением жилья.</md-content>
 		</div>
 	</div>
-	<div class="row help ">
+	<div class="row help">
 		<div class="col-md-12">
-			<md-toolbar ng-click="click.$help6 = !click.$help6">
+			<md-toolbar  ng-click="click.$help6 = !click.$help6">
 				<h3 class="md-flex">Как отредактировать информацию?</h3>
 			</md-toolbar>
-			<md-content ng-show="click.$help6"><p>Чтобы изменить информацию, вы должны войти на сайт под своим логином и перейти на страницу своего предложения. В самом низу, перез отзывами, вы увидете ссылку "Изменить информацию". Кликайте по ней и редактируйте ваше предложение. После того, как вы изменили информацию нажимайте на кнопку "Отредактировать". Убедитесь, что вы заполнили все поля - это важно!</md-content>
+			<md-content ng-show="click.$help6"><p>Чтобы изменить информацию, вы должны войти на сайт под своим логином и перейти на страницу своего предложения. В самом низу, перез отзывами, вы увидете ссылку "Изменить информацию". Кликайте по ней и редактируйте ваше предложение. 
+			<img src="assets/help/help-edithotel.png" alt="">
+			После того, как вы изменили информацию нажимайте на кнопку "Отредактировать". Убедитесь, что вы заполнили все поля - это важно!</md-content>
 		</div>
 	</div>
-	<div class="row help ">
-		<div class="col-md-12">
-			<md-toolbar ng-click="click.$help7 = !click.$help7">
-				<h3 class="md-flex">Предложение не соответсвует действительности</h3>
-			</md-toolbar>
-			<md-content ng-show="click.$help7"><p>Если вы нашли какую-то ошибку на сайте, если владелец жилья сообщает не ту информацию, которая находиться на сайте, пожалуйста, сообщите нам об этом. Наша почта: marginbit@gmail.com</md-content>
-		</div>
-	</div>
+	
 </div>
 
