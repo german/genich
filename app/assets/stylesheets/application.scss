@@ -690,6 +690,42 @@ md-radio-group {
   opacity: 0;
 }
 
+/*********************
+
+		ARTICLES
+
+*********************/
+
+.articles {
+	margin-top: 20px;
+	.articles-prev {
+		background: #fff;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 1px 20px 10px 20px;
+    margin-bottom: 20px;
+    transition: 0.4s ease;
+	}
+	.author {
+		color: #00ab6b;
+	}
+	.title {
+		font-size: 31px;
+		color: rgba(0,0,0,.8);
+	}
+	.readmore {
+		font-size: 15px;
+		color: rgba(0,0,0,.44);
+	}
+	.date {
+		color: rgba(0,0,0,.44);
+	}
+	.articles-prev:hover {
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.4s ease;
+	}
+}
+
 
 /*************************
 				KEYFRAMES

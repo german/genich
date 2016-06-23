@@ -10,6 +10,12 @@ angular.module('pansionatApp')
 					'Content-Type': 'application/json',
         	'Accept': 'application/json'
       	} 
-    	}
+    	},
+      'get': { method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        } 
+      }
     });
   });

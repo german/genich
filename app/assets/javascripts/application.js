@@ -37,5 +37,6 @@
 //= require_tree ./templates
 //= require angular-aria
 //= require angular-material
+//= require angular-timeago
 
 

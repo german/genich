@@ -49,11 +49,19 @@
 <!-- SLIDER -->
 <slider></slider>
 
-<div class="add">
+<div class="container add">
   <h2 class="text-center">Добавляйте, рекомендуйте, оставляйте отзывы.</h2>
   <h4 class="text-center">Вместе расскажем о самых лучших курортах Украины</h4>
-  <p ng-text-truncate="longText"
-   ng-tt-chars-threshold="40"
-   ng-tt-more-label="Show"
-   ng-tt-less-label="Hide"></p>
+  <div class="row">
+    <div ng-controller="ArticlesCtrl">
+      <div class="col-md-4"  ng-repeat="a in articles | limitTo:3 ">
+        <a href="#/articles/{{a.id}}">
+          <div class="premium-main" style="background: red; margin-bottom: 15px;">
+            <h2>{{a.title}}</h2>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <a href="#/articles"><button type="button" class="morehotels center-block">Еще статьи</button></a>
 </div>

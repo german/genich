@@ -1,3 +1,27 @@
 <title>Статьи | Отдыхайте в Украине</title>
 <div ng-include="'shared/headernew.html'"></div>
-<h2>All Articles</h2>
+<div class="container articles">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="articles-prev" ng-repeat="a in articles">
+				<h5 class="author">{{a.author}} | <span class="date">{{a.created_at | timeAgo }}</span>
+				</h5>
+				<a href="#/articles/{{a.id}}"><p class="title">{{a.title}}</p>
+				<p class="readmore">Читать статью...</p></a>
+				
+			</div>
+		</div>
+		<div >
+			<div class="premiuminarticles col-md-offset-0 col-md-4 col-xs-12" ng-controller="MainController">
+	      <div class="col-md-12" ng-repeat="premium in ranked_hotels | filter: premiumFilter | orderBy: 'rank' | limitTo:4">
+	        <a href="#/hotels/{{premium.id}}">
+	          <div class="premium-main" ng-style="premium.albums.length > 0 ? {'background': 'url({{premium.cover_url}}', 'background-size':'cover'} : {'background':'url(http://www.stat.colostate.edu/statpeople/images/photos/photo_not_available.png)', 'background-size':'cover'}">
+	          <h2>{{premium.name}}</h2>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+			<!-- <vkwidget></vkwidget> -->
+		</div>
+	</div>
+</div>

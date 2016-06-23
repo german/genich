@@ -11,6 +11,7 @@
     "ngGallery": "latest",
     "angular-devise": "latest",
     "ng-token-auth": "latest",
-    "angular-xeditable": "latest"
+    "angular-xeditable": "latest",
+    "angular-timeago": "latest"
   }
 }

@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   #before_action :authenticate_user!, only: [:create, :update]
   #before_action :authenticate_current_user, only: [:create, :update]
   inherit_resources
-
+  respond_to :html, :json
   def index
     index! do |format|
       format.html { render }

@@ -1,19 +1,22 @@
 <title>Добавить статью | Отдыхайте в Украине</title>
 <div ng-include="'shared/headernew.html'"></div>
-<h2>Add Articles</h2>
+
 <div class="container">
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus et, provident velit dolores deleniti cupiditate totam praesentium minus optio sequi iusto accusantium voluptatum earum in repellat dolorem. Libero sapiente ex blanditiis, excepturi accusantium eveniet dolorum, nam recusandae illo autem voluptas rem ea aperiam? Fugiat quia nulla perspiciatis assumenda totam veniam.</p>
-	<form ng-submit="addArticle()">
+	<h2>Добавить статью</h2>
+	<form>
+		<div class="row">
+		  <label class="string control-label" for="article_title">Заголовок</label>
+		  <input class="string form-control" type="text" ng-model="article.title" id="article_title" maxlength="50" placeholder="Article's title" required/>
+			
+		  <label class="string control-label" for="article_content">Статья</label>
+		  <textarea class="text optional form-control" ng-model="article.content" id="article_content" rows="5" placeholder="Article's text" required></textarea>
 
-	  <label class="string control-label" for="article_title">Title</label>
-	  <input class="string form-control" type="text" ng-model="article.title" id="article_title" maxlength="50" placeholder="Article's title" required/>
-
-	  <label class="string control-label" for="article_text">Text</label>
-	  <input class="string form-control" type="text" ng-model="article.text" id="article_text" maxlength="50" placeholder="Article's text" required/>
-
-	  <label class="string control-label" for="article_author">Author</label>
-	  <input class="string form-control" type="text" ng-model="article.author" id="article_author" maxlength="50" placeholder="Author" required/>
-
-	  <input class="btn btn-info" type="submit" value="Add">
+		  <label class="string control-label" for="article_author">Автор</label>
+		  <input class="string form-control" type="text" ng-model="article.author" id="article_author" maxlength="50" placeholder="Author" required/>
+			</br>
+		</div>
+		<md-button type="submit" ng-click="addArticle()" class="md-raised md-primary" style="margin:0px 0px 0px -15px;">
+      Добавить статью
+    </md-button>
 	</form>
 </div>

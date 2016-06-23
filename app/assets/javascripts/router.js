@@ -11,7 +11,8 @@ angular.module('pansionatApp', [
   'ng-token-auth', 
   'Devise',
   'xeditable',
-  'ngTextTruncate'])
+  'ngTextTruncate',
+  'yaru22.angular-timeago'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -84,8 +85,6 @@ angular.module('pansionatApp', [
       url: '/articles',
       templateUrl: 'articles/index.html',
       controller: 'ArticlesCtrl'
-    
     });
   $urlRouterProvider.otherwise('/');
 }]);
-
