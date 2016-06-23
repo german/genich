@@ -11,7 +11,7 @@ angular.module('pansionatApp')
         	'Accept': 'application/json'
       	} 
     	},
-      'get': { method: 'GET',
+      'get': { method: 'GET', isArray: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
