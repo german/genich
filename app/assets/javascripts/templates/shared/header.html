@@ -45,6 +45,7 @@
 					<li class="addpans-material"><a href="#/new"><md-button class="md-raised">Добавить предложение</md-button></a></li>
 					<li ng-hide="myuser.role == 'own'"><a href="#filters" class="foundFilter">Подобрать место</a></li>
 					<li><a href="#/help">Помощь</a></li>
+					<li><a href="#/articles">Статьи</a></li>
 					<li ng-if="!myuser"><a href="#/registration">Регистрация</a></li>
 					<li ng-if="!myuser"><a href="#/login">Войти</a></li>
 					<li ng-if="myuser.role == 'own'"><a href="#/profile/{{user.id}}">Мой профиль</a></li>
