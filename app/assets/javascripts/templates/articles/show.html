@@ -1,3 +1,13 @@
 <title>{{article.title}} | Отдыхайте в Украине</title>
 <div ng-include="'shared/headernew.html'"></div>
-<h2>{{article.title}}</h2>
+<div class="container articles">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 article-prev">
+			<h5 class="author">{{article.author}} | <span class="date">{{article.created_at | timeAgo }}</span></h5>
+			<p class="title">{{article.title}}</p>
+			<pre><p class="text">{{article.content}}</p></pre>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+

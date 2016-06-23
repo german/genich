@@ -11,7 +11,7 @@ function ArticlesShowCtrl($scope, $http, Article, $stateParams){
   $scope.addArticle = function(){
     Article.save($scope.article, function(){
       console.log($scope.article);
-      window.location.reload();
+      $state.go('articles_list');
     });
   }
 };
