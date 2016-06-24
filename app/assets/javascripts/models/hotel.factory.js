@@ -1,4 +1,4 @@
-angular.module('pansionatApp').factory('Hotel', function($resource) {
+angular.module('pansionatApp').factory('Hotel', ['$resource', function($resource) {
   return $resource('/hotels/:id', { id: '@id'},
   {
    'update': { method: 'PUT', 
@@ -16,4 +16,4 @@ angular.module('pansionatApp').factory('Hotel', function($resource) {
       }
     }
   });
-})
+}]);

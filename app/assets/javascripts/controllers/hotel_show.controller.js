@@ -1,7 +1,8 @@
-angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'}).controller('HotelShow', function($scope, $stateParams,$http, $state, Album, Hotel, Review) {
+angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'}).
+  controller('HotelShow', ['$scope', '$stateParams', '$http', '$state', 'Album', 'Hotel', 'Review', HotelShow]);
 
+function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review) {
   $scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
-  // $scope.myuser = window.localStorage.getItem('currentUser');
 
   var self = this;
   self.images = [];
@@ -46,4 +47,4 @@ angular.module('pansionatApp').run(function(editableOptions){editableOptions.the
       $state.go('hotel', {id: $stateParams.id})
     });
   };
-})
+};

@@ -1,5 +1,5 @@
 angular.module('pansionatApp')
-  .factory("Article", function ($resource) {
+  .factory("Article", ['$resource', function ($resource) {
     return $resource('/articles/:id', 
       { 
         id: '@id'
@@ -18,4 +18,4 @@ angular.module('pansionatApp')
         } 
       }
     });
-  });
+  }]);

@@ -1,4 +1,4 @@
-angular.module('pansionatApp').factory('User', function($resource) {
+angular.module('pansionatApp').factory('User', ['$resource', function($resource) {
   return $resource('/users', { id: '@id'},
   {
    'update': { 
@@ -16,4 +16,4 @@ angular.module('pansionatApp').factory('User', function($resource) {
       }
     }
   });
-})
+}]);

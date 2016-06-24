@@ -1,4 +1,4 @@
-angular.module('pansionatApp').factory('Photo', function($resource) {
+angular.module('pansionatApp').factory('Photo', ['$resource', function($resource) {
   return $resource ('/albums/:album_id/photos/:id',
     {
       album_id: '@album_id',
@@ -15,4 +15,4 @@ angular.module('pansionatApp').factory('Photo', function($resource) {
       }
     }
   });
-})
+}]);

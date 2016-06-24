@@ -1,4 +1,5 @@
-angular.module('pansionatApp').controller('MainController', MainController);
+angular.module('pansionatApp').controller('MainController', 
+  ['$scope', '$http', '$localStorage', '$sessionStorage', 'Auth', MainController]);
 
 function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
   $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
@@ -353,9 +354,6 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
           } 
           return hotels;
         }
-
-
-        
 
         //sort price
         $scope.sortbyprice = undefined;

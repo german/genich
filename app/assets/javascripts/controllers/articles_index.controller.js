@@ -1,4 +1,5 @@
-angular.module('pansionatApp').controller('ArticlesIndexCtrl', ArticlesIndexCtrl);
+angular.module('pansionatApp').controller('ArticlesIndexCtrl', 
+  ['$scope', '$http', 'Article', '$stateParams', ArticlesIndexCtrl]);
 
 function ArticlesIndexCtrl($scope, $http, Article, $stateParams) {
   Article.query(function(data){

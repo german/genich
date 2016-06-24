@@ -1,4 +1,5 @@
-angular.module('pansionatApp').controller('AlbumShow', AlbumShow);
+angular.module('pansionatApp').controller('AlbumShow', 
+  ['$scope', '$stateParams', '$http', '$state', 'Hotel', 'Album', 'Photo', 'FileUploader', AlbumShow]);
 
 function AlbumShow($scope, $stateParams,$http, $state, Hotel, Album, Photo, FileUploader) {
   $http.get('/albums/'+$stateParams.id+'.json').success(function(data, status, headers, config){

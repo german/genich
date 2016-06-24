@@ -1,4 +1,5 @@
-angular.module('pansionatApp').controller('ArticlesShowCtrl', ArticlesShowCtrl);
+angular.module('pansionatApp').controller('ArticlesShowCtrl', 
+  ['$scope', '$http', 'Article', '$stateParams', ArticlesShowCtrl]);
 
 function ArticlesShowCtrl($scope, $http, Article, $stateParams){
 

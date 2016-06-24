@@ -1,4 +1,4 @@
-angular.module('pansionatApp').factory('Album', function($resource) {
+angular.module('pansionatApp').factory('Album', ['$resource', function($resource) {
   return $resource('/hotels/:hotel_id/albums/:id', 
     { 
       hotel_id: '@hotel_id',
@@ -19,4 +19,4 @@ angular.module('pansionatApp').factory('Album', function($resource) {
       }
     }
   });
-})
+}]);
