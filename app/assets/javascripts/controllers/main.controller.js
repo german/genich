@@ -354,9 +354,6 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
           return hotels;
         }
 
-
-        
-
         //sort price
         $scope.sortbyprice = undefined;
         $scope.reverse = false;
