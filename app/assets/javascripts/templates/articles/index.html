@@ -12,7 +12,9 @@
 			<div class="articles-prev" ng-repeat="a in articles | orderBy:article.id:!reverse ">
 				<h5 class="author">{{a.author}} | <span class="date">{{a.created_at | timeAgo }}</span>
 				</h5>
-				<a href="#/articles/{{a.id}}"><p class="title">{{a.title}}</p>
+				<img class="article-prev_img" src="{{a.picture.url}}" alt="">
+				<a href="#/articles/{{a.id}}"><p class="article-title">{{a.title}}</p>
+				<p class="article-description">{{a.content | limitTo:140}}</p>
 				<p class="readmore">Читать статью...</p></a>
 				
 			</div>

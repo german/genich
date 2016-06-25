@@ -1,4 +1,5 @@
 <title>Отдых на Арабатской стрелке 2016 | Удобный выбор жилья | Отдыхайте в Украине</title>
+<meta name="description" content="Большой выбор предложений по отдыху на Арабатской стрелке. Фотографии, цены и отзывы. Отдых на Арабатской стрелке 2016.">
 <div ng-if="width() > 993" ng-include="'shared/header.html'"></div>
 <div ng-if="width() < 993" ng-include="'shared/headernew.html'"></div>
 <div id="arrowsup">
@@ -54,9 +55,9 @@
   <h4 class="text-center">Вместе расскажем о самых лучших курортах Украины</h4>
   <div class="row">
     <div ng-controller="ArticlesIndexCtrl">
-      <div class="col-md-4"  ng-repeat="a in articles | limitTo:3 ">
+      <div class="col-md-6"  ng-repeat="a in articles | limitTo:3 ">
         <a href="#/articles/{{a.id}}">
-          <div class="premium-main" style="background: red; margin-bottom: 15px;">
+          <div class="premium-main" style="background: url({{a.picture.url}}); background-size: cover; margin-bottom: 10px;">
             <h2>{{a.title}}</h2>
           </div>
         </a>

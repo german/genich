@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160623153852) do
     t.string   "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   create_table "hotels", force: :cascade do |t|

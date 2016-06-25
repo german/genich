@@ -712,9 +712,16 @@ md-radio-group {
 	.author {
 		color: #00ab6b;
 	}
-	.title {
+	.article-title {
 		font-size: 31px;
 		color: rgba(0,0,0,.8);
+	}
+	.article-description {
+		font-size: 17px;
+    line-height: 1.5;
+    color: rgba(0,0,0,.8);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
 	}
 	.readmore {
 		font-size: 15px;
@@ -744,6 +751,11 @@ md-radio-group {
 		white-space: pre-line;
 		font-family: inherit !important;
 		padding: 0px !important;
+	}
+	.article-prev_img {
+		margin: 10px 0px;
+		width: 100%;
+		height: 280px;
 	}
 }
 
