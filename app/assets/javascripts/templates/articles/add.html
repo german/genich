@@ -2,21 +2,26 @@
 <div ng-include="'shared/headernew.html'"></div>
 
 <div class="container">
-	<h2>Добавить статью</h2>
-	<form>
-		<div class="row">
-		  <label class="string control-label" for="article_title">Заголовок</label>
-		  <input class="string form-control" type="text" ng-model="article.title" id="article_title" maxlength="50" placeholder="Article's title" required/>
-			
-		  <label class="string control-label" for="article_content">Статья</label>
-		  <textarea class="text optional form-control" ng-model="article.content" id="article_content" rows="5" placeholder="Article's text" required></textarea>
+	<div class="row">
+		<h2>Добавить статью</h2>
+		<form enctype="multipart/form-data">
+			<div class="row">
+			  <label class="string control-label" for="article_title">Заголовок</label>
+			  <input class="string form-control" type="text" ng-model="article.title" id="article_title" maxlength="50" placeholder="Article's title" required/>
+				
+			  <label class="string control-label" for="article_content">Статья</label>
+			  <textarea class="text optional form-control" ng-model="article.content" id="article_content" rows="5" placeholder="Article's text" required></textarea>
 
-		  <label class="string control-label" for="article_author">Автор</label>
-		  <input class="string form-control" type="text" ng-model="article.author" id="article_author" maxlength="50" placeholder="Author" required/>
-			</br>
-		</div>
-		<md-button type="submit" ng-click="addArticle()" class="md-raised md-primary" style="margin:0px 0px 0px -15px;">
-      Добавить статью
-    </md-button>
-	</form>
+			  <label class="string control-label" for="article_author">Автор</label>
+			  <input class="string form-control" type="text" ng-model="article.author" id="article_author" maxlength="50" placeholder="Author" required/>
+
+			  <label class="file control-label" for="article_picture">Фото</label>
+			  <input type="file" file-model="myFile"/>
+				</br>
+			</div>
+			<md-button type="submit" ng-click="addArticle()" class="md-raised md-primary" style="margin:0px 0px 0px -15px;">
+	      Добавить статью
+	    </md-button>
+		</form>
+	</div>
 </div>

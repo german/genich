@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :hotels
+  has_many :articles
 
   before_validation -> do
     self.uid = SecureRandom.uuid

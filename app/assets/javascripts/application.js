@@ -31,6 +31,7 @@
 //= require ng-text-truncate/ng-text-truncate.js
 //= require router
 //= require_tree ./models
+//= require_tree ./services
 //= require_tree ./directives
 //= require_tree ./controllers
 //= require_tree ./models
