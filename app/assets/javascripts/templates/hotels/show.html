@@ -136,10 +136,15 @@
           </div>
         </div>
       </div>
+      
+      <md-button ng-hide="myuser.role == 'own'" type="submit" ng-click="showAlert($event)" class="md-raised md-primary" style="margin-left:-15px">
+        Добавить в избранное
+      </md-button>
+      
       <div class="row">
         <div class="col-md-12">
           <div ng-if="hotel.albums">
-            <h4>Фотографии</h4>
+            
             <div class="row">
               <div ng-repeat="album in hotel.albums | limitTo:1">
                 <!-- <img ng-if="album.cover" ng-src="{{album.cover.photo.thumb.url}}" alt="{{album.name}}"/> -->
@@ -187,6 +192,8 @@
           </div>
         </div>
       </div>
+      
+      
       
       <h2 ng-if="myuser.id === hotel.user_id" style="margin-left:-15px"><a href="#/edit/{{hotel.id}}">Изменить информацию</a></h2>
       <div class="row">

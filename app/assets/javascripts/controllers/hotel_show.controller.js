@@ -1,7 +1,7 @@
 angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'}).
   controller('HotelShow', ['$scope', '$stateParams', '$http', '$state', 'Album', 'Hotel', 'Review', HotelShow]);
 
-function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review) {
+function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review, $mdDialog, $mdMedia) {
   $scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
 
   var self = this;

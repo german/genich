@@ -355,6 +355,11 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
           return hotels;
         }
 
+        //filter price_min
+        $scope.minpriceFilter = function(hotels, qty, price_min) {
+          return hotels.price_min <= $scope.qty
+        }
+
         //sort price
         $scope.sortbyprice = undefined;
         $scope.reverse = false;
