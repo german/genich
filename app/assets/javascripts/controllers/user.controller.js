@@ -17,5 +17,16 @@ function UserCtrl($scope, $stateParams, User, $http, $localStorage, $sessionStor
   	User.update(user_params, function(response) {
     	console.log(response);
   	})
-	};
+	}
+
+  console.log($scope.myuser);
+  //myhotels filter
+  $scope.myhotels = function(hotels, myuser) {
+    return $scope.myuser.id === hotels.user_id;
+  }
+
+  $scope.view_tab = 'tab1';
+  $scope.changeTab = function(tab) {
+    $scope.view_tab = tab;
+  }
 }

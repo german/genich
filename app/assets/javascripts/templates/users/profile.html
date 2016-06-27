@@ -1,54 +1,95 @@
 <title>Редактирование профиля | {{myuser.id}}</title>
 <div ng-include="'shared/headernew.html'"></div>
+<div class="container margin20-0">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="text-center">Мой профиль</h2>
+    </div>
+  </md-toolbar>
+  <md-content >
+  <div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
+            <li ng-class="{'active': view_tab == 'tab1'}">
+                <a class="btn-lg" ng-click="changeTab('tab1')" href="">Изменить данные</a>
+            </li>
+            <li ng-if="myuser.role === 'restman'" ng-class="{'active': view_tab == 'tab2'}">
+                <a class="btn-lg" ng-click="changeTab('tab2')" href="">Избранное</a>
+            </li>
+            <li ng-if="myuser.role === 'own'" ng-class="{'active': view_tab == 'tab3'}">
+                <a class="btn-lg" ng-click="changeTab('tab3')" href="">Мои предложения</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+      <div class="tab-content2">
+          <div class="tab-pane" ng-show="view_tab == 'tab1'">
+            <form editable-form name="editableForm" onaftersave="updateUser(myuser.id)" class="text-center">
+            <div class="" style="margin:auto">
+              <div>
+                <div class="row padding20-0">
+                  <div class="col-md-6">
+                    <span class="title pull-left">Ваш email:</span>    
+                  </div>
+                  <div class="col-md-6">
+                    <span editable-text="myuser.email" ng-model="myuser.email" onbeforesave="checkName($data)" e-required>{{ myuser.email || 'empty' }}</span> 
+                  </div>
+                </div>
+              </div> 
+              <div>   
+                <div class="row padding20-0">
+                  <div class="col-md-6">
+                    <span class="title pull-left">Ваш текущий пароль:</span>    
+                  </div>
+                  <div class="col-md-6">
+                    <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-required>{{ myuser.current_password || '********' }}<span>
+                  </div>
+                </div>
+              </div>
+              <div>   
+                <div class="row padding20-0">
+                  <div class="col-md-6">
+                    <span class="title pull-left">Ваш новый пароль:</span>    
+                  </div>
+                  <div class="col-md-6">
+                    <span  editable-text="myuser.password" ng-model="myuser.password" e-required>{{ myuser.password || '********' }}</span>
+                  </div>
+                </div>
+              </div>
 
-<h2 class="text-center">Изменить профиль</h2>
-<form editable-form name="editableForm" onaftersave="updateUser(myuser.id)" class="text-center">
-<div class="form-inputs">
-  <div>
-    <div class="row padding20-0">
-      <div class="col-md-6">
-        <span class="title">Ваш email:</span>    
-      </div>
-      <div class="col-md-6">
-        <span editable-text="myuser.email" ng-model="myuser.email" onbeforesave="checkName($data)" e-required>{{ myuser.email || 'empty' }}</span> 
-      </div>
-    </div>
-  </div> 
-  <div>   
-    <div class="row padding20-0">
-      <div class="col-md-6">
-        <span class="title">Ваш текущий пароль:</span>    
-      </div>
-      <div class="col-md-6">
-        <span editable-text="myuser.current_password" ng-model="myuser.current_password" e-required>{{ myuser.current_password || '********' }}<span>
-      </div>
-    </div>
-  </div>
-  <div>   
-    <div class="row padding20-0">
-      <div class="col-md-6">
-        <span class="title">Ваш новый пароль:</span>    
-      </div>
-      <div class="col-md-6">
-        <span editable-text="myuser.password" ng-model="myuser.password" e-required>{{ myuser.password || '********' }}</span>
+              <div class="button-edit_user">
+                <!-- button to show form -->
+                <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+                  Изменить данные
+                </button>
+                <!-- buttons to submit / cancel form -->
+                <span  ng-show="editableForm.$visible">
+                  <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                    Сохранить
+                  </button>
+                  <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                    Отмена
+                  </button>
+                </span>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div class="tab-pane" ng-show="view_tab == 'tab2'">
+            Избранное
+          </div>
+          <div ng-controller="MainController" class="tab-pane" ng-show="view_tab == 'tab3'">
+            <div class="panslist myfade" style="background: #f5f5f5" ng-repeat="hotel in hotels | filter: myhotels">
+              <!-- Список пансионатов // ROW -->
+              <panslistrow></panslistrow>
+            </div>
+          </div>
       </div>
     </div>
   </div>
-
-  <div class="button-edit_user">
-    <!-- button to show form -->
-    <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-      Изменить данные
-    </button>
-    <!-- buttons to submit / cancel form -->
-    <span  ng-show="editableForm.$visible">
-      <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-        Сохранить
-      </button>
-      <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-        Отмена
-      </button>
-    </span>
-  </div>
+  </md-content>
 </div>
-</form>  
+
+
+
+
