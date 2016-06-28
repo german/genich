@@ -1,8 +1,13 @@
 angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'}).
-  controller('HotelShow', ['$scope', '$stateParams', '$http', '$state', 'Album', 'Hotel', 'Review', HotelShow]);
+  controller('HotelShow', ['$scope', '$stateParams',
+    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite', HotelShow]);
 
-function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review, User) {
-  $scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
+function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Review, Favorite) {
+  //$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
+  Auth.currentUser().then(function (user){
+    console.log('user', user);
+    $scope.myuser = user;
+  });
 
   var self = this;
   self.images = [];
@@ -50,9 +55,11 @@ function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review, Use
 
   
   $scope.fav = function(hotel_id){
-    User.update(user_params, function(response) {
-      console.log(response);
-      window.location.reload();
-    })
+    Favorite.save({user_id: $scope.myuser.id, hotel_id: hotel_id}, 
+      function(response) {
+        console.log(response);
+        alert('Этот пансионат добавлен в ваши закладки!');
+      }
+    )
   }
 };

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627221716) do
+ActiveRecord::Schema.define(version: 20160628124153) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160627221716) do
     t.string   "picture"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "hotel_id"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -46,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160627221716) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "city_name"
+    t.string   "type"
     t.integer  "dist_from_the_sea"
     t.boolean  "has_private_house"
     t.boolean  "has_private_kitchen"
@@ -83,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160627221716) do
   add_index "hotels", ["price_max"], name: "index_hotels_on_price_max"
   add_index "hotels", ["price_mean"], name: "index_hotels_on_price_mean"
   add_index "hotels", ["price_min"], name: "index_hotels_on_price_min"
+  add_index "hotels", ["type"], name: "index_hotels_on_type"
   add_index "hotels", ["user_id"], name: "index_hotels_on_user_id"
 
   create_table "photos", force: :cascade do |t|
