@@ -75,8 +75,11 @@
             </div>
             </form>
           </div>
-          <div class="tab-pane" ng-show="view_tab == 'tab2'">
-            Избранное
+          <div ng-controller="MainController" class="tab-pane" ng-show="view_tab == 'tab2'">
+            <div ng-repeat="hotel in hotels | filter: myfav">
+              <!-- Список пансионатов // ROW -->
+              <panslistrow></panslistrow>
+            </div>
           </div>
           <div ng-controller="MainController" class="tab-pane" ng-show="view_tab == 'tab3'">
             <div class="panslist myfade" style="background: #f5f5f5" ng-repeat="hotel in hotels | filter: myhotels">
