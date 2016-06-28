@@ -1,5 +1,5 @@
 angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'}).
-  controller('HotelShow', ['$scope', '$stateParams', '$http', '$state', 'Album', 'Hotel', 'Review', HotelShow]);
+  controller('HotelShow', ['$scope', '$stateParams', '$http', '$state', 'Album', 'Hotel', 'Review', 'User', HotelShow]);
 
 function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review, User) {
   $scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
@@ -48,9 +48,9 @@ function HotelShow($scope, $stateParams,$http, $state, Album, Hotel, Review, Use
     });
   };
 
-  
+  console.log($scope.myuser);
   $scope.fav = function(hotel_id){
-    User.update(user_params, function(response) {
+    User.update({id: $scope.myuser.id, usersfav: [hotel_id]}, function(response) {
       console.log(response);
       window.location.reload();
     })

@@ -6,7 +6,7 @@ angular.module('pansionatApp').factory('User', ['$resource', function($resource)
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-      }
+      }, isArray: true
     },
    'save': { 
       method: 'POST', 
