@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20160628124153) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "city_name"
-    t.string   "type"
     t.integer  "dist_from_the_sea"
     t.boolean  "has_private_house"
     t.boolean  "has_private_kitchen"
@@ -94,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160628124153) do
   add_index "hotels", ["price_max"], name: "index_hotels_on_price_max"
   add_index "hotels", ["price_mean"], name: "index_hotels_on_price_mean"
   add_index "hotels", ["price_min"], name: "index_hotels_on_price_min"
-  add_index "hotels", ["type"], name: "index_hotels_on_type"
   add_index "hotels", ["user_id"], name: "index_hotels_on_user_id"
 
   create_table "photos", force: :cascade do |t|

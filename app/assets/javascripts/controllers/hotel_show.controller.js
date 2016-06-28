@@ -53,7 +53,7 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
     });
   };
 
-  console.log($scope.myuser);
+  
   $scope.fav = function(hotel_id){
     Favorite.save({user_id: $scope.myuser.id, hotel_id: hotel_id}, 
       function(response) {

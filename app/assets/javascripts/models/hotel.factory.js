@@ -14,6 +14,12 @@ angular.module('pansionatApp').factory('Hotel', ['$resource', function($resource
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
+    },
+    'get': { method: 'GET', isArray: false,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      } 
     }
   });
 }]);

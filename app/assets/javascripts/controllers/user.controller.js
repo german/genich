@@ -1,7 +1,7 @@
 angular.module('pansionatApp').controller('UserCtrl', 
-  ['$scope', '$stateParams', 'User', '$http', '$localStorage', '$sessionStorage', '$auth', UserCtrl]);
+  ['$scope', '$stateParams', 'User', '$http', '$localStorage', '$sessionStorage', '$auth', 'Favorite', 'Hotel', UserCtrl]);
 
-function UserCtrl($scope, $stateParams, User, $http, $localStorage, $sessionStorage, $auth) {
+function UserCtrl($scope, $stateParams, User, $http, $localStorage, $sessionStorage, $auth, Favorite, Hotel) {
   $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
   $auth.validateUser();
 	$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
@@ -18,6 +18,16 @@ function UserCtrl($scope, $stateParams, User, $http, $localStorage, $sessionStor
     	console.log(response);
   	})
 	}
+
+  Favorite.query({user_id: $scope.myuser.id}, function(response){
+    console.log('fav', response);
+    $scope.favorites = [];
+    angular.forEach(response, function(favorite) {
+      Hotel.get({id: favorite.hotel_id}, function(resp){
+        $scope.favorites.push(resp);
+      })
+    })
+  });
 
   //myfav filter 
   $scope.myfav = function(hotels, myuser){
