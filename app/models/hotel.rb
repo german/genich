@@ -6,6 +6,7 @@ class Hotel < ActiveRecord::Base
 
   has_many :albums
   has_many :reviews
+  has_many :favorites
 
   def cover_url
   	if self.cover_photo_id

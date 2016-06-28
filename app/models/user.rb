@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :hotels
   has_many :articles
+  has_many :favorites
 
   before_validation -> do
     self.uid = SecureRandom.uuid
