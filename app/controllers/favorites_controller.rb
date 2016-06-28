@@ -11,6 +11,16 @@ class FavoritesController < ApplicationController
   end
 
 protected
+
+  def collection
+    if params[:user_id]
+      get_collection_ivar || 
+        set_collection_ivar(end_of_association_chain.where(user_id: params[:user_id]))
+    else
+      super
+    end
+  end
+
   def favorite_params
     params.require(:favorite).permit(:hotel_id, :user_id, :position)
   end
