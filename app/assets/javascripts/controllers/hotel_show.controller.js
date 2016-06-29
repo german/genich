@@ -1,6 +1,6 @@
 angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'})
 .controller('HotelShow', ['$scope', '$stateParams',
-    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite',  HotelShow]);
+    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite', HotelShow]);
 
 function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Review, Favorite) {
   //$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
@@ -58,7 +58,9 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
     Favorite.save({user_id: $scope.myuser.id, hotel_id: hotel_id}, 
       function(response) {
         console.log(response);
-        alert('Этот пансионат добавлен в ваши закладки!');
+        showAlert();
+        // $.notify("Успешно добавлено в избранное", "success");
+        // alert('Этот пансионат добавлен в ваши закладки!');
       }
     )
   }
@@ -66,12 +68,13 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
   $scope.delfav = function(fav_id){
     Favorite.delete({id: fav_id}, function(response) {
       console.log(response);
-      alert('Успешно удалено из избранного!');
+      showAlert();
+      // $.notify("Успешно удалено из избранного", "success");
+      // alert('Успешно удалено из избранного!');
     })
   }
 
   $scope.show_add_to_favorites_btn = true;
-
   function check_is_hotel_in_favorites() {
     Favorite.query({user_id: $scope.myuser.id}, function(favs) {
       $.map(favs, function(fav) {

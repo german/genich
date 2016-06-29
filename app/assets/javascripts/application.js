@@ -39,5 +39,8 @@
 //= require angular-aria
 //= require angular-material
 //= require angular-timeago
+//= require alert
+//= require sweetalert/dist/sweetalert.min.js
+//= require notify/notify.min.js
 
 

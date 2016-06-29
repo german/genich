@@ -137,10 +137,10 @@
         </div>
       </div>
       
-      <md-button ng-if="show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="fav(hotel.id)" class="md-raised md-primary" style="margin-left:-15px">
+      <md-button ng-if="show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="fav(hotel.id);showAlert(0)" class="md-raised md-primary" style="margin-left:-15px">
         Добавить в избранное
       </md-button>
-      <md-button ng-if="!show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="delfav(favorite_id)" class="md-warn md-raised md-hue-3" style="margin-left:-15px">
+      <md-button ng-if="!show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="delfav(favorite_id);showAlert(0)" class="md-warn md-raised md-hue-3" style="margin-left:-15px">
         Удалить из избранного
       </md-button>
       
