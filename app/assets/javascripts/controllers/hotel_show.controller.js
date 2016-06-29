@@ -58,7 +58,7 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
     Favorite.save({user_id: $scope.myuser.id, hotel_id: hotel_id}, 
       function(response) {
         console.log(response);
-        showAlert();
+        AlertNS.helpers.showAlert(1);
         // $.notify("Успешно добавлено в избранное", "success");
         // alert('Этот пансионат добавлен в ваши закладки!');
       }
@@ -68,7 +68,7 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
   $scope.delfav = function(fav_id){
     Favorite.delete({id: fav_id}, function(response) {
       console.log(response);
-      showAlert();
+      AlertNS.helpers.showAlert(2);
       // $.notify("Успешно удалено из избранного", "success");
       // alert('Успешно удалено из избранного!');
     })
