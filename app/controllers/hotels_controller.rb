@@ -18,7 +18,7 @@ class HotelsController < ApplicationController
     show! do |format|
       format.html { render }
       format.json do
-        render json: resource.as_json(methods: [:cover_url, :is_in_favorites], include: {albums: {methods: :cover, include: :photos}, reviews: {}})
+        render json: resource.as_json(methods: :cover_url, include: {albums: {methods: :cover, include: :photos}, reviews: {}})
       end
     end
   end

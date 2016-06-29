@@ -29,11 +29,6 @@ function UserCtrl($scope, $stateParams, User, $http, $localStorage, $sessionStor
     })
   });
 
-  //myfav filter 
-  $scope.myfav = function(hotels, myuser){
-    //лажапетровна
-    return $scope.myuser.id === hotels.id
-  }
   //myhotels filter
   $scope.myhotels = function(hotels, myuser) {
     return $scope.myuser.id === hotels.user_id;

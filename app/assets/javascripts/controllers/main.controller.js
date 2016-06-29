@@ -9,7 +9,6 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
 
   $http.get('/hotels.json').success(function(data, status, headers, config){
     $scope.hotels = data;
-    console.log($scope.hotels)
     angular.forEach(data, function(item) {
       item.rank = 0.5 - Math.random();
       $scope.ranked_hotels.push(item);

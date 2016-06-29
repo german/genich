@@ -1,12 +1,12 @@
 angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'})
 .controller('HotelShow', ['$scope', '$stateParams',
-    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite', HotelShow]);
+    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite',  HotelShow]);
 
 function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Review, Favorite) {
   //$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
   Auth.currentUser().then(function (user){
-    console.log('user', user);
     $scope.myuser = user;
+    check_is_hotel_in_favorites();
   });
 
   var self = this;
@@ -61,5 +61,24 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
         alert('Этот пансионат добавлен в ваши закладки!');
       }
     )
+  }
+
+  $scope.delfav = function(fav_id){
+    Favorite.delete({id: fav_id}, function(response) {
+        console.log(response);
+        alert('Успешно удалено из избранного!');
+      }
+    )
+  }
+
+  $scope.show_add_to_favorites_btn = true;
+  function check_is_hotel_in_favorites() {
+    Favorite.query({user_id: $scope.myuser.id}, function(favs) {
+      $.map(favs, function(fav) {
+        if(fav.hotel_id == $stateParams.id) {
+          $scope.show_add_to_favorites_btn = false;
+        }
+      });
+    });
   }
 };
