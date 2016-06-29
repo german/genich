@@ -13,4 +13,9 @@ class Hotel < ActiveRecord::Base
   	  Photo.find_by(id:self.cover_photo_id).try(:photo).try(:url)
   	end
   end
+  def is_in_favorites
+    if current_user
+      current_user.favorites.map{|h| h.hotel_id}.include?(self.id)
+    end
+  end
 end
