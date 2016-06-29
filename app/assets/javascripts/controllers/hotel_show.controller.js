@@ -65,18 +65,19 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
 
   $scope.delfav = function(fav_id){
     Favorite.delete({id: fav_id}, function(response) {
-        console.log(response);
-        alert('Успешно удалено из избранного!');
-      }
-    )
+      console.log(response);
+      alert('Успешно удалено из избранного!');
+    })
   }
 
   $scope.show_add_to_favorites_btn = true;
+
   function check_is_hotel_in_favorites() {
     Favorite.query({user_id: $scope.myuser.id}, function(favs) {
       $.map(favs, function(fav) {
         if(fav.hotel_id == $stateParams.id) {
           $scope.show_add_to_favorites_btn = false;
+          $scope.favorite_id = fav.id;
         }
       });
     });
