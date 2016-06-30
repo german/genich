@@ -19,7 +19,8 @@ function AlbumShow($scope, $stateParams,$http, $state, Hotel, Album, Photo, File
     console.log(photo_id);
     Hotel.update({ id: hotel_id, hotel: {cover_photo_id: photo_id} }, function(response) {
       console.log(response);
-      alert('Обложка пансионата была успешно заменена!')
+      AlertNS.helpers.showAlert(2);
+      // alert('Обложка пансионата была успешно заменена!')
     });
   }
   $scope.delete = function(photo_id) {

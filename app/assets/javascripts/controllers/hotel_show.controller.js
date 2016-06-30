@@ -1,8 +1,8 @@
 angular.module('pansionatApp').run(function(editableOptions){editableOptions.theme = 'bs3'})
 .controller('HotelShow', ['$scope', '$stateParams',
-    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite', HotelShow]);
+    '$http', '$state', 'Auth', 'Album', 'Hotel', 'Review', 'Favorite', '$timeout', HotelShow]);
 
-function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Review, Favorite) {
+function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Review, Favorite, $timeout) {
   //$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
   Auth.currentUser().then(function (user){
     $scope.myuser = user;
@@ -58,7 +58,8 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
     Favorite.save({user_id: $scope.myuser.id, hotel_id: hotel_id}, 
       function(response) {
         console.log(response);
-        AlertNS.helpers.showAlert(1);
+        AlertNS.helpers.showAlert(0);
+        $scope.settimeout = false;
         // $.notify("Успешно добавлено в избранное", "success");
         // alert('Этот пансионат добавлен в ваши закладки!');
       }
@@ -68,7 +69,7 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
   $scope.delfav = function(fav_id){
     Favorite.delete({id: fav_id}, function(response) {
       console.log(response);
-      AlertNS.helpers.showAlert(2);
+      AlertNS.helpers.showAlert(1);
       // $.notify("Успешно удалено из избранного", "success");
       // alert('Успешно удалено из избранного!');
     })
@@ -84,5 +85,14 @@ function HotelShow($scope, $stateParams, $http, $state, Auth, Album, Hotel, Revi
         }
       });
     });
+  }
+
+  $scope.settimeout = false;
+  $timeout(function() {
+    $scope.settimeout = true;
+  }, 30000);
+
+  $scope.closeSetTimeout = function(){
+    $scope.settimeout = false;
   }
 };

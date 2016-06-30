@@ -22,7 +22,8 @@ angular.module('pansionatApp').controller('LoginCtrl',
         $state.go('home');
       }, function(error) {
         // Authentication failed...
-        alert('Неправильный логин или пароль')
+        AlertNS.helpers.showAlert(3);
+        // alert('Неправильный логин или пароль')
       });
 
       $scope.$on('devise:login', function(event, currentUser) {

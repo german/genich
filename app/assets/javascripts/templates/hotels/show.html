@@ -137,12 +137,14 @@
         </div>
       </div>
       
-      <md-button ng-if="show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="fav(hotel.id);showAlert(0)" class="md-raised md-primary" style="margin-left:-15px">
+      <!-- <md-button ng-if="show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="fav(hotel.id);showAlert(0)" class="md-raised md-primary" style="margin-left:-15px">
         Добавить в избранное
-      </md-button>
+      </md-button> -->
       <md-button ng-if="!show_add_to_favorites_btn" ng-hide="myuser.role == 'own'" type="submit" ng-click="delfav(favorite_id);showAlert(0)" class="md-warn md-raised md-hue-3" style="margin-left:-15px">
         Удалить из избранного
       </md-button>
+
+      
       
       <div class="row">
         <div class="col-md-12">
@@ -247,5 +249,17 @@
       </div>
     </div>
   </div>
+  
+  <!-- Кнопка всплывающая - Добавить в избранное -->
+  <div ng-hide="myuser.role == 'own'" ng-if="show_add_to_favorites_btn">
+    <div ng-if="settimeout" class="timeoutFav">
+      <p ng-click="closeSetTimeout()" class="pull-right" style="position: absolute;right: 5px;top: 0px;cursor:pointer">&#10006</p>
+      <p>Понравилось предложение?</p>
+      <md-button type="submit" ng-click="fav(hotel.id);showAlert(0)" class="md-raised md-primary">
+        Добавить в избранное
+      </md-button>
+    </div>
+  </div>
+
 </div>
 

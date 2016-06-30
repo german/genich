@@ -140,25 +140,20 @@ img.ng-thumb {
 	}
 }
 
-.alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-}
-
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.closebtn:hover {
-    color: black;
+.timeoutFav {
+	position: fixed;
+	right: 40px;
+	bottom: 70px;
+	text-align: center;
+	padding: 30px 60px;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(#000, 0.2);
+	border: rgba(0, 0, 0, 0.2) 1px solid;
+	z-index: 9999;
+	p {
+		font-size: 21px;
+		outline: none;
+	}
 }
 
 /**********************

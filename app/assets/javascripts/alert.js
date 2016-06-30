@@ -5,15 +5,27 @@ AlertNS.helpers = {
     console.log('x');
     switch(x) {
       case 0:
-        swal("Here's a message!");
+        swal("Отлично!", "Успешно добавлено в избранное", "success");
         break;
       case 1:
-        sweetAlert("Oops...", "Something went wrong!", "error");
+        swal("Отлично!", "Успешно удалено из избранного", "success");
         break;
       case 2:
+        swal("Отлично!", "Обложка пансионата была успешно изменена!", "success");
+        break;
+      case 3:
+        sweetAlert("Упс", "Email или пароль неверный", "error");
+        break;
+      case 4:
+        sweetAlert("Упс", "Что-то вы ввели не то", "error");
+        break;
+      case 5:
+        sweetAlert("Oops...", "Something went wrong!", "error");
+        break;
+      case 33:
         swal("Good job!", "You clicked the button!", "success");
         break;
-        case 3: 
+        case 322: 
         swal({   
           title: "Are you sure?",   
           text: "Your will not be able to recover this imaginary file!",   
