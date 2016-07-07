@@ -4,7 +4,10 @@ angular.module('pansionatApp').controller('UserCtrl',
 function UserCtrl($scope, $stateParams, User, $http, $localStorage, $sessionStorage, $auth, Favorite, Hotel) {
   $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
   $auth.validateUser();
-	$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
+	//$scope.myuser = JSON.parse(window.localStorage.getItem('currentUser'));
+  Auth.currentUser().then(function (user){
+    $scope.myuser = user;
+  });
 
 	$scope.updateUser = function(myuser_id) {
     var user_params = {id: myuser_id, user: {
