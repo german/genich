@@ -1,0 +1,19 @@
+<title>Фотоальбом | Арабатская стрелка 2016</title>
+<div ng-include="'shared/headernew.html'"></div>
+<div class="container photoalbum">
+
+	<div class="gallery" ng-controller="PhotoalbumCtrl as ctrl">
+	  <ng-gallery images="ctrl.images"></ng-gallery>
+	</div>
+
+	<!-- <h2>AngularJS Powered Photo Album <small>by Josh Adamous</small> </h2>
+	<div class="albumImage">
+    <img ng-src="{{currentImage.image}}" alt="{{currentImage.description}}"/>
+  </div>
+  <h3>{{currentImage.description}}</h3>
+  <div class="list">
+    <li ng-repeat="image in images" ng-click="setCurrentImage(image)">
+      <img ng-src="{{image.image}}" alt="{{image.description}}"/>
+    </li>
+  </div> -->
+</div>

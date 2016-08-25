@@ -3,13 +3,13 @@
   <h4 class="text-center">Проведите отдых на Арабатской стрелке вместе со своей семьей.</h4>
   <div class="row">
     <div class="col-md-12" style="padding-left:0px; padding-right:0px;">
-    <!-- Swiper -->
+      <!-- Swiper -->
       <ks-swiper-container swiper="swiper" initial-slide="1" loop="true" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="false">       
           <ks-swiper-slide class="swiper-slide" ng-repeat="image in images">
             <a href="#/premium"><img ng-src="{{image.image}}" /></a>
           </ks-swiper-slide>
-        <!-- Add Arrows -->
       </ks-swiper-container>
+      <!-- Add Arrows -->
       <div class="swiper-button-next" ng-click="next()"></div>
       <div class="swiper-button-prev" ng-click="prev()"></div>
     </div>

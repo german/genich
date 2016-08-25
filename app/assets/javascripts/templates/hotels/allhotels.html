@@ -1,13 +1,13 @@
 <title>Отдыхайте на Арабатской стрелке | Большой выбор предложений | Rest In Ukraine</title>
 <div ng-include="'shared/headernew.html'"></div>
 
-<div class="container-fluid">
+<div class="container">
   <div class="mainblock">
     <h2 class="text-center">Используйте удобные фильтры</h2>
     <h4 class="text-center">Найдите идеально место, которое полностью подойдет вам.</h4>  
   </div>
   <div class="row">
-    <div class="leftsidebar col-md-4 col-md-offset-1 col-xs-12">
+    <div class="leftsidebar col-md-3 col-xs-12">
       <div class="pansfilter">
         <!-- Город, Тип, Стоимость // Фильтр -->
         <pansfilter></pansfilter>
@@ -15,7 +15,7 @@
         <comfort></comfort>
       </div>
     </div>
-    <div class="col-md-6 col-xs-12">
+    <div class="col-md-9 col-xs-12">
       <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | filter: haspoolFilter | filter: hasfoodFilter | filter: haskettleFilter | filter: hassunbedsFilter | filter: hasplaygroundFilter | filter: hasfridgeFilter | filter: haslaundryFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse ">
         <!-- Список пансионатов // ROW -->
         <panslistrow></panslistrow>

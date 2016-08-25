@@ -20,13 +20,13 @@
 
 <a href="#/premium"><button type="button" class="morepremium center-block">Больше рекомендаций</button></a>
 
-<div id="filters" class="container-fluid">
+<div id="filters" class="container">
   <div class="mainblock">
     <h2 class="text-center">Используйте удобные фильтры</h2>
     <h4 class="text-center">Найдите идеально место, которое полностью подойдет вам.</h4>  
   </div>
   <div class="row">
-    <div class="leftsidebar col-md-4 col-md-offset-1 col-xs-12">
+    <div class="leftsidebar col-md-3 col-xs-12">
       <div class="pansfilter">
         <!-- Город, Тип, Стоимость // Фильтр -->
         <pansfilter></pansfilter>
@@ -34,8 +34,8 @@
         <comfort></comfort>
       </div>
     </div>
-    <div class="col-md-6 col-xs-12" style="padding-right: 0px;">
-      <div class="panslist myfade" ng-repeat="hotel in hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | filter: haspoolFilter | filter: hasfoodFilter | filter: haskettleFilter | filter: hassunbedsFilter | filter: hasplaygroundFilter | filter: hasfridgeFilter | filter: haslaundryFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | limitTo:10">
+    <div class="col-md-9 col-xs-12">
+      <div class="panslist myfade" ng-repeat="hotel in ranked_hotels | filter: {name: query} | filter:citynameFilter | filter:hastvFilter | filter:hasparkingFilter | filter: minpriceFilter | filter: haskitchenFilter | filter: hasairFilter | filter: hasshowerFilter | filter: haswifiFilter | filter: hastransferFilter | filter: typeFilter | filter: haspoolFilter | filter: hasfoodFilter | filter: haskettleFilter | filter: hassunbedsFilter | filter: hasplaygroundFilter | filter: hasfridgeFilter | filter: haslaundryFilter | orderBy:sortbyprice:reverse | orderBy:hotel.id:!reverse | orderBy: 'rank' | limitTo:10">
         <!-- Список пансионатов // ROW -->
         <panslistrow></panslistrow>
       </div>
@@ -66,3 +66,15 @@
   </div>
   <a href="#/articles"><button type="button" class="morehotels center-block">Еще статьи</button></a>
 </div>
+<div class="container photoalbum-mainpage">
+  <h2 class="text-center">Фотоальбом </h2>
+  <h4 class="text-center">В картинках покажем жизнь</h4>
+  <div class="row" ng-controller="PhotoalbumCtrl">
+    <div class="gallery"  ng-repeat="p in imagesmain | limitTo:3">
+      <div class="col-md-4">
+        <a href="#/photoalbum"><img src="{{p.img}}" alt=""></a>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="#/photoalbum"><button type="button" class="morehotels center-block">Фотоальбом</button></a>

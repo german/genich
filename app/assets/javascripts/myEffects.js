@@ -2,10 +2,21 @@ $(function(){
   init();
 });
 
-function init() {
+$(function(){
+	$('.hotelgalleryright').click(function(){
+		$('.hotelsbutton .ng-gallery').animate({"margin-left":"-280px"})
+	})
+	$('.hotelgalleryleft').click(function(){
+		$('.hotelsbutton .ng-gallery').animate({"margin-left":"280px"})
+	})
+});
 
-	
-	
+function init() {
+	$('.hotelgalleryright').click(function(){
+		console.log('click')
+		$('.hotelsbutton .ng-gallery').animate({"margin-left":"-200px"})
+	})
+
 	// ARROWSUP при клике выполняем функцию скрола вверх
   var up = document.getElementById('arrowsup');
   if(up){

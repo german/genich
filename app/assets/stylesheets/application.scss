@@ -22,6 +22,7 @@
 @import "ngGallery/src/css/ngGallery.css";
 @import "ngGallery/src/css/screen.css";
 @import "angular-xeditable/dist/css/xeditable.min.css";
+@import "dragdealer/dragdealer.css";
 @import "sweetalert/dist/sweetalert.css";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
@@ -323,7 +324,7 @@ h1 {
 .panslist {
 	border-radius: 4px;
 	padding: 10px;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	background: white;
   box-shadow: 0 2px 4px rgba(#000, 0.2);
   cursor: pointer;
@@ -422,7 +423,11 @@ li {
 .comfort span {
 	vertical-align: sub;
 	padding-left:10px;
-	font-size: 14px;
+	font-size: 15px;
+}
+
+.comfort img {
+	width: 22px;
 }
 
 .main {
@@ -430,11 +435,8 @@ li {
 }
 
 .leftsidebar {
-	background: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 0 #c8c8c8;
+	float: right;
   margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(#000, 0.2);
  	transition: 0.6s ease;
 }
 
@@ -473,7 +475,7 @@ md-checkbox {
 }
 
 .morepremium, .morehotels, .info-addpans {
-  margin: 50px auto;
+  margin: 40px auto 10px auto;
   border-color: #c4c4c4;
   background: white;
   color: #565a5c;
@@ -524,18 +526,16 @@ md-checkbox {
 
 .tv, .parking, .kitchen, .air, .delivery, .wi-fi, .shower, .pool, .food, .kettle, .sunbeds, .playground, .fridge, .laundry {
 	float: left;
-	background: white;
 	padding: 10px;
-  width: 194px;
-  text-align: center;
-  border: 1px solid #dce0e0;
-  margin: 5px;
+  width: 100%;
+  margin: 5px 0px;
   cursor:pointer;
   outline: none;
+  color: rgb(42, 88, 133);
 }
 
 .tv_active, .parking_active, .kitchen_active, .air_active, .delivery_active, .wi-fi_active, .shower_active, .pool_active , .playground_active, .sunbeds_active, .kettle_active, .food_active, .fridge_active, .laundry_active {
-  background: #edefed;
+  background: #ddd;
   cursor:pointer;
 }
 
@@ -759,6 +759,16 @@ md-radio-group {
 		width: 100%;
 		height: 280px;
 	}
+}
+
+
+/*************************
+				PHOTOALBUM
+*************************/
+
+.photoalbum-mainpage img {
+	width: 100%;
+	height: 250px;
 }
 
 

@@ -40,6 +40,7 @@
 //= require angular-material
 //= require angular-timeago
 //= require alert
+//= require dragdealer/dragdealer.js
 //= require sweetalert/dist/sweetalert.min.js
 //= require notify/notify.min.js
 
