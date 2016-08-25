@@ -17,7 +17,11 @@ function MainController($scope, $http, $localStorage, $sessionStorage, Auth) {
 
   $scope.$on('$viewContentLoaded', 
     function(event){
-      init();
+      Auth.currentUser().then(function (user){
+        $scope.myuser = user;
+        console.log('$scope.myuser1', $scope.myuser);
+        init();
+      });
   });
 
   $scope.width = function(clientWidth){

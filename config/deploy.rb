@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.5.0'
 
 set :application, 'rest-in-ukraine.com'
 set :repo_url, 'git@github.com:uncle-tom/genich.git'
@@ -23,7 +23,7 @@ set :repo_url, 'git@github.com:uncle-tom/genich.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('db/development.sqlite3')
+set :linked_files, fetch(:linked_files, []).push('db/development.sqlite3', 'db/production.sqlite3')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -32,8 +32,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
-set :unicorn_rack_env, "development"
+set :keep_releases, 3
+set :unicorn_rack_env, "production"
 
 after 'deploy:publishing', 'deploy:restart'
 
